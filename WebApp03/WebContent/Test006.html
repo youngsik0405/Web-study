@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test006.html</title>
+
+<script type="text/javascript">
+
+	num1=10;							//-- 변수 num1 에 10 대입
+	document.write("num1=");			//-- 문자열 출력
+	document.write(num1);				//-- 변수 출력
+	
+	num1=100;							//-- 변수 num1 에 100 대입
+	//document.write("\n" + "num1=");	//-- 문자열 출력 → check~!!! →  『\n』 개행 안됨
+	document.write("<br>" + "num1=");	//-- 문자열 출력 → check~!!! →  『<br>』 개행
+	document.write(num1);						
+	
+	num1="2024년 12월의 끝자락에서...";	//-- 변순 num1 에 문자열 대입 → check~!!! → 에러 발생하지 않음
+	document.write("<br>num1=");		
+	document.write(num1);
+	
+	num2=200;							//-- 변수 num2 에 200 대입
+	
+	num1=num2;							//-- 변수 num1(문자열)에 num2(정수) 대입
+	
+	document.write("<br>num1=");
+	document.write(num1);
+
+	document.write("<br><br><br><br>");
+	
+	num1=10;
+	
+	var num2;
+	num2=20;
+	
+	var num3=30;
+	
+	document.write("num1=" + num1);
+	document.write("<br>num2=" + num2);
+	document.write("<br>num3=");
+	document.write(num3);
+	
+	
+	
+</script>
+
+</head>
+<body>
+
+
+
+
+</body>
+</html>

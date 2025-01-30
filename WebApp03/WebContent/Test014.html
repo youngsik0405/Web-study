@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test014.html</title>
+
+<style type="text/css">
+	*
+	{
+		color: #343;
+		font-family: 맑은 고딕;
+	}
+	input.box:focus 
+	{
+		background-color: yellow; 
+	}
+	input.btn:hover 
+	{
+		color: orange;
+		font-weight: bold;
+	}
+	input.numberBox 
+	{
+		width: 50px;
+		text-align: right;
+	}
+
+</style>
+
+<script type="text/javascript">
+	
+	function actionBtnA()
+	{
+		//테스트
+		//alert("A버튼 클릭 확인~!!!");
+		
+		var txt01 = document.getElementById("txtLeft");
+		var txt02 = document.getElementById("txtRight");
+		
+		// 확인
+		//alert(txt01);
+		//alert(txt02);
+		//alert(txt01.value);
+		//alert(txt02.value);
+		
+		var leftstr = txt01.value;
+		
+		txt02.value = leftstr;
+	}
+	
+	function actionBtnB()
+	{
+		//테스트
+		//alert("B버튼 클릭 확인~!!!");
+		
+		var txt01 = document.getElementById("txtLeft");
+		var txt02 = document.getElementById("txtRight");
+		
+		var rightstr = txt02.value;
+		
+		txt01.value = rightstr;
+	}
+	
+	function actionBtnResult()
+	{
+		/* 		
+		// 테스트
+		//alert("함수 호출 확인~!!!")
+		
+		var num1 = document.getElementById("txtNumber01").value;
+		var num2 = document.getElementById("txtNumber02").value;
+		
+		// 확인
+		//alert(num1 + " / " + num2);
+		
+		//var result = num1 + num2;			 	//-- 변수 num1 의 문자열과 변수 num2 의 문자열 결합
+		//var result = parseInt(num1 + num2); 	//-- 문자열 결합된 결과물을 정수 형태로 변환
+		
+		//var result = parseInt(num1) + parseInt(num2);
+		//					"12"			 "34"
+		
+		//Number()
+		var result = Number(num1) + Number(num2);
+		
+		
+		// 확인
+		//alert(result);
+		
+		document.getElementById("txtResult").value = result; 
+		*/
+		
+		// 위의 처리 내용과 같은 결과
+		/* 
+		document.getElementById("txtResult").value
+		= parseInt(document.getElementById("txtNumber01").value) +
+		parseInt(document.getElementById("txtNumber02").value) 
+		*/
+		
+		
+		/* 나의 풀이 
+		var txtNum01 = document.getElementById("txtNumber01");
+		var txtNum02 = document.getElementById("txtNumber02");
+		var res = document.getElementById("txtResult");
+		
+		var num01 = parseInt(txtNum01.value);
+		var num02 = parseInt(txtNum02.value);
+		
+		res.value = num01 + num02; 
+		*/
+	}
+
+</script>
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 기본 관찰</h1>
+	<hr>
+</div>
+
+<div>
+	<br>
+	<input type="text" class="box" id="txtLeft">
+	<input type="button" value="A버튼" class="btn" id="btnA" onclick="actionBtnA()">
+	<input type="button" value="B버튼" class="btn" id="btnB" onclick="actionBtnB()">
+	<input type="text" class="box" id="txtRight"> 
+	<br><br>
+	<hr> 
+	
+	
+	<input type="text" class="numberBox" id="txtNumber01">
+	+
+	<input type="text" class="numberBox" id="txtNumber02">
+	
+	<input type="button" value=" = " class="btn" id="btnResult" onclick="actionBtnResult()">
+	
+	<input type="text" class="numberBox" id="txtResult" disabled="disabled">  
+
+</div>
+</body>
+</html>

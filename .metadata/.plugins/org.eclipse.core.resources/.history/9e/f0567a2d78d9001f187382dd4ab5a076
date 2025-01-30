@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex1.html</title>
+</head>
+<body>
+	<h1>JavaScript</h1>
+	<script type="text/javascript">
+		document.write('hello world');
+	</script>
+	<h1>html</h1>
+	1+1
+</body>
+</html>

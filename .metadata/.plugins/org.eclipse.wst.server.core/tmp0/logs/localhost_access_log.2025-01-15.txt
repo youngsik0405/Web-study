@@ -1,0 +1,9 @@
+127.0.0.1 - - [15/Jan/2025:20:00:01 +0900] "GET / HTTP/1.1" 404 808
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:20:00:01 +0900] "GET /WebApp07/Sadari.jsp HTTP/1.1" 200 2754
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:20:00:01 +0900] "GET /WebApp07/css/main.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:20:00:01 +0900] "GET /favicon.ico HTTP/1.1" 404 819
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:20:00:03 +0900] "GET /WebApp07/Sadari.jsp?action=increase&count=1 HTTP/1.1" 200 2754
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:20:00:04 +0900] "GET /WebApp07/Sadari.jsp?action=increase&count=2 HTTP/1.1" 200 2754
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:20:00:05 +0900] "GET /WebApp07/Sadari.jsp?action=start&count=3 HTTP/1.1" 200 3439
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:20:00:07 +0900] "POST /WebApp07/Result.jsp HTTP/1.1" 200 556
+0:0:0:0:0:0:0:1 - - [15/Jan/2025:20:01:00 +0900] "GET /WebApp07/Sadari.jsp HTTP/1.1" 200 2754

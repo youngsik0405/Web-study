@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test025.html</title>
+
+<script type="text/javascript">
+
+	function actionGame()
+	{
+		//alert("확인");
+		
+		var user = Number(document.getElementById("txtUser").value);
+		var com = Math.floor(Math.random() * 3) + 1;
+		
+		var result;
+		var rspUser;
+		var rspCom;
+		
+		if (user > 3)
+		{
+			alert("3이하의 숫자를 입력하세요~!!!");
+			return;
+		}
+		
+		switch (user)
+		{
+			case 1: rspUser = "가위"; break;
+			case 2: rspUser = "바위"; break;
+			case 3: rspUser = "보"; break;
+		}
+		
+		switch (com)
+		{
+			case 1: rspCom = "가위"; break;
+			case 2: rspCom = "바위"; break;
+			case 3: rspCom = "보"; break;
+		}
+		
+
+		if (user == com)
+		{
+			result = "무승부 입니다~!!!";
+		}
+		else if (user==(com+1) || (user==1 && com==3))
+		{
+			result = "사용자가 이겼습니다~!!!";
+		}
+		else if (com==(user+1) || (user==3 && com==1))
+			result = "컴퓨터가 이겼습니다~!!!";
+		
+		document.getElementById("txtResult").value = "사용자 : " + rspUser + " 컴퓨터 : " + rspCom + " → " + result;
+	}
+</script>
+
+<style type="text/css">
+   body
+   {
+   		text-align: center;
+   		background-color: skyblue;
+   		padding: center;
+   		font-size: 20px;
+   }
+   input.txtUser{font-family: 나눔고딕코딩; font-weight: bold; }
+   input.txtResult 
+   {
+    text-align: center;
+    font-weight: bold;
+    font-family: 맑은 고딕;
+    width: 400px; 
+    height: 50px; 
+    font-size: 16px;
+   }
+  
+   input.btn {width: 150px; font-weight: bold; font-family: 맑은 고딕;}
+   input.btn:hover {color: orange;}
+
+</style>
+
+
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<!-- 
+	가위 바위 보 게임을 구현한다.
+	HTML, CSS, Javascript 를 활용한다.
+	이 과정에서 자바스크립트 난수 발생 함수를 찾아 활용한다.
+	
+	→ w3schools.com
+	→ koxo.com
+	
+	페이지 레이아웃
+	----------------------------------------------------------------------------
+	
+	입력(1.가위 2.바위 3.보)	[   ]					→ text     #txtUser
+	
+	< 게임 결과 확인 >									→ button
+	
+	[ 사용자:바위 컴퓨터:보 → 컴퓨터가 이겼습니다.]	→ text  	#txtResult
+	----------------------------------------------------------------------------
+ -->
+ 
+ 
+<div>
+	<form>
+		입력(1.가위, 2.바위, 3.보)
+		<input type="text" id="txtUser" class="txt">
+		<br><br>
+		
+		<button type="button" class="btn" onclick="actionGame()">게임 결과 확인</button>
+		<br><br>
+		
+		<input type="text" id="txtResult" class="txt" disabled="disabled" style="width: 320px;">
+	</form>
+</div>
+
+</body>
+</html>

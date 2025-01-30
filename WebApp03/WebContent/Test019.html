@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test019.html</title>
+<script type="text/javascript">
+	
+	// 자바스크립트 배열 선언 초기화
+	var arr = [4, 7, 9, 1, 3, 2, 5, 6, 8];
+	
+	function init()
+	{
+		document.getElementById("arr1").value = arr;			// 더미 check~!!!
+	}
+
+	function actionArray()
+	{
+		// 확인
+		//alert("함수 호출 확인~!!!");
+		
+		document.getElementById("arr2").value = "";
+		
+		for (var i = 0; i < arr.length; i++)	//-- 배열의 전체 요소만큼 반복(각 요소 확인)
+		{
+			if (arr[i] % 2 == 0)				//-- 짝수일 경우...
+			{
+				document.getElementById("arr2").value += arr[i] + " ";
+			}
+		}
+	}
+
+</script>
+
+
+</head>
+<body onload="init()">
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<!--  
+	지정된 요소가 정수로 구성된 1차원 배열의 숫자 데이터들 중
+	짝수만 골라서 출력하는 페이지를 구현한다.
+	HTML, CSS, Javascript를 활용한다.
+	또한, 자바스크립트 배열을 활용한다.
+	
+	※ 지정된 요소의 배열 → 4 ,7 ,9, 1, 3, 2, 5, 6, 8  		int[] arr = {10, 20, 30}
+																var arr = [10, 20, 30];
+	페이지 레이아웃
+	---------------------------------------------------
+	
+	초기 배열 상태 [ 4 7 9 1 3 2 5 6 8 ] 						→ 지정된 배열			#arr1
+	
+	< 결 과 >													→ button
+	
+	짝수만 출력 [			]									→ text 				#arr2
+
+	---------------------------------------------------
+-->
+
+
+<div>
+	<form>
+		초기 배열 상태 <input type="text" id="arr1" class="txtArr">
+		<br><br>
+		
+		<input type="button" class="btn" value="결 과" onclick="actionArray()">
+		<br><br>
+		
+		짝수만 출력 <input type="text" id="arr2" class="txtArr" disabled="disabled">
+		<br><br>
+	</form>
+</div>
+
+
+</body>
+</html>
