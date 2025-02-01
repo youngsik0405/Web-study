@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test019.html</title>
+</head>
+<body>
+
+<div>
+	<h1>체크박스 만들기</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<p>오늘 점심으로 먹고싶은 메뉴는?</p>
+		
+		<label>
+			<input type="checkbox" name="foodCheck" value="1"> 쌀밥		<!-- 실제로 서버에 전송되는 데이터는 value 값이다. -->
+		</label>
+		
+		<input type="checkbox" name="foodCheck" value="2" id="label2">  
+		
+		
+		<label for = "label2">
+			미역국	
+		</label>
+		<input type="checkbox" name="foodCheck" value="3"> 김치찌개
+		
+		<input type="checkbox" name="foodCheck" value="4"> 달걀말이
+		<br><br>
+		
+		<input type="checkbox" name="foodCheck" value="5" id="label5">
+		
+		<input type="text">
+		<br>
+		
+		<br><br>
+		<label for = "label5">갓김치</label> 		
+		
+		<br><br><br><br>
+		<input type="button" value="확인">
+	</form>
+</div>
+
+</body>
+</html>

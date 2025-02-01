@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Send10.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+<div>
+	<h1>데이터 송수신 실습 10</h1>
+	<h2>포워딩 및 리다이렉트</h2>
+	<hr>
+</div>
+
+<!-- Send10.html → Send10Redirect.jsp → Receive10.jsp  -->
+<!-- Send10.html → Send10Forward.jsp  → Receive10.jsp  -->
+
+<!-- 사용자 최초 요청 페이지 -->
+<!-- http://localhost:3306/WebApp07/Send10.html  -->
+
+<div>
+	<!-- action 처리에 대한 분기~!!! --> 
+	<!-- <form action="Send10Redirect.jsp" method="post" id="testForm"> -->
+	<form action="" method="post" id="testForm">
+		이름 <input type="text" name="userName" class="txt">
+		<br><br>
+		
+		<!-- <button type="submit" class="btn" style="width: 200px;">리다이렉트</button> -->
+		<button type="submit" class="btn" style="width: 200px;"
+		onclick="this.form.action='Send10Redirect.jsp'">리다이렉트</button>
+		
+		<!-- <button type="submit" class="btn" style="width: 200px;">포워드</button> -->
+		<button type="submit" class="btn" style="width: 200px;"
+		onclick="this.form.action='Send10Forward.jsp'">포워드</button>
+		
+	</form>
+</div>
+
+</body>
+</html>
