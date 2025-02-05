@@ -1,7 +1,7 @@
-/*====================================================
- 	MemberDTO.java
- 	- 객체 전용(데이터 보관 및 전송) → JAVA Bean
-====================================================*/
+/*==================================================
+	MemberDTO.java
+	- 객체 전용(데이터 보관 및 전송) → JAVA Bean
+==================================================*/
 
 package com.test;
 
@@ -9,9 +9,8 @@ public class MemberDTO
 {
 	// 주요 속성 구성(프로퍼티 구성)
 	//-- TBL_MEMBER 조회 항목을 기준으로 구성
-	private String sid, name, tel;				//-- 번호, 이름, 전화번호
+	private String sid, name, tel;			//-- 번호, 이름, 전화번호
 
-	
 	// getter / setter 구성
 	public String getSid()
 	{
@@ -43,5 +42,5 @@ public class MemberDTO
 		this.tel = tel;
 	}
 	
-	
+
 }

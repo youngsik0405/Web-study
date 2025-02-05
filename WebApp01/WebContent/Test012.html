@@ -12,16 +12,20 @@
 	<hr>
 </div>
 
+
 <div>
+	
 	<!-- CSS 를 통해 관리해야 할 속성들 -->
-	<table border="2" background="images/img_03.jpg" cellpadding="10" cellspacing="2">
-		<tr height ="200">
+	<table border="10" background="images/img_03.jpg" cellpadding="10" cellspacing="2">
+		<tr height="200">	<!-- 한식 칸에만 height속성값을 줘도 중식 칸도 세로칸 같이 커진다. -->
 			<!-- 
 			<td>한식</td>
-			<td>중식</td> 
-			-->
-			<th width="200" valign="bottom">한식</th>
-			<th>중식</th> 
+			<td>중식</td>
+		 	-->
+		 	<!-- 굵게,중앙정렬로 바뀜. 논리적으로 제목부분과 아래 내용부분을 계층을 나눈것이다. -->
+		 	<!-- valign 은 vertical align이므로 칸 안에서 위 중간 아래 -->
+		 	<th width="200" valign="bottom">한식</th>		
+		 	<th>중식</th>
 		</tr>
 		<tr>
 			<td>김치찌개</td>
@@ -35,9 +39,11 @@
 			<td>순두부찌개</td>
 			<td>사천탕수육</td>
 		</tr>
-		
 	</table>
 	
 </div>
+
+
+
 </body>
 </html>

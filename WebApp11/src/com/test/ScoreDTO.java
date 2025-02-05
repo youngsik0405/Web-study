@@ -2,67 +2,81 @@ package com.test;
 
 public class ScoreDTO
 {
-	String sid, name;
-	int kor, eng, mat, tot;
-	double avg;
-	
+	// 주요 속성 구성
+	private String sid, name, kor, eng, mat, tot, avg;
+
+	// getter / setter 구성
 	public String getSid()
 	{
 		return sid;
 	}
+
 	public void setSid(String sid)
 	{
 		this.sid = sid;
 	}
+
 	public String getName()
 	{
 		return name;
 	}
+
 	public void setName(String name)
 	{
 		this.name = name;
 	}
-	public int getKor()
+
+	public String getKor()
 	{
 		return kor;
 	}
-	public void setKor(int kor)
+
+	public void setKor(String kor)
 	{
 		this.kor = kor;
 	}
-	public int getEng()
+
+	public String getEng()
 	{
 		return eng;
 	}
-	public void setEng(int eng)
+
+	public void setEng(String eng)
 	{
 		this.eng = eng;
 	}
-	public int getMat()
+
+	public String getMat()
 	{
 		return mat;
 	}
-	public void setMat(int mat)
+
+	public void setMat(String mat)
 	{
 		this.mat = mat;
 	}
-	public int getTot()
+
+	public String getTot()
 	{
 		return tot;
 	}
-	public void setTot(int tot)
+
+	public void setTot(String tot)
 	{
 		this.tot = tot;
 	}
-	public double getAvg()
+
+	public String getAvg()
 	{
 		return avg;
 	}
-	public void setAvg(double avg)
+
+	public void setAvg(String avg)
 	{
 		this.avg = avg;
 	}
 	
+
 	
 	
 }

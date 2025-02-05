@@ -1,0 +1,23 @@
+■■■ JDBC 연동 게시판 작성 실습 ■■■
+* Servlet을 안 쓰고 JSP만 쓰는 마지막 실습
+* JSP의 요청 및 처리 흐름을 파악하기~!
+* 다양한 게시판 페이징 처리 기법 중 가장 직관적인 걸로 실습해볼 예정.
+
+○ 프로젝트 : WebApp20
+
+○ 물리적 파일 구성
+
+   00. WebApp20_scott.sql
+
+   01. DBConn.java
+   02. BoardDTO.java
+   03. BoardDAO.java
+   04. MyUtil.java
+
+   05. List.jsp		(게시판 목록 페이지)
+   06. Created.jsp	(게시판 작성폼)
+   07. Created_ok.jsp	(게시판 작성과 관련된 데이터베이스 액션 처리 페이지)
+   08. Article.jsp	(게시판의 내용확인 페이지)
+   09. Updated.jsp	(작성 내역 중 내용 수정 페이지)
+   10. Updated_ok.jsp	(수정 액션 처리 페이지)
+   11. Delete_ok.jsp	(삭제 액션 처리 페이지)

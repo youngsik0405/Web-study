@@ -1,27 +1,31 @@
-<%@page import="com.test.MemberScoreDTO"%>
 <%@page import="com.test.MemberScoreDAO"%>
+<%@page import="com.test.MemberScoreDTO"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-	// MemberScoreUpdate.jsp
-	// 이전 페이지로부터 넘어온 데이터 수신
+	//MemberScoreUpdate.jsp
+	
+	// 이전 페이지(→ MemberScoreUpdateForm.jsp)로부터 넘어온 데이터 수신
 	// → kor, eng, mat + sid
 	String sid = request.getParameter("sid");
-	String korStr = request.getParameter("kor");
-	String engStr = request.getParameter("eng");
-	String matStr = request.getParameter("mat");
-	
-	MemberScoreDAO dao = new MemberScoreDAO();
+	String strKor = request.getParameter("kor");
+	String strEng = request.getParameter("eng");
+	String strMat = request.getParameter("mat");
+	//String name = request.getParameter("name");
 	
 	int kor = 0;
 	int eng = 0;
 	int mat = 0;
 	
+	// MemberScoreDAO 인스턴스 생성
+	MemberScoreDAO dao = new MemberScoreDAO();
+	
 	try
 	{
-		kor = Integer.parseInt(korStr);
-		eng = Integer.parseInt(engStr);
-		mat = Integer.parseInt(matStr);
+		kor = Integer.parseInt(strKor);
+		eng = Integer.parseInt(strEng);
+		mat = Integer.parseInt(strMat);
 		
+		// 데이터베이스 연결
 		dao.connection();
 		
 		MemberScoreDTO score = new MemberScoreDTO();
@@ -30,7 +34,10 @@
 		score.setEng(eng);
 		score.setMat(mat);
 		
+		//score.setName(name);
+		
 		dao.modify(score);
+		
 		
 	}
 	catch(Exception e)
@@ -41,6 +48,7 @@
 	{
 		try
 		{
+			// 데이터베이스 연결 끊기
 			dao.close();
 		}
 		catch(Exception e)
@@ -51,8 +59,5 @@
 	
 	// 변경된 URL로 다시 요청할 수 있도록 안내
 	response.sendRedirect("MemberScoreList.jsp");
-%>
 
-<!DOCTYPE html>
-<html>
-<head>
+%>

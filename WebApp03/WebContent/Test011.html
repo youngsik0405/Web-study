@@ -4,28 +4,35 @@
 <meta charset="UTF-8">
 <title>Test011.html</title>
 
+<!-- 스크립트 영역 안에 내용이 작동하게 하는 것 -->
 <script type="text/javascript">
 
 	/* message = "Hello~!!!"; */
 	message = "<h1>Hello~!!!</h1>";
 	document.write(message);
 	
-	alert(message); 	// console.log();
+	//자바스크립트 내장함수 alert (경고알림창으로 뜬다~! 태그는 작동 안함.)
+	alert(message);		// console.log();
 
 </script>
 
+<!-- 외부 스크립트를 불러오는 것 -->
 <script type="text/javascript" src="js/alertTest.js"></script>
+
+<!-- 스크립트 영역 여러 개 만들기 가능. 하나의 스크립트 영역 내부에 내용 적고 외부파일도 불러오기 하지 말자~! -->
 
 <script type="text/javascript">
 
 	var dt = String(Date());
-	// Date() → Date 내장 객체 생성 → 현재 시스템의 날짜 시간
-	// String() → 문자열 내장 객체 생성  
+	// Date() → Date 내장 객체 생성 → 현재 시스템의 날짜와 시간
+	// String() → 문자열 내장 객체 생성
 	// 『String(Date());』 → Date().toString();
- 	
+	
 	document.write(dt);
-
+	
 </script>
+
+
 
 </head>
 <body>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test020_1.html</title>
+
+<style type="text/css">
+	* { font-family: 나눔고딕코딩;}
+	h1 { font-size: 13pt; text-align: right; }
+	h2 { text-align: center;}
+	#txt01:focus {  background-color:#dff4ff; }
+	input {height: 18pt; font-size: 15pt;}
+	.btn {border-radius: 50%; font-size: 10pt; height: 30pt; border-color:white;}
+	.btn:hover {height: 60pt; background-color:#ffc8e3; font-weight: bold;}
+	.btn:active {background-color:white; border-color: #ffc8e3;}
+	
+	
+</style>
+
+<script type="text/javascript">
+
+	var arr = [];
+	function findMax()
+	{
+		// 확인
+		//alert("함수 호출 완료")
+		
+		//사용자가 입력한 숫자들 가져오기
+		var txtStr = document.getElementById("txt01").value;
+		//alert(txtStr);
+		
+		//공백 기준으로 숫자들 잘라서 배열에 대입
+		arr = txtStr.split(" ");
+		
+		// 배열에 잘 들어갔는지 확인
+		//document.write(arr.length);
+		
+		// 가장 큰 수를 담을 변수 선언 및 초기화
+		var maxNum = arr[0];
+		document.getElementById("txt02").value = "";
+		
+		//전체 출력하기
+		for (var i = 0; i < arr.length; i++)
+		{
+			document.getElementById("txt02").value += arr[i] + " ";
+			
+			//겸사겸사 가장 큰 수 찾기
+			if (parseInt(arr[i]) > maxNum)
+				maxNum = parseInt(arr[i]);
+		}
+		
+		//가장 큰 수 출력
+		document.getElementById("txt03").value = maxNum;
+		
+		
+	}
+
+</script>
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<!-- 
+	사용자로부터 임의의 정수를 임의의 갯수만큼 입력받고,
+	입력받은 항목으로 배열을 구성하여,
+	구성한 정수들 중 가장 큰 수를 출력해줄 수 있는 페이지를 구현한다.
+	HTML, CSS, Javascript 를 활용한다.
+	
+	페이지 레이아웃
+	-------------------------------------------------------
+	
+	데이터 입력(공백 구분)  [   21 86 285 43 7      ]		→ text    → 배열 구성				#txt01
+	
+	               < 결과 확인 >							→ button
+	
+	- 전체 출력             [                       ]		→ text    → 배열 전체 요소 출력	#txt02
+	
+	- 가장 큰 수            [      ]						→ text                             #txt03
+	
+	
+	-------------------------------------------------------
+ 
+ -->
+ 
+ <div>
+ 	<h2>가장 큰 수 찾기</h2>
+ 	<hr>
+ </div>
+ <div>
+ 	<form>
+ 		<h3>데이터 입력(공백 구분)</h3>
+ 		<input type="text" id="txt01" style="width: 215pt">
+ 		<input type="button" value="결과확인" class="btn" onclick="findMax()">
+ 		<br>
+ 		<h3>- 전체 출력 &nbsp;<input type="text" id="txt02" disabled="disabled" style="width: 180pt"></h3>
+ 		<h3>- 가장 큰 수 <input type="text" id="txt03" disabled="disabled" style="width: 180pt"></h3>
+ 		<br>
+ 		<hr>
+ 	</form>
+ </div>
+
+</body>
+</html>

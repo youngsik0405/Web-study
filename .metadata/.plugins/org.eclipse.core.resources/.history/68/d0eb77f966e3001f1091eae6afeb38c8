@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest05.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript">
+
+	var myJsonObject5 =
+	{
+		"test" : function()
+		{
+			alert("Method Test : " + args);
+		}		
+	}
+
+	var t = myJsonObject5.test
+	
+</script>
+</head>
+<body>
+
+<form>
+	<input type="button" value="click1" onclick="t('')">
+</form>
+
+
+</body>
+</html>

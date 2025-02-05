@@ -1,7 +1,8 @@
-/*===============================================
+/*=============================================
 	MVCTest01.java
 	- Controller 역할을 수행할 서블릿 클래스
 ===============================================*/
+
 package com.svt;
 
 import java.io.IOException;
@@ -42,25 +43,23 @@ public class MVCTest01 extends HttpServlet
 		
 		// 업무 구성(처리)
 		//-- 1 부터 100 까지의 수를 객체(컬렉션)에 저장하는 과정
+		
+		//어차피 결과물을 문자 형태로 뿌릴 거라 String으로 구성한 것.
+		//숫자 형태로 넣겠다~ 했으면 Integer로 하면 됨
 		List<String> lists = new ArrayList<String>();
 		
-		//-- 나의 풀이
-		//List<Number> lists = new ArrayList<Number>();
-		
-		for (int i = 1; i <= 100 ; i++)
+		for (int i=1; i<=100; i++)	// i : 1 ~ 100
 		{
 			lists.add(String.valueOf(i));
-			
-			//-- 나의 풀이
-			//lists.add(i);
 		}
 		
-		request.setAttribute("lists",lists);
+		request.setAttribute("lists", lists);
+
 		
 		// 뷰(View → MVCTest01.jsp)에 제어권 넘김
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/view/MVCTest01.jsp");
 		dispatcher.forward(request, response);
-
+		
 	}
 	
 }

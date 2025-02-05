@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" type="text/css" href="css/externalStyle.css">
+
+<style type="text/css">
+	@import url("css/importStyle.css")
+</style>
+
+
+</head>
+<body>
+
+<div>
+	<h1>스타일 적용의 우선순위 규칙 확인</h1>
+	<hr>
+</div>
+
+<p>이와 같은 상황이라면... 난 어떻게 표현되어야 할까</p>
+<!-- 둘 다 적용되는데, 충돌되는 상황에서는 line21과 가까운 게 우선순위가 높다. -->
+
+</body>
+</html>

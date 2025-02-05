@@ -20,11 +20,12 @@
 		//document.forms[0];
 		
 		// 확인
-		//alert(obj.form);
+		//alert(obj.form);		//함수를 호출할 때, formChange(this)로 호출했다면..
+								//이런식으로 매개변수로 넘겨받은 selet이 속한 form을 확인 가능
 		//--==>> [object HTMLFormElement]
 		
 		// 확인
-		//alert(obj);
+		//alert(obj);			//함수를 호출할 때, formChange(this.form)로 호출했다면..
 		//--==>> [object HTMLFormElement]
 		
 		// ※ obj 변수(이 함수의 매개변수)에는 최종적으로 form 객체가 저장되어 있다.
@@ -35,23 +36,8 @@
 		//   함수 호출을 통해 form 객체의 데이터를
 		//   서버로 전송하는 것이 가능하다.
 		
-		
 	}
-	
-	
-/*
-	function selectDan()
-	{
-		var danForm = document.danForm;
-		
-		danForm.submit();
-	}
-*/
-
 </script>
-
-
-
 </head>
 <body>
 
@@ -60,43 +46,43 @@
 	<hr>
 </div>
 
-<!--  
+<!-- 
 	○ 데이터 송수신 실습 05
 	
-		- 구구단 단수를 입력받아 서버로 전송해주는 형태의 페이지를 구현한다.
-		
-		- 단, submit 버튼 없이 이벤트 처리를 할 수 있도록 한다.
-		
-		  단 수 선택시 [ -- 선택하세요 -- ▼ ] → select
-		  				 		1단   
-		  				 		2단
-		  				  		 :
-		  					 	9단 
-		
-	 	- select 선택 시
-	 	  해딩 단의 구구단 내용을 출력하는 JSP 페이지(Recevie05.jsp)로
-	 	  데이터를 전달하여 내용을 구성할 수 있도록 한다.
-	 	  
-	    - 사용자 최초 요청 페이지
-	      http://localhost:3306/WebApp07/Send05.html 로 한다.
-
-	○ 물리적 파일 구성
+	   - 구구단 단수를 입력받아 서버로 전송해주는 형태의 페이지를 구현한다.
+	   
+	   - 단, submit 버튼 없이 이벤트 처리를 할 수 있도록 한다.
+	   
+	     단 수 선택 [ 1단 ▼ ] → select
+	     			  2단
+	     			   :
+	     			  9단
+	     			  
+	   - select 선택 시
+	     해당 단의 구구단 내용을 출력하는 JSP 페이지(Receive05.jsp)로
+	     데이터를 전달하여 내용을 구성할 수 있도록 한다.
+	     
+	   - 사용자 최초 요청 페이지
+	     http://localhost:3306/WebApp07/Send05.html
+	     
+	○ 물리적인 파일 구성
 	
-		- Send05.html
-		- Receive05.jsp 
-
+	   - Send05.html
+	   - Receive05.jsp
 -->
 
 <div>
-
 	<h2>구구단 입력</h2>
 	
 	<div>
 		<form action="Receive05.jsp" method="get">
 			단 수 선택
 			<!-- <select id="dan" name="dan"> -->
+			<!-- <select id="dan" name="dan" onchange="formChange()"> -->
 			<!-- <select id="dan" name="dan" onchange="formChange(this)"> -->
 			<select id="dan" name="dan" onchange="formChange(this.form)">
+				<!-- 값이 비어있는 option항목이 없으면 사용자가 1단(기본값)을 선택하고 싶을 때
+				 다른 단을 선택하고 다시 1단을 선택해야하는 번거로움이 있다. -->
 				<option>-- 선택하세요 --</option>
 				<option value="1">1단</option>
 				<option value="2">2단</option>
@@ -107,34 +93,11 @@
 				<option value="7">7단</option>
 				<option value="8">8단</option>
 				<option value="9">9단</option>
-			</select>		
-		</form>	
+			</select>
+		</form>
 	</div>
-
-
 </div>
 
-
-<!-- 
-<div>
-	<form action="Receive05.jsp" method="get" name="danForm">
-		단 수 선택
-		<select name="dan" id="dan" onchange="selectDan();">
-			<option value="" selected disabled>-- 선택하세요 --</option>
-			<option value="1">1단</option>
-			<option value="2">2단</option>
-			<option value="3">3단</option>
-			<option value="4">4단</option>
-			<option value="5">5단</option>
-			<option value="6">6단</option>
-			<option value="7">7단</option>
-			<option value="8">8단</option>
-			<option value="9">9단</option>
-		</select>
-	
-	</form>
-</div>
--->
 
 </body>
 </html>

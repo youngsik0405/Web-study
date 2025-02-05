@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LoadTest01.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+
+	// ※ 『load()』
+	//	  『$(선택자).load("로드를 원하는 html 문서의 위치와 이름");』
+	//	  - jQuery 의 기능이 수행되는 과정에서 다른 html 문서를 로드
+	//    - HTML 을 읽어들여서 DOM 에 삽입하는 기능을 수행
+	
+	$(document).ready(function()
+	{
+		$("#btn.btnLoad").click(function()
+		{
+			// 확인
+			//alert("작동 확인~!!!");
+			
+			$("#ctlGrid").load("LoadTest02.html");
+			// 같은 경로 안에 포함되어있으니까 그냥 "LoadTest02.html"이라고만 하면 됨.
+			// 이게 끝~! jQuery를 쓰면 Ajax처리가 순식간에 된다!
+		});
+	});
+
+</script>
+</head>
+<body>
+
+<div>
+	<h1>jQuery의 load() 활용 실습</h1>
+	<hr>
+</div>
+
+<div>
+	<div id="btn">
+		<div class="btnLoad">HTML 읽어오기 버튼</div>
+	</div>
+	<br>
+	
+	<div id="ctlGrid">
+		
+	</div>
+</div>
+
+
+</body>
+</html>

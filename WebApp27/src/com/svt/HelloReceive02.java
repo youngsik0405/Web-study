@@ -1,6 +1,7 @@
 /*==========================
 	ServletSample.java
-==========================*/
+===========================*/
+
 package com.svt;
 
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class HelloReceive02 extends HttpServlet
 		
 		PrintWriter out = response.getWriter();
 		
-		String mainTitle = "결과 수신 메세지";
+		String mainTitle = "결과 수신 페이지";
 		String subTitle = "(HelloReceive02.java)";
 		String docType = "<!DOCTYPE html>";
 		
@@ -64,6 +65,7 @@ public class HelloReceive02 extends HttpServlet
 				+ "</div>\n"
 				+ "</body>\n"
 				+ "</html>\n");
+
 	}
 	
 }

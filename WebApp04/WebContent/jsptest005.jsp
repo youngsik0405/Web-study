@@ -12,27 +12,33 @@
 
 <div>
 	<h1>JSP 관찰하기</h1>
+	<hr>
 </div>
 
 <div>
 	<h2>HttpServlet 관련 실습 및 관찰</h2>
 	
-	<!-- ※ form 태그의 action 속성은 데이터 전송 및 페이지 요청을 해야하는 
-			대상 페이지를 등록하는 기능을 수행하낟.
+	<!-- ※ form 태그의 action 속성은 데이터 전송 및 페이지 요청을 해야하는
+			대상 페이지를 등록하는 기능을 수행한다.
 			(생략 시 데이터 전송 및 페이지 요청을 하게되는 대상은 자기 자신이 된다.) -->
+			
+	<!-- 내가 해당 페이지에 입력값을 전송해줄게 + 전송해줄테니까 그 페이지를 만나게 해줘 -->
+	<!-- <form action="/WebApp04/test004"> -->
+	<!-- <form action="/WebApp04/login"> -->
+	<!-- <form action="/WebApp04/login" method="post"> -->
 	<form action="/WebApp04/login" method="get">
 		<table>
 			<tr>
 				<th>아이디</th>
 				<td>
-					<!-- name 속성을 식별자로... → userId  -->
+					<!-- name 속성을 식별자로... → userId -->
 					<input type="text" name="userId" maxlength="10" class="txt" style="width: 100px;">
 				</td>
 			</tr>
 			<tr>
 				<th>패스워드</th>
 				<td>
-					<!-- name 속성을 식별자로... → userPwd  -->
+					<!-- name 속성을 식별자로... → userPwd -->
 					<input type="password" name="userPwd" class="pwd" style="width: 100px;">
 				</td>
 			</tr>
@@ -45,8 +51,7 @@
 			</tr>
 		</table>
 	</form>
-
-
+	
 </div>
 
 </body>

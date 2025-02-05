@@ -1,5 +1,4 @@
 <%@page import="com.test.MemberScoreDTO"%>
-<%@page import="com.test.MemberDTO"%>
 <%@page import="com.test.MemberScoreDAO"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
@@ -17,9 +16,9 @@
 		dao.connection();
 		
 		// 수신한 sid 를 활용하여 name 얻어내기
-		MemberScoreDTO score = dao.search(sid);	
+		MemberScoreDTO score = dao.search(sid);
 		name = score.getName();
-
+		
 	}
 	catch(Exception e)
 	{
@@ -36,7 +35,6 @@
 			System.out.println(e.toString());
 		}
 	}
-
 %>
 <!DOCTYPE html>
 <html>
@@ -45,7 +43,6 @@
 <title>MemberScoreInsertForm.jsp</title>
 <!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
 <link rel="stylesheet" type="text/css" href="css/MemberListScore.css">
-
 <script type="text/javascript">
 
 	function memberScoreSubmit()
@@ -67,38 +64,35 @@
 		engMsg.style.display = "none";
 		matMsg.style.display = "none";
 		
-		
-		if (kor.value == "" || isNaN(kor.value) || Number(kor.value)<0 || Number(kor.value)>100)
+		if (kor.value == "" || isNaN(kor.value) || Number(kor.value) < 0 || Number(kor.value) > 100  || /^0\d/.test(kor.value))
 		{
 			korMsg.style.display = "inline";
 			kor.focus();
 			return;
 		}
-		
-		if (eng.value == "" || isNaN(eng.value) || Number(eng.value)<0 || Number(eng.value)>100)
+		if (eng.value == "" || isNaN(eng.value) || Number(eng.value) < 0 || Number(eng.value) > 100  || /^0\d/.test(kor.value))
 		{
 			engMsg.style.display = "inline";
 			eng.focus();
 			return;
 		}
-		
-		if (mat.value == "" || isNaN(mat.value) || Number(mat.value)<0 || Number(mat.value)>100)
+		if (mat.value == "" || isNaN(mat.value) || Number(mat.value) < 0 || Number(mat.value) > 100  || /^0\d/.test(kor.value))
 		{
 			matMsg.style.display = "inline";
 			mat.focus();
 			return;
 		}
-			
+		
 		memberScoreForm.submit();
+		
 	}
 	
 	function memberScoreReset()
 	{
 		// 확인
-		//alert("리섹 버튼 클릭~!!!");
+		//alert("리셋 함수 호출 확인~!!!");
 		
 		var memberScoreForm = document.getElementById("memberScoreForm");
-		
 		var kor = document.getElementById("kor");
 		
 		var korMsg = document.getElementById("korMsg");
@@ -111,16 +105,16 @@
 		
 		memberScoreForm.reset();
 		kor.focus();
-		
 	}
 
 </script>
-
 </head>
 <body>
+
 <div>
 	<!-- 페이지 정체성 -->
-	<h1>회원<span style="color: blue;">성적</span>관리 및 입력 페이지</h1>
+	<h1>회원 <span style="color: blue;">성적</span> 관리
+			 및 입력 페이지</h1>
 	<hr>
 </div>
 
@@ -132,18 +126,22 @@
 
 <div>
 	<!-- 회원 성적 데이터 입력 폼 구성 -->
-	<form action="MemberScoreInsert.jsp?sid=<%=sid %>" method="post" id="memberScoreForm">
+	<form action="MemberScoreInsert.jsp?sid=<%= sid %>" method="post" id="memberScoreForm">
 		<table class="table">
 			<tr>
 				<th>번호</th>
 				<td>
+					<!-- 100 -->
 					<%=sid %>
 				</td>
 				<td></td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><%=name %></td>
+				<td>
+					<!-- 강감찬 -->
+					<%=name %>
+				</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -189,11 +187,13 @@
 			<button type="button">취소하기</button>
 		</a>
 		<a href="MemberScoreList.jsp">
-			<button type="button">목록하기</button>
+			<button type="button">목록으로</button>
 		</a>
+		
+		
+		
 	</form>
 </div>
-
 
 </body>
 </html>

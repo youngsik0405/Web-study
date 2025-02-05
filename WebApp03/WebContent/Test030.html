@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Test030.html</title>
+
 <style type="text/css">
-   * {color: #223322;}
-   input {font-family: 나눔고딕코딩; font-weight: bold;}
-   input:focus {background-color: #eeeedd;}
-   .btn {font-weight: bold; font-family: 맑은 고딕;}
-   .btnAdd{width: 220px;}
-   .btn:hover {color: orange;}
-   .txt {text-align: center;}
-   #memberList {width: 700px;}
+	* {color: #223322; font-family: 나눔고딕코딩; font-weight: bold;}
+	input:focus {background-color: #eeeedd;}
+	.btn {width: 90px; font-weight: bold; font-family: 맑은 고딕;}
+	.btnAdd {width: 220px;}
+	.btn:hover {color: orange;}
+	.txt {text-align: center;}
+	#memberList {width: 700px;}
+	select {width: 150px;}
 </style>
 
 <script type="text/javascript">
@@ -28,13 +29,14 @@
 		
 		// 확인
 		alert(positionStr);
+		//--==>> xsw(과장)
 		*/
 		
 		// 두 번째 방법
 		/*
 		var positionObj = document.getElementById("userPosition");
 		var positionOptions = positionObj.options;
-		*/
+		var positionMsg = "";
 		
 		// 확인
 		//alert(positionOptions);
@@ -44,11 +46,10 @@
 		//alert(positionOptions.length);
 		//--==>> 4
 		
-		/*
-		for (var i = 0; i < positionOptions.length; i++)
+		for (var i=0; i<positionOptions.length; i++)	// 0 1 2 3
 		{
 			// 확인
-			//alert(positionOptions[i].selected);
+			//alert(positionOptions[i].selected);			// false false false true (기본값이 맨 마지막 사원으로 선택되어있음)
 			//--==>> 선택된 옵션 항목에 따라 true / false 형태로 확인
 			
 			if (positionOptions[i].selected)
@@ -57,7 +58,7 @@
 				//positionMsg = positionOptions[i].value;
 				//break;
 				
-				// 다중 선택
+				// 다중 선택 (html에 <select> 태그 안에 multiple="multiple" 속성 부여 시)
 				positionMsg += positionOptions[i].value + " ";
 			}
 		}
@@ -83,37 +84,60 @@
 		
 		// 확인
 		alert(positionMsg);
-		*/	
+		*/
+		
 	}
 	
 	function addMember()
 	{
-		//alert("확인");
+		// 확인
+		//alert("함수 호출 확인~!!!");
 		
-		var name = document.getElementById("userName").value;
-		var ssn = document.getElementById("userSsn").value;
+		var uName = document.getElementById("userName").value;
+		var uSsn = document.getElementById("userSsn").value;
+		
+		//var uCity = document.getElementById("userCity").value;
 		var cityObj = document.getElementById("userCity");
-		var city = cityObj.options[cityObj.selectedIndex].value;
-		var depObj = document.getElementById("userDepartment");
-		var dep = depObj.options[depObj.selectedIndex].value;
-		var posObj = document.getElementById("userPosition");
-		var pos = posObj.options[posObj.selectedIndex].value;
-		var basicpay = document.getElementById("userBasicPay").value;
+		
+		//alert(cityObj.selectedIndex);
+		//--==>> 서울→0, 대전→1, 광주→2, 대구→3
+		
+		//alert(cityObj.options[cityObj.selectedIndex].value);
+		//--==>> 1123(서울), 2380(대전), 5567(광주), 9984(대구)
+		
+		var uCity = cityObj.options[cityObj.selectedIndex].value;
+		
+		var buseoObj = document.getElementById("userDepartment");
+		var uBuseo = buseoObj.options[buseoObj.selectedIndex].value;
+		
+		var positionObj = document.getElementById("userPosition");
+		var uPosition = positionObj.options[positionObj.selectedIndex].value;
+		
+		var uBasicPay = document.getElementById("userBasicPay").value;
 		
 		
+		// 테이블 그리기 --------------------------------------------------------------
 		var tableNode = document.getElementById("memberList");
-		
 		var trNode = document.createElement("tr");
 		
+		trNode.appendChild(createTdNode(uName));
+		trNode.appendChild(createTdNode(uSsn));
+		trNode.appendChild(createTdNode(uCity));
+		trNode.appendChild(createTdNode(uBuseo));
+		trNode.appendChild(createTdNode(uPosition));
+		trNode.appendChild(createTdNode(uBasicPay));
 		
-		trNode.appendChild(createTdNode(name));				
-		trNode.appendChild(createTdNode(ssn));				
-		trNode.appendChild(createTdNode(city));
-		trNode.appendChild(createTdNode(dep));	
-		trNode.appendChild(createTdNode(pos));
-		trNode.appendChild(createTdNode(basicpay));	
-	
 		tableNode.appendChild(trNode);
+		// -------------------------------------------------------------- 테이블 그리기
+		
+		//formClear();									// check~!!!
+		
+		//이 document객체.에 구성되어 있는 form 객체들이 배열 형태로 반환[의 0번째가 지금 우리가 만든 form : 문서상 위에 만들어놓은 순서대로]
+		document.forms[0].reset();						// check~!!!
+		
+		document.getElementById("userName").focus();	// check~!!!
+		
+		
 	}
 	
 	function createTdNode(val)
@@ -121,11 +145,28 @@
 		var textNode = document.createTextNode(val);
 		var tdNode = document.createElement("td");
 		tdNode.appendChild(textNode);
-		
 		return tdNode;
+		
 	}
-
+	
+	/*
+	function formClear()
+	{
+		document.getElementById("userName").value = "";
+		document.getElementById("userSsn").value = "";
+		var cityObj = document.getElementById("userCity");
+		cityObj.options[0].selected = true;
+		var buseoObj = document.getElementById("userDepartment");
+		buseoObj.options[3].selected = true;
+		var jikwiObj = document.getElementById("userPosition");
+		jikwiObj.options[3].selected = true;
+		document.getElementById("userBasicPay").value = "";
+	}
+	*/
+	
+	
 </script>
+
 
 </head>
 <body>
@@ -137,7 +178,6 @@
 
 <div>
 	<h2>선택목록(select) 다루기</h2>
-	
 	
 	<form>
 		<table>
@@ -158,8 +198,8 @@
 				<td>
 					<!-- <input type="text" id="userCity" class="txt"> -->
 					<select id="userCity">
-						<option value="1123(서울)">서울</option>
-						<option value="2300(대전)">대전</option>
+						<option value="1123(서울)">서울</option>	<!-- 실습용이성을 위해 ()안에 지역명 넣어놓기 -->
+						<option value="2380(대전)">대전</option>
 						<option value="5567(광주)">광주</option>
 						<option value="9984(대구)">대구</option>
 					</select>
@@ -186,7 +226,7 @@
 						<option value="zaq(부장)">부장</option>
 						<option value="xsw(과장)">과장</option>
 						<option value="cde(대리)">대리</option>
-						<option value="vfr(사원)">사원</option>
+						<option value="vfr(사원)" selected="selected">사원</option>
 					</select>
 				</td>
 			</tr>
@@ -199,9 +239,9 @@
 		</table>
 		<br>
 		
-		<!-- <input type="button" class="btn btnAdd" value="직원추가" onclick="selectTest()"> -->
-		<input type="button" class="btn btnAdd" value="직원추가" onclick="addMember()">
-		<input type="reset" class="btn btnAdd" value="입력취소"> 
+		<!-- <input type="button" class="btn btnAdd" value="직원 추가" onclick="selectTest()"> -->
+		<input type="button" class="btn btnAdd" value="직원 추가" onclick="addMember()">
+		<input type="reset" class="btn btnAdd" value="입력 취소">
 		<br><br><br>
 		
 		<table id="memberList">
@@ -214,11 +254,9 @@
 				<td>기본급</td>
 			</tr>
 		</table>
-				
-	
-	
+		
 	</form>
-
 </div>
+
 </body>
 </html>

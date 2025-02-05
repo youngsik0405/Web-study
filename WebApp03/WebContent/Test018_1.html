@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test018.html</title>
+
+<style type="text/css">
+	* { font-family: 나눔고딕코딩; background-color: window; }
+	#result { background-color: highlighttext }
+	.btn {width: 100px;}
+	.btn:hover { background-color: highlight; color: white; width: 120px;}
+	.btn:active { font-weight: bold;}
+	#num:focus { background-color: #e6f2ff; }
+	#result { background-color: #e6f2ff;}
+	h1
+	{
+		font-size: 13pt;
+		text-align: right;
+	}
+
+
+</style>
+
+
+<script type="text/javascript">
+
+	function calSum()
+	{
+		// 확인
+		//alert("함수 호출 확인");
+		
+		var numStr = document.getElementById("num").value;
+		var nNum = parseInt(numStr);
+		
+		if (nNum < 100 )
+		{
+			alert("입력값은 100 이상만 가능~!!!");
+			return;
+		}
+		//alert("입력값이 100 이상입니다!");
+		
+		//textarea에 접근할 변수 생성
+		var result = document.getElementById("result");
+		
+		var temp = 0;
+		result.value = "";
+		var resultStr = "";
+		
+		for (var i = 1; i <= nNum; i++)
+		{
+			temp += i;
+			
+			// 10의 배수마다 누적합 출력 덧붙이기
+			if( i % 10 == 0 || i == nNum)
+				//result.value += "1 ~ " + i + " : " + temp + "\n";
+				resultStr += "1 ~ " + i + " : " + temp + "\n";
+			
+			result.value = resultStr;
+			
+			
+			// 만약 반복문 끝까지 다 돌았고, 입력값이 100으로 나눠떨어지지 않는 수라면 최종 누적합까지 출력
+			/* if (i == nNum && nNum % 10 != 0)
+				result.value += "1 ~ " + nNum + " : " + temp; */
+		}
+	}
+</script>
+
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<!--
+	사용자로부터 임의의 정수 n 을 입력받아
+	1 부터 n 까지의 합을 계산하되
+	n 은 100 이상만 허용할 수 있도록 처리하고,
+	출력 시 10의 배수가 될 때 마다 중간 합을 출력할 수 있는 페이지를 구성한다.
+	반복문을 활용할 수 있도록 한다.
+	
+	HTML, CSS, Javascript 활용
+	
+	페이지 레이아웃
+	---------------------------------------------     (입력값은 100 이상만 가능~!!!)
+															↑
+	정수 입력(100 이상)  [    101    ]	→ textbox  → 조건 유효성			#num
+	
+		< 결 과 >	< 취 소 >			→ button
+	
+	------------------------------	    → textarea                         #result
+	 1 ~ 10 : xx     ┐
+	 1 ~ 20 : xxx    │
+	 1 ~ 30 : xxx    │ 중간합 
+	     :           │
+	 1 ~ 100 : xxxx  ┘
+	 1 ~ 101 : xxxx  ─ 최종합
+	 
+	------------------------------
+	
+	---------------------------------------------
+ -->
+ <div>
+ 	<h2>누적합(10의 배수마다) 출력 프로그램</h2>
+ 	<hr>
+ </div>
+ <br>
+ <div>
+ 	<form>
+ 		정수 입력(100 이상) <input type="text" style="width: 100px;" id="num">
+ 		<br><br>
+ 		<input type="button" class="btn" value="결 과" onclick="calSum()">
+ 		<input type="reset" class="btn" value="취 소">
+ 		<hr>
+ 		<textarea rows="10" cols="50" id="result" disabled="disabled"></textarea>
+ 		<hr>
+ 	</form>
+ </div>
+</body>
+</html>

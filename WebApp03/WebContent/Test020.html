@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <title>Test020.html</title>
 
+<style type="text/css">
+	* {color: #223322;}
+	input {font-family: 나눔고딕코딩; font-weight: bold;}
+	input:focus {background-color: #eeeedd;}
+	input.btn {width: 90px; font-weight: bold; font-family: 맑은 고딕;}
+	input.btn:hover {color: orange;}
+	td {text-align: center;}
+	.txt {text-align: center;}
+</style>
+
 <script type="text/javascript">
 
 	function actionPerformed()
@@ -12,63 +22,34 @@
 		//alert("함수 호출 확인~!!!");
 		
 		// 사용자 입력값을 활용하여 자바스크립트 배열 구성
-		var temStr = document.getElementById("txt01").value;		//-- "10 20 30 40 50"
-		var arr = tmpStr.split(" ");								//-- 공백으로 구분하여 배열 반환
-		//-- var arr = [10, 20, 30, 40, 50];
+		var tempStr = document.getElementById("txt01").value;		//-- "10 20 30 40 50"
+		var arr = tempStr.split(" ");								//-- 공백으로 구분하여 배열 반환
+		//-- var arr = ["10", "20", "30", "40", "50"];
 		
 		// 배열의 전체 요소 출력
 		//document.getElementById("txt02").value = arr;				//-- 더미 확인
 		
 		var allStr = "";
-		for (var n = 0; n < arr.length; n++)
-		{
+		for (var n=0; n<arr.length; n++)
 			allStr += arr[n] + " ";
-		}
 		
 		document.getElementById("txt02").value = allStr;
 		
 		// 가장 큰 수 얻어내기
 		var max = Number(arr[0]);
 		
-		for (var n = 0; n < arr.length; n++)
+		for(var n=1; n<arr.length; n++)
 		{
-			if (max < Number(arr[n]))
-			{
+			if (max<Number(arr[n]))
 				max = Number(arr[n]);
-			}
 		}
 		
 		document.getElementById("txt03").value = max;
+		
 		
 	}
 
-
-	
-	/* 나의 풀이
-	function actionMax()
-	{	
-		var arrStr = document.getElementById("txt01").value;
-		var arr = arrStr.split(" ");
-		//alert(arr);
-		
-		var max = 0;
-		
-		for (var i = 0; i < arr.length; i++)
-		{
-			if (max < parseInt(arr[i]))
-				max = parseInt(arr[i]);
-		}
-		
-		document.getElementById("txt02").value = arr;
-		document.getElementById("txt03").value = max;
-		
-	} 
-	*/
 </script>
-
-
-
-
 </head>
 <body>
 
@@ -77,61 +58,46 @@
 	<hr>
 </div>
 
-<!--  
+<!-- 
 	사용자로부터 임의의 정수를 임의의 갯수만큼 입력받고,
-	입력받은 항목으로 배열을 구성하며,
+	입력받은 항목으로 배열을 구성하여,
 	구성한 정수들 중 가장 큰 수를 출력해줄 수 있는 페이지를 구현한다.
 	HTML, CSS, Javascript 를 활용한다.
 	
 	페이지 레이아웃
-	-----------------------------------------------------
+	-------------------------------------------------------
 	
-	데이터 입력(공백 구분)	[				]			→ <text> 		→ 배열 구성				#txt01
+	데이터 입력(공백 구분)  [   21 86 285 43 7      ]		→ text    → 배열 구성				#txt01
 	
-				< 결과 확인 >							→ button
-				
-	- 전체 출력				[				]			→ text 		→ 배열 전체 요소 출력		#txt02
+	               < 결과 확인 >							→ button
 	
-	- 가장 큰 수 			[	]						→ <text>									#txt03
--->
-
-<div>
-	<form>
-		데이터 입력(공백 구분)
-		<input type="text" id="txt01" class="txtNum">
-		<br><br>
+	- 전체 출력             [                       ]		→ text    → 배열 전체 요소 출력	#txt02
 	
-		<input type="button" class="btn" value="결과 확인" style="width: 320px;" onclick="actionPerformed()">
-		<br><br>
-		
-		전체 출력
-		<input type="text" id="txt02" class="txtNum" readonly="readonly" style="width: 225px">
-		<br><br>
-		
-		가장 큰 수
-		<input type="text" id="txt03" class="txtNum" readonly="readonly">
-		<br><br> 
+	- 가장 큰 수            [      ]						→ text                             #txt03
 	
 	
-		<!-- 
-		데이터 입력(공백 구분)
-		<input type="text" id="txt01" class="txtNum">
-		<br><br>
-	
-		<input type="button" class="btn" value="결과 확인" style="width: 320px;" onclick="actionMax()">
-		<br><br>
-		
-		전체 출력
-		<input type="text" id="txt02" class="txtNum" readonly="readonly" style="width: 225px">
-		<br><br>
-		
-		가장 큰 수
-		<input type="text" id="txt03" class="txtNum" readonly="readonly">
-		<br><br> 
-		-->
-	</form>
-</div>
-
+	-------------------------------------------------------
+ 
+ -->
+ 
+ <div>
+ 	<form>
+ 		데이터 입력(공백 구분)
+ 		<input type="text" id="txt01" class="txt">
+ 		<br><br>
+ 		
+ 		<input type="button" value="결과 확인" class="btn" style="width: 320px;" onclick="actionPerformed()">
+ 		<br><br>
+ 		
+ 		- 전체 출력
+ 		<input type="text" id="txt02" class="txt" readonly="readonly" style="width: 225px;">
+ 		<br><br>
+ 		
+ 		- 가장 큰 수
+ 		<input type="text" id="txt03" class="txt" readonly="readonly">
+ 		<br><br>
+ 	</form>
+ </div>
 
 </body>
 </html>

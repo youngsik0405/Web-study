@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-	
-	// 이전 페이지(Send05.html)로부터 넘어온 데이터 수신
+	//이전 페이지(→ Send05_01.html)로부터 넘어온 데이터 수신
 	// → dan
 	
 	String dan = request.getParameter("dan");
@@ -14,30 +13,14 @@
 		
 		for (int i=1; i<=9; i++)
 		{
-			result += String.format("%d * %d = %d", nDan, i, (nDan*i));
+			result += String.format("%d * %d = %d<br>", nDan, i, (nDan * i));
 		}
-		
 	}
 	catch(Exception e)
 	{
-		System.out.print(e.toString());
+		System.out.println(e.toString());
 	}
 
-/* 
-	String dan = request.getParameter("dan");
-
-	int n = 0;
-	int res = 0;
-	
-	try
-	{
-		n = Integer.parseInt(dan);
-	}
-	catch(Exception e)
-	{
-		System.out.print(e.toString());
-	}
-*/
 %>
 <!DOCTYPE html>
 <html>
@@ -45,22 +28,6 @@
 <meta charset="UTF-8">
 <title>Receive05.jsp</title>
 <link rel="stylesheet" type="text/css" href="css/main.css">
-<style type="text/css">
-	*
-	{
-		font-weight: bold;
-		font-size: 15pt;
-		text-align: center;
-	}
-	body
-	{
-		 background-image: url('images/gg.jpg');
-	}
-	.textarea
-	{
-		text-align: center;
-	}
-</style>
 </head>
 <body>
 
@@ -71,23 +38,22 @@
 
 <div>
 	<h2>구구단 출력</h2>
-	
-	<%=result %><br>
+	<div>
+		<!--
+		2 * 1 = 2<br>
+		2 * 2 = 4<br>
+		2 * 3 = 6<br>
+		2 * 4 = 8<br>
+		2 * 5 = 10<br>
+		2 * 6 = 12<br>
+		2 * 7 = 14<br>
+		2 * 8 = 16<br>
+		2 * 9 = 18<br>
+		-->
+		<%=result %>
+	</div>
 </div>
 
 
-
-<%-- 
-<textarea rows="20" cols="20" disabled="disabled" style="background-color: white;">
-<%
-	for (int i=1; i<=9; i++)
-	{
-%>
-	<%=n %> * <%=i %> = <%=(n*i) %>
-<%	
-	}
-%>
-</textarea>
- --%>
 </body>
 </html>

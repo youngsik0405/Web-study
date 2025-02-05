@@ -1,8 +1,8 @@
-/*========================================
+/*==================================================
 	MemberScoreDAO.java
 	- 데이터베이스 액션 처리 전용 클래스
 	  (TBL_MEMBERSCORE 테이블 전용 DAO)
-=========================================*/
+==================================================*/
 
 package com.test;
 
@@ -20,20 +20,19 @@ public class MemberScoreDAO
 	private Connection conn;
 	
 	// 데이터베이스 연결 담당 메소드
-	public Connection connection() throws ClassNotFoundException, SQLException 
+	public Connection connection() throws ClassNotFoundException, SQLException
 	{
 		conn = DBConn.getConnection();
 		return conn;
 	}
 	
-	// 데티어 입력 담당 메소드
+	// 데이터 입력 담당 메소드
 	//-- 성적 데이터 입력
 	public int add(MemberScoreDTO score) throws SQLException
 	{
 		int result = 0;
 		
 		String sql = "INSERT INTO TBL_MEMBERSCORE(SID, KOR, ENG, MAT) VALUES(?, ?, ?, ?)";
-		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
 		pstmt.setInt(1, Integer.parseInt(score.getSid()));
@@ -54,17 +53,16 @@ public class MemberScoreDAO
 		ArrayList<MemberScoreDTO> result = new ArrayList<MemberScoreDTO>();
 		
 		String sql = "SELECT SID, NAME, KOR, ENG, MAT"
-				   + ", (KOR+ENG+MAT) AS TOT"
-				   + ", (KOR+ENG+MAT)/3 AS AVG"
-				   + ", RANK() OVER(ORDER BY (KOR+ENG+MAT) DESC) AS RANK"
-				   + " FROM VIEW_MEMBERSCORE"
-				   + " ORDER BY SID";
+				+ ", (KOR+ENG+MAT) AS TOT"
+				+ ", (KOR+ENG+MAT)/3 AS AVG"
+				+ ", RANK() OVER(ORDER BY (KOR+ENG+MAT) DESC) AS RANK"
+				+ " FROM VIEW_MEMBERSCORE"
+				+ " ORDER BY SID";
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		
 		ResultSet rs = pstmt.executeQuery();
 		
-		while (rs.next())
+		while(rs.next())
 		{
 			MemberScoreDTO score = new MemberScoreDTO();
 			
@@ -78,11 +76,10 @@ public class MemberScoreDAO
 			score.setRank(rs.getInt("RANK"));
 			
 			result.add(score);
-			
 		}
+		
 		rs.close();
 		pstmt.close();
-		
 		return result;
 	}
 	
@@ -92,11 +89,12 @@ public class MemberScoreDAO
 		DBConn.close();
 	}
 	
-	// 메소드 추가~!!!
+	
+	// 메소드 추가~!~!~!
 	// 번호 검색 담당 메소드
 	public MemberScoreDTO search(String sid) throws SQLException
 	{
-		MemberScoreDTO result = new MemberScoreDTO();
+		MemberScoreDTO score = new MemberScoreDTO();
 		
 		String sql = "SELECT SID, NAME, KOR, ENG, MAT FROM VIEW_MEMBERSCORE WHERE SID=?";
 		
@@ -106,23 +104,23 @@ public class MemberScoreDAO
 		
 		ResultSet rs = pstmt.executeQuery();
 		
-		while (rs.next())
+		while(rs.next())
 		{
-			result.setSid(rs.getString("SID"));
-			result.setName(rs.getString("NAME"));
-			result.setKor(rs.getInt("KOR"));
-			result.setEng(rs.getInt("ENG"));
-			result.setMat(rs.getInt("MAT"));	
+			score.setSid(rs.getString("SID"));
+			score.setName(rs.getString("NAME"));
+			score.setKor(rs.getInt("KOR"));
+			score.setEng(rs.getInt("ENG"));
+			score.setMat(rs.getInt("MAT"));
 		}
 		
 		rs.close();
 		pstmt.close();
+		return score;
 		
-		return result;
 	}
 	
 	
-	// 메소드 추가~!!!
+	// 메소드 추가~!~!~!~
 	// 성적 데이터 수정 담당 메소드
 	public int modify(MemberScoreDTO score) throws SQLException
 	{
@@ -140,12 +138,10 @@ public class MemberScoreDAO
 		result = pstmt.executeUpdate();
 		
 		pstmt.close();
-		
 		return result;
-		
 	}
 	
-	// 메소드 추가~!!!
+	// 메소드 추가~!~!~!
 	// 성적 데이터 삭제 담당 메소드
 	public int remove(String sid) throws SQLException
 	{
@@ -160,10 +156,8 @@ public class MemberScoreDAO
 		result = pstmt.executeUpdate();
 		
 		pstmt.close();
-		
 		return result;
 	}
-	
 	
 	
 }

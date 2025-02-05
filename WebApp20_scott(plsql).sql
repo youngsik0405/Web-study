@@ -15,12 +15,12 @@ SUBJECT  NOT NULL VARCHAR2(100)
 CONTENT  NOT NULL VARCHAR2(4000) 
 IPADDR            VARCHAR2(20)   
 HITCOUNT NOT NULL NUMBER         
-CREATED  NOT NULL DATE
+CREATED  NOT NULL DATE           
 */
 
 
 DECLARE
-    V_NUM      NUMBER(9)        := 0;   
+    V_NUM      NUMBER(9)        := 0;      
     V_NAME     VARCHAR2(30);   
     V_PWD      VARCHAR2(20);   
     V_EMAIL    VARCHAR2(50);   
@@ -28,10 +28,10 @@ DECLARE
     V_CONTENT  VARCHAR2(4000); 
     V_IPADDR   VARCHAR2(20);   
     V_HITCOUNT NUMBER;         
-    V_CREATED  DATE             := TO_DATE('2012-11-11','YYYY-MM-DD');
+    V_CREATED  DATE             := TO_DATE('2012-11-11', 'YYYY-MM-DD'); 
 BEGIN
     LOOP
-        EXIT WHEN V_NUM > 1672;
+        EXIT WHEN V_NUM >1672;
         
         V_NUM := V_NUM + 1;
         
@@ -53,7 +53,7 @@ BEGIN
             V_IPADDR := '211.238.142.165';
             V_NAME := '정';
             V_SUBJECT := '운동';
-        ELSE 
+        ELSE
             V_PWD := 'java004$';
             V_CONTENT := '폭설과 관련한 내용물 작성';
             V_IPADDR := '211.238.142.174';
@@ -62,26 +62,26 @@ BEGIN
         END IF;
         
         V_NAME := V_NAME || '길동' || LTRIM(TO_CHAR(V_NUM));
-        V_SUBJECT := V_SUBJECT || '에 대한 작성한 게시물' || LTRIM(TO_CHAR(V_NUM));
+        V_SUBJECT := V_SUBJECT || '에 대해 작성한 게시물' || LTRIM(TO_CHAR(V_NUM));
         V_CREATED := V_CREATED + 1;
         
         IF (MOD(V_NUM, 2)=0) THEN
             V_EMAIL := 'apple' || V_NUM || '@test.com';
-            V_HITCOUNT := MOD(V_NUM, 3);
+            V_HITCOUNT := MOD(V_NUM, 3); 
         ELSIF (MOD(V_NUM, 3)=0) THEN
             V_EMAIL := 'test' || V_NUM || '@test.com';
-            V_HITCOUNT := MOD(V_NUM, 4);
+            V_HITCOUNT := MOD(V_NUM, 4); 
         ELSIF (MOD(V_NUM, 4)=0) THEN
             V_EMAIL := 'study' || V_NUM || '@test.com';
             V_HITCOUNT := MOD(V_NUM, 5);
-        ELSE 
+        ELSE
             V_EMAIL := 'happy' || V_NUM || '@test.com';
             V_HITCOUNT := 11;
         END IF;
-     
-        INSERT INTO TBL_BOARD(NUM, NAME, PWD, EMAIL, SUBJECT, CONTENT, IPADDR, HITCOUNT, CREATED) 
-        VALUES(V_NUM, V_NAME, V_PWD, V_EMAIL, V_SUBJECT, V_CONTENT, V_IPADDR, V_HITCOUNT, V_CREATED);   
-    
+        
+        INSERT INTO TBL_BOARD(NUM, NAME, PWD, EMAIL, SUBJECT, CONTENT, IPADDR, HITCOUNT, CREATED)
+        VALUES(V_NUM, V_NAME, V_PWD, V_EMAIL, V_SUBJECT, V_CONTENT, V_IPADDR, V_HITCOUNT, V_CREATED);
+        
     END LOOP;
 END;
 --==>> PL/SQL 프로시저가 성공적으로 완료되었습니다.

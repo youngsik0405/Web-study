@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Table.jsp</title>
-
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
 	span {color: red; font-weight: bold;}
@@ -42,13 +41,8 @@
 				</td>
 			</tr>
 		</table>
-
-			
-	
 	</form>
-	
 </div>
-
 
 
 </body>

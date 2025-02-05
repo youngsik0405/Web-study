@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test010.html</title>
+
+<!-- 스타일을 적용할 때는 바깥부터 안쪽으로 만드는 게 좋음 -->
+<style type="text/css">
+	p {color: blue; font-size: 20pt;}
+	span {font-style: italic;}
+	b {color: purple;}
+</style>
+
+</head>
+<body>
+
+<div>
+	<h1>스타일 적용의 우선순위 규칙 확인</h1>
+	<h2>스타일 시트의 상속성</h2>
+	<hr>
+</div>
+
+
+<div>
+	<p>스타일 시트는 <span>기본적인 <b>상속성</b>을</span> 가지고 있다.</p>
+</div>
+
+</body>
+</html>

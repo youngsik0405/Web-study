@@ -22,7 +22,7 @@
 	{
 		// 데이터베이스 연결
 		dao.connection();
-		
+	
 		// MemberDTO 객체 생성 및 속성 구성
 		// → dao 의 add() 메소드 호출 위해 필요
 		MemberDTO member = new MemberDTO();
@@ -42,7 +42,7 @@
 		try
 		{
 			// 데이터베이스 연결 종료
-			dao.close();		
+			dao.close();
 		}
 		catch(Exception e)
 		{

@@ -10,22 +10,31 @@
 		font-weight: bold;
 		font-family: 맑은 고딕;
 		color: #334433;
+
 	}
 </style>
-<script type="text/javascript">
 
+<script type="text/javascript">
+	// 자바스크립트 내에서 ; 은 종결자가 아니라 구분자로 활용됨.
+	// 따라서 ; 없이 개행만 해도 문자들이 구분만 되어있으면 잘 돌아감.
 	function actionPerformed()
 	{
-		//alert("함수 호출 확인~!!!");
-		
-		var vKor = document.getElementById("kor").value;	// "90"
+		//alert("함수 호출 확인~!!!");	//자바스크립트 영역 안에서 주석처리는 자바스크립트처럼 하는데,
+										//주석처리가 자바랑 똑같다. // : 라인, /**/ :여러라인
+		//html문서영역 안에 있는~ ID로 구분되는 element를 get해오겠다.
+		//자바스크립트는 데이터타입을 명시하면서 변수 선언 X 그냥 변수야~라고 해서 var로 선언함.
+		//실제 내부에서는 변수의 데이터타입이 동적으로 달라지지만, 내가 선언할 때는 신경 X
+		var vKor = document.getElementById("kor").value;	// "90" 사용자가 입력한 문자열 90이 대입됨
 		var vEng = document.getElementById("eng").value;	// "80"
 		var vMat = document.getElementById("mat").value;	// "70"
-		var vTot = 0;
-		var vAvg = 0;
+		var vTot = 0;	// 정수가 담겨있는 변수
+		var vAvg = 0;	// 정수가 담겨있는 변수
 		
-		vTot = parseInt(vKor) + parseInt(vEng) + parseInt(vMat);
-		vAvg = Math.round(vTot/3);
+		//자바스크립트 안에 기본적으로 있는 parseInt()
+		//매개변수로 문자열이든 실수든 넣으면 정수형태로 반환해준다.
+		//vTot= parseInt(vKor + vEng + vMat);	// 908070이 됨 ;;
+		vTot = parseInt(vKor) + parseInt(vEng) + parseInt(vMat);	
+		vAvg = Math.round(vTot/3);				// 반올림
 		
 		document.getElementById("tot").value = vTot;
 		document.getElementById("avg").value = vAvg;
@@ -41,23 +50,24 @@
 	<hr>
 </div>
 
+
 <div>
 	<!-- check~!!! -->
 	<form>
-		이름 <input type="text" id = "name"><br>
-		국어 <input type="text" id = "kor"><br>
-		영어 <input type="text" id = "eng"><br>
-		수학 <input type="text" id = "mat"><br>
+		이름 <input type="text" id="name"><br>
+		국어 <input type="text" id="kor"><br>
+		영어 <input type="text" id="eng"><br>
+		수학 <input type="text" id="mat"><br>
 		<br>
-		
+	
 		<!-- 결과 버튼 클릭 이벤트가 발생했을 때 -->
 		<!-- → 『actionPerformed()』 자바스크립트 함수 호출 -->
-		<input type="button" value ="결과" onclick="actionPerformed()">
+		<!-- 클릭 이벤트에 on이라는 핸들러를 붙인 거지 실제 발생하는 이벤트는 click인것. -->
+		<input type="button" value="결과" onclick="actionPerformed()">
 		<input type="reset" value="취소">
 		<br><br>
 		
-		총점 <input type="text" id = "tot"> 평균 <input type="text" id = "avg">
-		
+		총점 <input type="text" id ="tot"> 평균 <input type="text" id="avg">
 		
 	</form>
 </div>

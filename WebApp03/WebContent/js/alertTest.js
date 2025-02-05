@@ -9,3 +9,4 @@ alert(msg);
 */
 
 alert(message);
+//이 파일에서는 message라는 변수를 선언한 적이 없음.

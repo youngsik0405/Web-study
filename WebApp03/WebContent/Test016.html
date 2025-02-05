@@ -4,12 +4,107 @@
 <meta charset="UTF-8">
 <title>Test016.html</title>
 
-<script type="text/javascript">
+<style type="text/css">
+	/* *
+	{
+		font-family: 나눔고딕코딩;
+		font-size:15pt;
+	}
 	
+	h1
+	{
+		font-size: 20pt;
+		text-align: center;
+	}
+	
+	div
+	{
+		text-align: center;
+	}
+	
+	hr
+	{
+		border-color :#fcf9d1;
+	}
+	
+	input
+	{
+		height: 20pt;
+		font-size: 18pt;
+	}
+	
+	input.btn
+	{
+		font-size: 15pt;
+	}
+
+	#money:focus
+	{
+		background-color: #fcf9d1;
+	}
+	
+	input.result
+	{
+		text-align: right;
+	}
+	
+	input.btn:hover
+	{
+		background-color: #9bccf9;
+		border-color: white;
+		font-weight: bold;
+	}
+	
+	input.btn:active
+	{
+		background-color: #fbcffc;
+		border-color: white;
+		font-weight: bold;
+	} */
+	
+	* {color: #223322; font-family: 나눔고딕코딩;}
+	input.btn {width: 90px;}
+	
+</style>
+
+<script>
+
+/* function calc()
+{
+	var vMoney = parseInt(document.getElementById("money").value);
+	
+	//alert(vMoney);
+	
+	document.getElementById("totalMoney").value = vMoney;
+	
+	//오백원 개수 구하기
+	var vOback = Math.trunc(vMoney/500);
+	document.getElementById("oback").value = vOback;
+	vMoney %= 500;
+	
+	//백원 개수 구하기
+	//var vBack = Math.trunc((vMoney%500)/100);
+	var vBack = Math.trunc(vMoney / 100);
+	document.getElementById("back").value = vBack;
+	vMoney %= 100;
+	
+	//오십원 개수 구하기
+	//var vOship = Math.trunc(((vMoney%500)%100)/50);
+	var vOship = Math.trunc(vMoney / 50);
+	document.getElementById("oship").value = vOship;
+	vMoney %= 50;
+	
+	//십원 개수 구하기
+	//var vShip = Math.trunc((((vMoney%500)%100)%50)/10);
+	var vShip = Math.trunc(vMoney / 10);
+	document.getElementById("ship").value = vShip;
+	
+} */
+
 	function actionCalculate()
 	{
 		// 확인
-		alert("함수 호출 확인~!!!");
+		//alert("함수 호출 확인~!!!");
 		
 		var moneyStr = document.getElementById("money").value;
 		var money = parseInt(moneyStr);
@@ -21,10 +116,14 @@
 		// 확인
 		//alert(m500);
 		
-		/* 		
+		/*
 		alert(123.456);
 		alert(parseInt(123.456));
-		alert(Math.floor(123.456)); 
+		alert(Math.floor(123.456));
+		
+		alert(123.999);
+		alert(parseInt(123.999));
+		alert(Math.floor(123.999));
 		*/
 		
 		money = money%500;					// money %= 500;
@@ -34,132 +133,127 @@
 		money = money%50;					// money %= 50;
 		var m10 = parseInt(money/10);		// var m10 = Math.floor(money/10);
 		
+		
+		
 		document.getElementById("m500").value = m500;
 		document.getElementById("m100").value = m100;
 		document.getElementById("m50").value = m50;
 		document.getElementById("m10").value = m10;
+
+		
 	}
 
 
-
-	/* 나의 풀이
-	function calc() 
-	{
-		var vMoney = parseInt(document.getElementById("money").value);
-		var vTemp = vMoney;
-	
-		var wons = [500, 100, 50, 10];
-		var count = [0, 0, 0, 0];
-	
-		for (var i = 0; i < wons.length; i++) 
-		{
-			while (vTemp >= wons[i]) 
-			{
-				vTemp -= wons[i];
-				count[i]++;
-			}
-			document.getElementById("m" + wons[i]).value = count[i];
-		}
-	
-		document.getElementById("totalMoney").value = vMoney;	
-	} 
-	*/
-
 </script>
-
-<style type="text/css">
-    * 
-    {
-        background: linear-gradient(135deg, #e0f7fa, #80deea, #26c6da);
-        font-family: '맑은 고딕', sans-serif;
-    }
-
-    body 
-    {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
-    }
-
-    input.txtNum 
-    {
-        width: 100px; 
-        padding: 10px;
-    }
-
-
-    input.btn 
-    {
-        padding: 10px 15px;
-        background-color: #00796b;
-        color: white;
-    }
-
-    input.btn:hover 
-    {
-        background-color: #004d40;
-    }
-
-    .container 
-    {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-    }
-</style>
 </head>
 <body>
 
-<!--
+<!-- 
 	특정 금액(10원 ~ 990원)을 사용자로부터 입력받아
 	화폐 단위로 구분하여 출력하는 페이지를 구성한다.
 	화폐 단위는 편의상 오백원, 백원, 오십원, 십원으로 구분한다.
-	HTML, CSS, Javascript를 활용한다.
+	HTML, CSS, Javascript 를 활용한다.
 	
 	페이지 기본 레이아웃 구성
 	-----------------------------------------------------------
 	
-	금액 [			]원
+	금액   [           ] 원		#money
 	
-	<결과> <취소>
+	< 결과 > < 취소 >
 	
-	총원	[       ] 원
-	오백원  [       ] 개
-	백원 	[       ] 개
-	오십원  [       ] 개
-	십원  	[       ] 개
+	총액   [           ] 원		#totalMoney
+	오백원 [           ] 개		#m500
+	백원   [           ] 개		#m100
+	오십원 [           ] 개		#m50
+	십원   [           ] 개		#m10
 	
-	-----------------------------------------------------------   
--->
+	-----------------------------------------------------------
+ -->
+<!--  
+ <hr>
+ <hr>
+ <h1>&lt;거스름돈 계산기&gt;</h1>
+ <hr>
+ <div>
+  	<form>
+ 		<h2>금&nbsp;&nbsp;액 <input type="text" id="money"> 원</h2>
+ 		<hr>
+ 		<br>
+ 		
+	 	<input type="button" class="btn" value="결과" onclick="calc()">
+	 	<input type="reset" class="btn" value="취소">
+ 		<br><br>
+ 	
+		 총&nbsp;&nbsp;&nbsp;&nbsp;액 <input type="text" disabled="disabled" id="totalMoney" class="result"> 원
+		 <br>오&nbsp;백&nbsp;원 <input type="text" disabled="disabled" id="oback" class="result"> 개
+		 <br>백&nbsp;&nbsp;&nbsp;&nbsp;원 <input type="text" disabled="disabled" id="back" class="result" > 개
+		 <br>오&nbsp;십&nbsp;원 <input type="text" disabled="disabled" id="oship" class="result"> 개
+		 <br>십&nbsp;&nbsp;&nbsp;&nbsp;원 <input type="text" disabled="disabled" id="ship" class="result"> 개
+ 	</form>
+ </div>
+ <br>
+ <hr>
+ -->
 
-<div>
 
-</div>
-
-
-<div>
-	<form>
-		금액 <input type="text" id="money" class="txtNum"> 원
-		<br><br>
-		
-		<input type="button" class="btn" value="결과" onclick="actionCalculate()">
-		<input type="reset" class="btn" value="취소">
-		<br><br>
-		
-		총원&nbsp&nbsp&nbsp&nbsp<input type="text" id="totalMoney" class="txtNum" disabled="disabled"> 원
-		<br>
-		오백원 <input type="text" id="m500" class="txtNum" disabled="disabled"> 개
-		<br>
-		백원&nbsp&nbsp&nbsp&nbsp<input type="text" id="m100" class="txtNum" disabled="disabled"> 개
-		<br>
-		오십원 <input type="text" id="m50" class="txtNum" disabled="disabled"> 개
-		<br>
-		십원&nbsp&nbsp&nbsp&nbsp<input type="text" id="m10" class="txtNum" disabled="disabled"> 개
-		<br>
-	</form>
-</div>
-
+ <div>
+ 	<form>
+ 		<table style="width: 200px;">
+ 			<tr>
+ 				<td>금액</td>
+ 				<td>
+ 					<input type="text" style="width: 100px" class="txt" id="money">
+ 				</td>
+ 				<td>원</td>
+ 			</tr>
+ 			<tr style="height: 10px;">
+ 			</tr>
+ 			<tr>
+ 				<td colspan="3">
+ 					<input type="button" value="결과" class="btn" onclick="actionCalculate()">
+ 					<input type="reset" value="취소" class="btn">
+ 				</td>
+ 			</tr>
+ 			<tr style="height: 10px;">
+ 			</tr>
+ 			<tr>
+ 				<td>총 액</td>
+ 				<td>
+ 					<input type="text" style="width: 100px" class="txt" id="totalMoney" disabled="disabled">
+ 				</td>
+ 				<td>원</td>
+ 			</tr>
+ 			<tr>
+ 				<td>오백원</td>
+ 				<td>
+ 					<input type="text" style="width: 100px" class="txt" id="m500" disabled="disabled">
+ 				</td>
+ 				<td>원</td>
+ 			</tr>
+ 			<tr>
+ 				<td>백 원</td>
+ 				<td>
+ 					<input type="text" style="width: 100px" class="txt" id="m100" disabled="disabled">
+ 				</td>
+ 				<td>원</td>
+ 			</tr>
+ 			<tr>
+ 				<td>오십원</td>
+ 				<td>
+ 					<input type="text" style="width: 100px" class="txt" id="m50" disabled="disabled">
+ 				</td>
+ 				<td>원</td>
+ 			</tr>
+ 			<tr>
+ 				<td>십 원</td>
+ 				<td>
+ 					<input type="text" style="width: 100px" class="txt" id="m10" disabled="disabled">
+ 				</td>
+ 				<td>원</td>
+ 			</tr>
+ 		</table>
+ 	</form>
+ </div>
 
 
 </body>

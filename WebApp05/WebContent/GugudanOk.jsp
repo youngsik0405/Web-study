@@ -1,4 +1,3 @@
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	// 스크립릿 영역
@@ -6,7 +5,7 @@
 	// 이전 페이지(Gugudan.jsp)로부터 넘어온 데이터 수신
 	// → dan
 	String danStr = request.getParameter("dan");
-	
+
 	int n = 0;
 	
 	//String resultStr = "";
@@ -16,50 +15,24 @@
 		n = Integer.parseInt(danStr);
 		
 		// 반복문 구성
-		// resultStr += ...;
+		// resultStr += ....;
 	}
 	catch(Exception e)
 	{
 		System.out.println(e.toString());
 	}
 
-
-
-
-	/* 나의 풀이 	
-	String str = request.getParameter("dan");
-	
-	int res = 0;
-	int n = 0;
-
-	try
-	{
-		n = Integer.parseInt(str);
-		for(int i=1; i<=9; i++)
-		{
-			res = i * n;
-			out.println(n + " * " + i + " = " + res);
-		} 
-	}
-	catch(Exception e)
-	{
-		System.out.println(e.toString());
-		
-		getServletContext().log("오류 : " + e.toString());
-	} 
-	*/
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>GugudanOk.jsp</title>
-
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
 	span {color: red; font-weight: bold;}
 </style>
+
 
 </head>
 <body>
@@ -70,44 +43,31 @@
 	<hr>
 </div>
 
-<!-- html 주석문 -->
-<%-- jsp 주석문 --%>
-
+<!-- html 주석문 : 브라우저한테 이거 그리지 마~하는것.
+	 서블릿컨테이너는 읽어서 렌더링하므로, 브라우저에게 페이지소스보기 하면 주석문이 다 보인다. -->
+<%-- jsp 주석문 : 서블릿컨테이너한테 안 보이게 하는것. 렌더링 안 함--%>
 
 <%-- 
 <%
 	// 스크립릿 영역
-	for (int i=1; i<=9; i++)
+	for (int i=1; i<=9; i++)	// i : 1 ~ 9
 	{
+		// 출력 스트림에 실어서 내보내는 것
 		out.print(n + " * " + i + " = " + (n*i) + "<br>");
 	}
 %> 
 --%>
 
+
 <%
 	for (int i=1; i<=9; i++)
 	{
 %>
-	<%=n %> * <%=i %> = <%=(n*i) %><br>
-<%	
+		<%=n %> * <%=i %> = <%=(n*i) %><br>
+<%
 	}
 %>
 
-
-
-
-<%-- 
-<div>
-	<h2>처리결과 : 
-	<%
-	for(int i=1; i<=9; i++)
-	{
-		out.println("<br>" +  n + " * " + i + " = " + (n*i) + "<br>");
-	}  
-	%>
-	</h2>
-</div>  
---%>
 
 
 

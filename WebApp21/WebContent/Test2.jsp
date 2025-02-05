@@ -19,16 +19,15 @@
 
 <div>
 	<form action="<%=cp%>/test2" method="post">
-	이름<input type="text" name="name" class="txt">
-	<br><br>
-	
-	나이<input type="text" name="age" class="txt">
-	<br><br>
-	
-	<button type="submit" class="btn">확인</button>
+		이름 <input type="text" name="name" class="txt">
+		<br><br>
+		
+		나이 <input type="text" name="age" class="txt">
+		<br><br>
+		
+		<button type="submit" class="btn">확인</button>
 	</form>
 </div>
-
 
 </body>
 </html>

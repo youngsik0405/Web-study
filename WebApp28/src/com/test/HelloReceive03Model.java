@@ -1,4 +1,4 @@
-/*===============================
+/*==============================
 	HelloReceive03Model.java
 ===============================*/
 
@@ -15,6 +15,7 @@ public class HelloReceive03Model
 	{
 		String result = "";
 		
+		// 시스템 운영체제에서 이 인코딩 방식을 지원하지 않으면 어떡할 거야? -> (아주 작은 확률이라도..)예외발생
 		request.setCharacterEncoding("UTF-8");
 		
 		// 데이터 수신
@@ -22,7 +23,7 @@ public class HelloReceive03Model
 		String lastName = request.getParameter("lastName");
 		
 		// 업무 처리 코드 삽입 가능~!!!
-		firstName = "★" + firstName + "★"; 
+		firstName = "★" + firstName + "★";
 		lastName = "♥" + lastName + "♥";
 		
 		// 업무 처리가 완료된 데이터 전달
@@ -33,5 +34,6 @@ public class HelloReceive03Model
 		result = "WEB-INF/view/HelloReceive03.jsp";
 		
 		return result;
+		
 	}
 }

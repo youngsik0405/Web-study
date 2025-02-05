@@ -1,7 +1,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="com.util.DBCPConn"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
@@ -13,15 +13,14 @@
 	
 	if (conn != null)
 	{
-		result = "데이터베이스 연결 성공~!!!";
+		result = "데이터베이스 연결 성공~!~!~!~!~ *^^*";
 	}
 	else
 	{
-		result = "데이터베이스 연결 실패ㅠㅠ";
+		result = "데이터베이스 연결 실패 ㅠㅠ";
 	}
 	
 	DBCPConn.close();
-
 %>
 <!DOCTYPE html>
 <html>

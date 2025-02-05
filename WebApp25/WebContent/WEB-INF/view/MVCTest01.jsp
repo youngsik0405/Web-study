@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
@@ -19,17 +19,14 @@
 </div>
 
 <div>
-	<!-- Controller 로 부터 수신한 1부터 100까지의 결과물을 가지고 클라이언트 만나기 -->
+	<!-- Controller 로부터 수신한 1부터 100까지의 결과물을 가지고 클라이언트 만나기 -->
 	
 	<!-- 컨트롤러로부터 수신한 결과 -->
-	<%-- <h2>${lists }</h2> --%>
-	
 	<ul>
 		<c:forEach var="i" items="${lists }">
 			<li>${i }</li>
-		</c:forEach>
+		</c:forEach>	
 	</ul>
-	
 </div>
 
 </body>

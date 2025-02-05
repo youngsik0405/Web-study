@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest09.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript">
+
+	var myJsonObject9 =
+	{
+		"superman" :
+		{
+			"name" : "AnSeokChang"
+			, "age" : 49
+			, "hobby" : ["song", "dance"]
+		}
+			
+	}
+
+
+</script>
+
+</head>
+<body>
+
+
+
+
+</body>
+</html>

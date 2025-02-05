@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest07.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript">
+
+	var myJsonObject7 =
+	[
+		"test"
+	]
+
+	var myJsonObject7_1 =
+	[
+		"test1", "test2"	
+	]
+	
+	var myJsonObject7_2 =
+	[
+		"test1", "test2", 123, 123+1
+	]
+	
+</script>
+
+
+</head>
+<body>
+
+<form>
+	
+	<input type="button" value="click1" onclick="alert(myJsonObject7)">
+	<!-- test -->
+
+	<input type="button" value="click2" onclick="alert(myJsonObject7_1)">
+	<!-- test1, test2 -->
+	
+	<input type="button" value="click3" onclick="alert(myJsonObject7_2)">
+	<!-- test1, test2, 123, 124 -->
+	
+	<br><br>
+	
+	
+	<input type="button" value="click4" onclick="alert(typeof myJsonObject7)">
+	<!-- object -->
+	
+	<input type="button" value="click5" onclick="alert(typeof myJsonObject7_1)">
+	<!-- object -->
+	
+	<input type="button" value="click6" onclick="alert(typeof myJsonObject7_2)">
+	<!-- object -->
+
+	
+	<br><br>
+
+	
+	<input type="button" value="click7" onclick="alert(myJsonObject7[0])">
+	
+	<input type="button" value="click7" onclick="alert(typeof myJsonObject7[0])">
+	
+	<input type="button" value="click7" onclick="alert(myJsonObject7[1])">
+	
+	<input type="button" value="click7" onclick="alert(typeof myJsonObject7[1])">
+	
+</form>
+
+
+
+</body>
+</html>

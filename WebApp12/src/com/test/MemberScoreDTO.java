@@ -1,7 +1,8 @@
-/*====================================================
-	 MemberScoreDTO.java
-  	 - 객체 전용(데이터 보관 및 전송) → JAVA Bean
-=====================================================*/
+/*==================================================
+	MemberScoreDTO.java
+	- 객체 전용(데이터 보관 및 전송) → JAVA Bean
+==================================================*/
+
 
 package com.test;
 
@@ -9,7 +10,7 @@ public class MemberScoreDTO
 {
 	// 주요 속성 구성(프로퍼티 구성)
 	//-- TBL_MEMBERSCORE 조회 항목을 기준으로 구성
-	private String sid, name; 		//-- 번호, 이름
+	private String sid, name;		//-- 번호, 이름
 	private int kor, eng, mat;		//-- 국어점수, 영어점수, 수학점수
 	private int tot, rank;			//-- 총점, 석차
 	private double avg;				//-- 평균
@@ -81,5 +82,4 @@ public class MemberScoreDTO
 	}
 	
 	
-
 }

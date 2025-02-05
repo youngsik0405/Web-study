@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>JQTest06.html</title>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
@@ -10,29 +10,33 @@
 	
 	$(document).ready(function()
 	{
-		// 초기 게시물 구성 → 스크롤 생성
+		// 초기 게시물 구성 → 스크롤 생성 ------------------------------------------------
 		
 		var docHeight = $(document).height();
 		
 		// 확인
 		//alert(docHeight);
+		//문서 자체의 높이. 브라우저 창 크기를 줄이고 다시 실행하면 숫자가 줄어든다~
 		
 		//alert($(window).height());
+		//문서의 높이가 뷰포트(윈도우)의 높이보다 크면.. 스크롤바가 생긴다~!~!~!~
 		//alert($(window).scrollTop());
+		//--==>> 지금은 브라우저 크기를 늘리든 줄이든 다 0이 찍힌다..
 		
 		var scrollHeight = $(window).scrollTop() + $(window).height();
-	
+		
 		for (var i=0; i<30; i++)
 		{
-			$("<h3>기존의 읽어온 게시물"
+			$("<h3>기존의 읽어온 게시물 " 
 					+ $(document).height() + " / "
 					+ $(window).scrollTop() + " / "
 					+ $(window).height()
 					+ "</h3>").appendTo("body");
 		}
 		
-		// -------------------------------------------------초기 게시물 구성 → 스크롤 생성
+		// ------------------------------------------------ 초기 게시물 구성 → 스크롤 생성
 		
+		//스크롤이 움직일 때마다..
 		$(window).scroll(function()
 		{
 			// 확인
@@ -44,24 +48,22 @@
 			// 스크롤이 바닥으로 내려졌을 때...
 			if (docHeight == scrollHeight)
 			{
-				// 게시물 10개 추가하여 body에 붙이기
+				// 게시물 10개 추가하여 body 에 붙이기
 				for (var i=0; i<10; i++)
 				{
-					$("<h3>기존의 읽어온 게시물"
+					$("<h3>추가로 읽어온 게시물 " 
 							+ $(document).height() + " / "
 							+ $(window).scrollTop() + " / "
 							+ $(window).height()
-							+ "</h3>").appendTo("body");		
+							+ "</h3>").appendTo("body");
 				}
 			}
 			
 			
 		});
-		
 	});
-
+	
 </script>
-
 </head>
 <body>
 

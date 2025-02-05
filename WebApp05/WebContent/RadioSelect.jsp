@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <title>RadioSelect.jsp</title>
-
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
 	span {color: red; font-weight: bold;}
@@ -60,16 +59,11 @@
 		</select>
 		<br><br>
 		
-		<!-- submit 액션 수행 -->
-		<input type="submit" value="내용 전송" class="btn control"> 
-		
+		<!-- submit 액션 -->
+		<input type="submit" value="내용 전송" class="btn control">
 		
 	</form>
 
 </div>
-
-
-
-
 </body>
 </html>

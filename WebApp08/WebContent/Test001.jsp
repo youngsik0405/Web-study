@@ -1,7 +1,8 @@
-<%@page import="com.util.DBConn"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="com.util.DBConn"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
+	// 이 페이지가 요청될 때 스크립릿에서 처리할 거 처리하고 문서 렌더링 시작할 것..
 	String str = "";
 
 	try
@@ -12,7 +13,6 @@
 		{
 			str += "데이터베이스 연결 성공~!!!";
 		}
-		
 	}
 	catch(Exception e)
 	{
@@ -20,7 +20,7 @@
 		
 		str += e.toString();
 	}
-
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -40,6 +40,7 @@
 	<!-- <h2>상태 확인</h2> -->
 	<h2><%=str %></h2>
 </div>
+
 
 
 </body>

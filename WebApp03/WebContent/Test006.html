@@ -6,26 +6,27 @@
 
 <script type="text/javascript">
 
-	num1=10;							//-- 변수 num1 에 10 대입
-	document.write("num1=");			//-- 문자열 출력
-	document.write(num1);				//-- 변수 출력
+	num1=10;								//-- 변수 num1 에 10 대입
+	document.write("num1=");				//-- 문자열 출력
+	document.write(num1);					//-- 변수 출력
 	
-	num1=100;							//-- 변수 num1 에 100 대입
-	//document.write("\n" + "num1=");	//-- 문자열 출력 → check~!!! →  『\n』 개행 안됨
-	document.write("<br>" + "num1=");	//-- 문자열 출력 → check~!!! →  『<br>』 개행
-	document.write(num1);						
+	num1=100;								//-- 변수 num1 에 100 대입
+	//document.write("\n" + "num1=");		//-- 문자열 출력 → check~!!! → 『\n』 개행 안됨 (개행이 들어갔지만, html문서 자체에서 시각적으로 표현X)
+	document.write("<br>" + "num1=");		//-- 문자열 출력 → check~!!! → 『<br>』 개행
+	document.write(num1);	
 	
-	num1="2024년 12월의 끝자락에서...";	//-- 변순 num1 에 문자열 대입 → check~!!! → 에러 발생하지 않음
-	document.write("<br>num1=");		
+	num1="2024년 12월의 끝자락에서...";		//-- 변수 num1 에 문자열 대입 → check~!!! → 에러 발생하지 않음
+//  동적 데이터타입을 취한다, 동적 데이터타입을 표현한다. (데이터타입이 정적으로 구성되어 끝까지 표현되는 게 아니라 이거 담으면 담기고 저거 담기면 담기게..)
+	document.write("<br>num1=");			
 	document.write(num1);
 	
-	num2=200;							//-- 변수 num2 에 200 대입
+	num2=200;								//-- 변수 num2 에 200 대입
 	
-	num1=num2;							//-- 변수 num1(문자열)에 num2(정수) 대입
+	num1=num2;								//-- 변수 num1(문자열)에 num2(정수) 대입
 	
 	document.write("<br>num1=");
 	document.write(num1);
-
+	
 	document.write("<br><br><br><br>");
 	
 	num1=10;
@@ -41,14 +42,10 @@
 	document.write(num3);
 	
 	
-	
-</script>
 
+</script>
 </head>
 <body>
-
-
-
 
 </body>
 </html>

@@ -3,76 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <title>Test028.html</title>
+
 <style type="text/css">
-   * {color: #223322;}
-   input {font-family: 나눔고딕코딩; font-weight: bold;}
-   input:focus {background-color: #eeeedd;}
-   input.btn {width: 150px; font-weight: bold; font-family: 맑은 고딕;}
-   input.btn:hover {color: orange;}
-   td {text-align: center;}
-   .txtName {text-align: center;}
-   .txtScore {text-align: right;}
-   .txt {text-align: center;}
-   textarea {font-family: 나눔고딕코딩; font-weight: bold;}
+	* {color: #223322;}
+	input {font-family: 나눔고딕코딩; font-weight: bold;}
+	input:focus {background-color: #eeeedd;}
+	.btn {width: 90px; font-weight: bold; font-family: 맑은 고딕;}
+	.btn:hover {color: orange;}
+	td {text-align: center;}
+	.txt {text-align: center;}
+	textarea {font-family: 나눔고딕코딩; font-weight: bold;}
+	th {width: 40px;}
+	#resultArea{font-family: 맑은 고딕; font-weight: bold;}
+	#txtCount {width: 20px;}
 </style>
 
 <script type="text/javascript">
 
-   function actionChoice()
-   {
-      // 확인
-      //alert("함수 호출 확인~!!!");
-      
-      //document.getElementById("id");
-      var checkObj = document.getElementsByName("subject");
-      var msg = "";
-      var flag = true;
-      
-      // 확인
-      //alert(checkObj);
-      //--==>> [object NodeList]
-      //alert(checkObj.length);
-      //--==>> 6
-      
-      for (var i = 0; i < checkObj.length; i++)   // i : 0 1 2 3 4 5
-      {
-         // 확인
-         //alert(checkObj[i].checked);
-         
-         /*
-         체크박스가 가지는 라디오버튼과의 차이점이 있다면,
-         라디오버튼은 같은 name 을 공유하는 버튼 중 하나만이 true 를 반환했다면,
-         체크박스는 여러 버튼이 true 가 될 수 있다.
-         */
-         
-         if (checkObj[i].checked)
-         {
-            msg += checkObj[i].value + " ";
-            //break
-            //** 라디오버튼과 달리 『break』 를 써주면 안된다.
-            //   → true 값을 가진 항목을 하나 찾았다 하더라도
-            //      true 값을 가진 또 다른 항목이 존재할 수 있으므로.
-            
-            flag = false;
-         }
-      }
-      
-      //alert(msg);
-      
-      if (flag)
-      {
-         msg = "선택한 과목이 존재하지 않습니다.";
-         alert(msg);
-      }
-      else
-      {
-         alert(msg);
-      }
-      
-   }
-
+	function actionChoice()
+	{
+		// 확인
+		//alert("함수 호출 확인~!!!");
+		
+		//document.getElementById("id");
+		var checkObj = document.getElementsByName("subject");
+		var msg = "";
+		var flag = true;
+		
+		// 확인
+		//alert(checkObj);
+		//--==>> [object NodeList] → 자바스크립트 배열
+		//alert(checkObj.length);
+		//--==>> 6
+		
+		for (var i=0; i<checkObj.length; i++)	// i : 0 1 2 3 4 5
+		{
+			// 확인
+			//alert(checkObj[i].checked);			// true / false 반환. 이때, 체크박스는 true가 여러 개
+			
+			if (checkObj[i].checked)
+			{
+				msg += checkObj[i].value + " ";
+				//break;	// 다음 항목이 또 체크되어있을 수 있기 때문.
+				flag = false;
+			}
+		}
+		
+		//alert(msg);
+		
+		if (flag)
+		{
+			msg = "선택한 과목이 존재하지 않습니다.";
+			alert(msg);
+		}
+		else
+		{
+			alert(msg);
+		}
+	}
+	
 </script>
-
 
 </head>
 <body>
@@ -103,8 +93,9 @@
 		<br><br>
 		
 		<button type="button" class="btn" onclick="actionChoice()">선택 완료</button>
+		
+		
 	</form>
-	
 </div>
 
 

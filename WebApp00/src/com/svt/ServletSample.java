@@ -1,6 +1,7 @@
 /*==========================
 	ServletSample.java
-==========================*/
+===========================*/
+
 package com.svt;
 
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class ServletSample extends HttpServlet
 		
 		// GET 방식이든 POST 방식이든
 		// 어떤 방식의 요청에도 모두 처리할 수 있는 사용자 정의 메소드
+
 	}
 	
 }

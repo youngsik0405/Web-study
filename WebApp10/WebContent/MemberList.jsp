@@ -2,16 +2,18 @@
 <%@page import="com.test.MemberDAO"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
+	// 동적인 StringBuffer 혹은 StringBuilder 를 써야 메모리 낭비 줄일 수 있다.
 	StringBuffer str = new StringBuffer();
 	MemberDAO dao = null;
 	
 	String memberCount = "<span id='membercount'>전체 인원 수 : ";
 	
+	// dao 만들 때 다 throws 시키게 했으니까 여기서 try~catch하자!
 	try
 	{
 		dao = new MemberDAO();
 		
-		memberCount += dao.count()+ "명</span>";
+		memberCount += dao.count() + "명</span>";
 		
 		str.append("<table class='table'>");
 		str.append("<tr><th>번호</th><th>이름</th><th>전화번호</th></tr>");
@@ -27,7 +29,6 @@
 			str.append("</tr>");
 			
 		}
-		
 		str.append("</table>");
 		
 	}
@@ -35,6 +36,19 @@
 	{
 		System.out.println(e.toString());
 	}
+	finally
+	{
+		try
+		{
+			// 데이터베이스 연결 종료
+			dao.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.toString());
+		}
+	}
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -43,20 +57,18 @@
 <title>MemberList.jsp</title>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
-	.record{text-align: center;}
-	input{width: 200px; border-radius: 6px;}
-	button{width: 380px; height: 40px; font-family: 맑은 고딕; font-weight: bold;}
-	.errMsg{font-size: small; color: red; display: none;}
-	inputTh {width: 120px;}
+	.record {text-align: center;}
+	input {width: 200px; border-raius: 6px;}
+	button {width: 380px; height: 40px; font-family: 맑은 고딕; font-weight: bold;}
+	.errMsg {font-size: small; color: red; display: none;}
+	.inputTh {width: 140px;}
 </style>
-
 <script type="text/javascript">
-	
+
 	function formCheck()
 	{
 		// 확인
 		//alert("함수 호출 확인~!!!");
-		
 		
 		//return true;
 		//return false;
@@ -70,15 +82,13 @@
 		{
 			nameMsg.style.display = "inline";
 			userName.focus();
-			
 			return false;
 		}
 		
 		return true;
 	}
-
+	
 </script>
-
 </head>
 <body>
 
@@ -88,6 +98,7 @@
 	<hr>
 </div>
 
+<!-- div>form>table.table>(tr>th{이름(*)}+td>input#userName.txt+span.errMsg#nameMsg{이름을 입력해야 합니다.}*2) -->
 <div>
 	<form action="MemberInsert.jsp" method="post" onsubmit="return formCheck()">
 		<table class="table">
@@ -114,12 +125,15 @@
 </div>
 <br><br>
 
+<!-- div>span#membercount{전체 인원 수 : 3명}+table.table>(tr>th{번호}+th{이름}+th{전화번호})+tr*3>td.record*3 -->
 <div>
-<!-- 	
+	<!--
 	<span id="membercount">전체 인원 수 : 3명</span>
-	<table>
+	<table class="table">
 		<tr>
-			<th>번호</th><th>이름</th><th>전화번호</th>
+			<th>번호</th>
+			<th>이름</th>
+			<th>전화번호</th>
 		</tr>
 		<tr>
 			<td class="record">1</td>
@@ -136,20 +150,18 @@
 			<td class="record">마이콜</td>
 			<td class="record">010-3333-3333</td>
 		</tr>
-	</table> 
+	</table>
 	-->
 	
 	<!-- 전체 인원 수 확인 -->
 	<%=memberCount %>
 	
 	<!-- 번호, 이름, 전화번호 항목에 대한 리스트 구성 -->
+	<!-- 그냥 str을 찍으면 StringBuffer니까 .toString()을 통해 String으로 만들어서 출력시키자. -->
+	<!-- 그냥 str로 찍어도 나오긴 하지만.. 타입이 StringBuffer니까.. -->
 	<%=str.toString() %>
+	
 </div>
-
-
-
-
-
 
 </body>
 </html>

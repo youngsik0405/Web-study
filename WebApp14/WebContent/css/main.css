@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 /* main.css */
 
 *
@@ -32,7 +31,7 @@ body, p, div, span, input, table, th, td, select
 	border-left: 0px;
 	border-right: 0px;
 	padding: 3px;
-	line-height: 150%; 
+	line-height: 150%;
 }
 
 .table th
@@ -51,3 +50,6 @@ body, p, div, span, input, table, th, td, select
 	color: white;
 	background-color: #778877;
 }
+
+
+

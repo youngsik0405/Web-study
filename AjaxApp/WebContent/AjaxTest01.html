@@ -5,24 +5,25 @@
 <title>AjaxTest01.html</title>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <script type="text/javascript">
-	
-	function loadXMLDocs()
+
+	function loadXMLDoc()
 	{
 		// 확인
 		//alert("함수 호출 확인~!!!");
 		
+		// AJAX 객체는 사실 없음. 브라우저에서 지원하는 XMLHttpRequest객체를 이렇게 쓰겠다고 선언한 것..
 		// XMLHttpRequest 객체(→ AJAX 객체)를 담을 변수 선언
 		var xmlHttp;
 		
-		// (클라이언트 측) 브라우저에 따른 분기
-		// (클라이언트 측에서) 자신의 브라우저에 XMLHttpRequest 를
+		// (클라이언트 측) 브라우저에 따른 분기(크로스브라우징 처리)
+		// (클라이언트 측에서) 자신의 브라우저가 XMLHttpRequest 를
 		// 지원하고 있는 상황이라면...
-		if (window.XMLHttpRequest)
+		if (window.XMLHttpRequest) 		//window. -> BOM(브라우저객체)에서 XMLHttpRequest를 지원하냐 안 하냐 분기
 		{
-			// 확인 
+			// 확인
 			//alert("XMLHttpRequest 지원 브라우저~!!!");
 			
-			// 이와 같은 방법으로 객체를 생성하고... (이 방법)
+			// 이와 같은 방법으로 객체를 생성하고...(이 방법)
 			xmlHttp = new XMLHttpRequest();
 		}
 		else 	// 지원하고 있지 않은 상황이라면...
@@ -30,72 +31,72 @@
 			// 확인
 			//alert("XMLHttpRequest 미지원 브라우저~!!!");
 			
-			// 이와 같은 방법으로 객체를 생성해라... (저 방법)
+			// 이와 같은 방법으로 객체를 생성해라...(저 방법)
 			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
 		}
 		
-		// ※ (사용하는 브라우저에 따라...) 객체를 생성하는 방법의 차이만 있을 뿐...
-		//	  여기까지 수행하면 XMLHttpRequest 객체(→ AJAX 객체) 생성 완료~!!!
+		// ※ (사용하는 브라우저에 따라....)객체를 생성하는 방법의 차이만 있을 뿐...
+		//    여기까지 수행하면 XMLHttpRequest 객체(→ AJAX 객체) 생성 완료~!!!
 		
 		// 『xmlHttp』 : XMLHttpRequest 객체
 		// 서버로부터 응답이 오면 『readystatechange』 이벤트가 발생하게 된다.
 		// 『onreadystatechange』
 		// : readystatechange 이벤트가 발생했을 때 동작할 수 있도록
-		// 이벤트 핸들러를 등록하는 과정
-		// 즉, 이와 같은 이벤트가 발생하게 되면... 아래의 내용처럼 동작해라~!!!
+		//   이벤트 핸들러를 등록하는 과정.
+		//   즉, 이와 같은 이벤트가 발생하게 되면.... 아래의 내용처럼 동작해라~!!! 
 		
 		//xmlHttp.onreadystatechange = 동작;
 		//xmlHttp.onreadystatechange = 이름없는함수정의;
-		xmlHttp.onreadystatechange = function()
+		xmlHttp.onreadystatechange = function() 	// 0~4단계까지 readyState는 단계마다 바뀌게 되는데, 그중에서도 4일 때 액션처리하라고 조건문 넣음..
 		{
 			// 응답이 올 때 마다...
 			// readyState 가 그 상황에서의 XMLHttpRequest 상태를 저장하게 된다.
 			// 즉, readyState 는 XMLHttpRequest 객체의 property 이다.
 			// ==> readystatechange 이벤트는
-			//     readyState 가 변경될 때 마다 발생하게된다.
+			//     readyState 가 변경될 때 마다 발생하게 된다.
 			
-			// ※ 『XMLHttpRequest』 의 『readyState』는 0에서 4까지 순차적으로 변화한다.
-			//     0 → 요청이 초기화되지 않음
-			//	   1 → 서버 연결이 이루어지지않음
-			//	   2 → 요청이 수신됨
-			//	   3 → 요청이 처리중
-			//	   4 → 요청의 처리가 종료되고, 응답이 준비됨
-		
-			// 서버로부터 응답을 받게 되면...	
+			// ※ 『XMLHttpRequest』의 『readyState』는 0 부터 4 까지 순차적으로 변화한다.
+			//    0 → 요청이 초기화되지 않음.
+			//    1 → 서버 연결이 이루어지지 않음.
+			//    2 → 요청이 수신됨.
+			//    3 → 요청을 처리중.
+			//    4 → 요청의 처리가 종료되고, 응답이 준비됨.
+			
+			// 서버로부터 응답을 받게 되면... (->응답이 404에러 등.. 에러가 떴다는 에러일지도.)
 			if (xmlHttp.readyState==4)
 			{
-				// ※ 『XMLHttpRequest』의 status 는 『HTTP Status』 코드를 의미한다.
+				// ※ 『XMLHttpRequest』의 status 는 『HTTP status』 코드를 의미한다.
 				//    200 → 올바른 응답
 				//	  40x → 클라이언트 측 에러(404 페이지 찾을 수 없음)
-				//    50x → 서버 측 에러(JAVA 에러)
+				//	  50x → 서버 측 에러(JAVA 에러)
 				
-				if (xmlHttp.status==200)
+				if (xmlHttp.status==200) 	//AJAX 객체가 올바른 응답을 받았다면~
 				{
 					// 이 구문을 통해 서버로부터 응답을 정상적으로 받았을 때
 					// 그 응답을 가져와 DOM 을 업데이트 하겠다는 의미.
-					// 응답의 속성에는 두가지가 있는데
-					// 『responseText』 는 텍스트 형식의 응답일 경우 사용하게 되고,
-					// 『responseXML』은 응답의 XML 형식일 경우 사용하게 된다.
+					// 응답의 속성에는 두 가지가 있는데
+					// 『responseText』는 텍스트 형식의 응답일 경우 사용하게 되고,
+					// 『responseXML』은 응답이 XML 형식일 경우 사용하게 된다.
 					document.getElementById("myDiv").innerHTML = xmlHttp.responseText;
 				}
 			}
 		};
+		// 위까지는 onreadystatechange가 일어났을 때 설정이라고 보면 되고.. 아래부터가 실제 액션.
 		
+		//								GET 또는 POST 방식, 내가 요청할 페이지URL, 동기냐 비동기이냐.. 비동기가 true.
+		//                                                                         이때, AJAX는 비동기이므로 무조건 true라고 쓴다.(false로 쓸 일 없다~!)
 		// 『XMLHttpRequest』의 『open("데이터전송및페이지요청방식", "URL", async)』은
 		// XMLHttpRequest 객체를 필요한 값으로 초기화하는데 사용하는 메소드이다.
 		// GET 방식이 아닌 POST 방식으로 요청하기 위해서는
-		// 『xmlHttp.setRequestHeader("Content-type", "application/x-www.form-urlencoded")』;
-		//   xmlHttp.send(input=value1&input2=value2)
-		// 와 같은 헤드를 추가해 주어야 한다.
-		// 기본적으로 비동기이기 때문에 false를 쓸일이 없다.
-		xmlHttp.open("GET", "ajaxTarget.txt", true);	
-		xmlHttp.send("");
+		// 『xmlHttp.setRequestHeader("Content-type", "application/x-www.form-urlencoded");
+		//   xmlHttp.send(input1=calue1&input2=value2);』
+		// 와 같이 헤더를 추가해주어야 한다.
+		xmlHttp.open("GET", "ajaxTarget.txt", true);
+		xmlHttp.send(""); 	// 실제로 액션하게 되는 구문. 그냥 매개변수 없이 send()로 보내도되지만, 종종 get방식으로 잘못될때가 있어서 실무적으로 매개변수에 ""를 담아 보낸다.
 		
-	
 	}
 
 </script>
-
 </head>
 <body>
 
@@ -103,7 +104,7 @@
 	<h1>AJAX 를 활용하여 이 텍스트를 바꾸어보자.</h1>
 </div>
 
-<button type="button" onclick="loadXMLDocs()">Content 바꾸기</button>
+<button type="button" onclick="loadXMLDoc()">Content 바꾸기</button>
 
 </body>
 </html>

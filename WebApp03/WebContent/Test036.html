@@ -6,12 +6,11 @@
 
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
-	th {text-align: left}
+	th {text-align: left;}
 </style>
 
-
 <script type="text/javascript">
-	
+
 	function objTest()
 	{
 		// 확인
@@ -19,7 +18,7 @@
 		
 		// 사용자 정의 객체
 		//-- Test035.html 에서와 마찬가지로 사용자 정의 객체 구성
-		// 단, 차이점 비교 확인~!!! check~!!!
+		//   단, 차이점 비교 확인~!!! check~!!!
 		function Blog(b, d)
 		{
 			// 주요 속성 구성
@@ -29,9 +28,8 @@
 			// 날짜 출력용 함수 정의
 			this.userLocalString = function()
 			{
-				return d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate(); 
+				return d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
 			};
-			
 		}
 		
 		// 객체 생성
@@ -48,42 +46,43 @@
 		// 단, 차이점 비교 확인~!!! check~!!!
 		// → 자바스크립트 내장 객체 활용
 		var arr = [ new Blog("블로그 개설", new Date("2024/11/14"))
-				  , new Blog("블로그 레이아웃 구성", new Date("2024/11/20"))
-		          , new Blog("생성자 이용한 객체 생성", new Date("2025/01/03"))];
-		
+		          ,  new Blog("블로그 레이아웃 구성", new Date("2024/11/20"))
+				  ,  new Blog("생성자 이용한 객체 생성", new Date("2025/01/03")) ];
 		
 		/*
 		○ 자바스크립트에서의 날짜 데이터
 		
-			Date 객체는 날짜와 시간 작업을 하는데 사용되는 가장 기본적인 자바스크립트 내장 객체이다.
-			
-			var now = new Date();
+		   Date 객체는 날짜와 시간 작업을 하는데 사용되는
+		   가장 기본적인 자바스크립트 내장 객체이다.
+		   
+		   var now = new Date();
 		
-			now.toString();
-			now.toLocalString();
-			now.toLocalDateString();
-			now.toLocalTimeString();
-			now.getFullYear();
-			now.getMonth()+1;					//-- check~!!! (월 단위는 자바에서처럼 0부터 시작한다.)
-			now.getDate();
-			
-			※ 주의
-			
-				var userDate1 = new Date("2024/11/14");		//--(○)
-				var userDate2 = new Date("2025, 1, 3");		//--(○)
-				var userDate3 = new Date(Apr, 5, 2024);		//--(○)
-				var userDate4 = new Date("2024-11-14");		//--(X)
-				var userDate5 = new Date("20250103");		//--(X)
+		   now.toString();
+		   now.toLocaleString();
+		   now.toLocaleDateString();
+		   now.toLocalTimeString();
+		   now.getFullYear();
+		   now.getMonth()+1;				//-- check~!!! (월 단위는 자바에서처럼 0부터 시작한다.)
+		   now.getDate();
+		   
+		   ※ 주의
+		      
+		      var userDate1 = new Date("2024/11/14");		//--(○)
+		      var userDate2 = new Date("2025, 1, 3");		//--(○)
+		      var userDate3 = new Date(Apr, 5, 2024);		//--(○)
+		      var userDate4 = new Date("2024-11-14");		//--(Ⅹ)  //-- check~!!! (나중에 제이쿼리 쓸 때 바꿀 순 있지만 기본적으론 X)
+		      var userDate5 = new Date("20250103");			//--(Ⅹ)
+		      
 		*/
 		
-		str = "<table border='1' class='table'>"
+		str = "<table border='1' class='table'>";
 		str += "<tr>";
 		str += "<th>제목</th><th>날짜</th>";
 		str += "</tr>";
 		
 		// check~!!!
 		/*
-		for (var i = 0; i < arr.length; i++)
+		for (var i=0; i<arr.length; i++)
 		{
 			str += "<tr>";
 			str += "<td>" + arr[i].body + "</td>";
@@ -93,7 +92,7 @@
 		*/
 		
 		// check~!!!
-		for (var i = 0; i < arr.length; i++)
+		for (var i=0; i<arr.length; i++)
 		{
 			str += "<tr>";
 			str += "<td>" + arr[i].body + "</td>";
@@ -103,14 +102,17 @@
 		
 		str += "</table>";
 		
+		
 		var result = document.getElementById("result");
 		
 		result.innerHTML = str;
 		
+		
+		
+		
 	}
 
 </script>
-
 </head>
 <body>
 

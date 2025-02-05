@@ -1,10 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	String str = "include 디렉티브 관련 실습 진행중";
-	String name = "윤영식";
-
+	String name = "곽유진";
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +16,7 @@
 
 <div>
 	<p>Test002.jsp 와는 별개의 독립적인 페이지</p>
-	<p>include 디렉티브 테스트중...</p>
+	<p>include 디렉티브 테스트 중...</p>
 </div>
 
 </body>

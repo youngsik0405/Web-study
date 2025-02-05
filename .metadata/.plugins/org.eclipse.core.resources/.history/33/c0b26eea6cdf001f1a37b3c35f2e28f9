@@ -1,0 +1,9 @@
+/**
+ *  ajax.js
+ */
+
+//var xmlHttp;
+var ajax;
+
+
+

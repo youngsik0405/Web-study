@@ -1,7 +1,7 @@
-/*===========================
- 	MemberDTO.java
- 	- 데이터 전송 객체 활용
-============================*/
+/*=============================
+	MemberDTO.java
+	- 데이터 전송 객체 활용
+==============================*/
 
 package com.test;
 
@@ -11,6 +11,7 @@ public class MemberDTO
 	private String sid, name, tel;
 	//-- TBL_MEMBER 테이블의 컬럼 구조
 
+	// getter / setter 구성
 	public String getSid()
 	{
 		return sid;

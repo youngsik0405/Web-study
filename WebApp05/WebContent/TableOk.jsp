@@ -3,6 +3,7 @@
 	// 이전 페이지(Table.jsp)로부터 넘어온 데이터 수신
 	// → su1, su2
 	
+	// 한글데이터가 없으므로 꼭 쓸 필요는 없지만 썼다고 문제되지는 않음.
 	request.setCharacterEncoding("UTF-8");
 
 	//int n1 = request.getParameter("su1");
@@ -18,27 +19,22 @@
 	
 	try
 	{
-		n1 = Integer.parseInt(s1);
-		n2 = Integer.parseInt(s2);
+		// 수신된 데이터 형 변환
+		n1 = Integer.parseInt(s1);	//가로
+		n2 = Integer.parseInt(s2);	//세로
+		
 		
 	}
 	catch(Exception e)
 	{
-		System.out.println(e.toString());
+		System.out.print(e.toString());
 	}
-	
-
-	
-
-		
-
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>TableOk.jsp</title>
-
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
 	span {color: red; font-weight: bold;}
@@ -56,15 +52,16 @@
 
 <div>
 	<table border="1">
-		<!-- <tr>
+		<!--
+		<tr>
 			<td>1</td><td>2</td><td>3</td>
 		</tr>
 		<tr>
 			<td>4</td><td>5</td><td>6</td>
-		</tr> -->
-		
+		</tr>
+		-->
 		<%
-		for (int i=0; i<n2; i++)	//-- 세로 : n2
+		for (int i=0; i<n2; i++)		//-- 세로 : n2
 		{
 		%>
 			<tr>
@@ -72,7 +69,7 @@
 			for (int j=0; j<n1; j++)	//-- 가로 : n1
 			{
 			%>
-				<td style="text-align: right;"><%=++n %></td>
+				<td style="text-align: right"><%=++n %></td>
 			<%
 			}
 			%>
@@ -81,9 +78,7 @@
 		}
 		%>
 		
-		
 	</table>
-	
 </div>
 
 </body>

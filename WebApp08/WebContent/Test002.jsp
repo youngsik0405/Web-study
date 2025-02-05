@@ -29,9 +29,9 @@
 	while (rs.next())
 	{
 		str += "<tr>";
-		str += "<td class='list'>" + rs.getString("SID") + "</td>";
-		str += "<td class='list'>" + rs.getString("NAME") + "</td>";
-		str += "<td class='list'>" + rs.getString("TEL") + "</td>";
+		str += "<td class='list'>" + rs.getString("SID") +"</td>";
+		str += "<td class='list'>" + rs.getString("NAME") +"</td>";
+		str += "<td class='list'>" + rs.getString("TEL") +"</td>";
 		str += "</tr>";
 	}
 	
@@ -41,6 +41,7 @@
 	stmt.close();
 	DBConn.close();
 	
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -49,14 +50,13 @@
 <title>Test002.jsp</title>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
-	button {width: 208px; height: 50px; font-weight: bold;}
+	button {width: 208px; height: 40px; font-weight: bold;}
 	.errMsg {font-size: small; color: red; display: none;}
 	#numTitle {width: 50px;}
 	#nameTitle {width: 100px;}
 	#telTitle {width: 160px;}
 	.list {text-align: center;}
 </style>
-
 <script type="text/javascript">
 
 	function formCheck()
@@ -65,14 +65,14 @@
 		//alert("함수 호출 확인~!!!");
 		
 		var userName = document.getElementById("userName");
-		var nameMsg = document.getElementById("nameMsg");
+		var nameMsg =document.getElementById("nameMsg");
 		
 		nameMsg.style.display = "none";
 		
 		if (userName.value == "")
 		{
 			nameMsg.style.display = "inline";
-			return false;			
+			return false;
 		}
 		
 		//return false;
@@ -81,7 +81,6 @@
 	}
 
 </script>
-
 </head>
 <body>
 
@@ -92,7 +91,7 @@
 
 <div>
 	<!-- 데이터 입력 -->
-	<form action="MemberInsert.jsp" method="post" onsubmit="return formCheck()">
+	<form  action="MemberInsert.jsp" method="post" onsubmit="return formCheck()">
 		<!-- <table class="table"> -->
 		<table>
 			<tr>
@@ -114,14 +113,14 @@
 					<button type="submit" id="btnAdd" class="btn control">데이터 추가</button>
 				</td>
 			</tr>
-		</table>		
+		</table>
 	</form>
 </div>
 <br><br>
 
 <div>
 	<!-- 처리 결과 -->
-	<!-- 	
+	<!--
 	<table class="table">
 		<tr>
 			<th id="numTitle">번호</th>
@@ -131,16 +130,15 @@
 		<tr>
 			<td class="list">100</td>
 			<td class="list">김믿음</td>
-			<td class="list">010-1010-1010</td>
+			<td class="list">100-1010-1010</td>
 		</tr>
 		<tr>
 			<td class="list">101</td>
 			<td class="list">안예지</td>
-			<td class="list">010-1011-1011</td>
+			<td class="list">100-1011-1011</td>
 		</tr>
-	</table> 
+	</table>
 	-->
-	
 	<%=str %>
 </div>
 

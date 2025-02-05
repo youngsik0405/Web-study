@@ -3,24 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <title>Test027.html</title>
+
+<style type="text/css">
+	* {color: #223322;}
+	input {font-family: 나눔고딕코딩; font-weight: bold;}
+	input:focus {background-color: #eeeedd;}
+	.btn {width: 90px; font-weight: bold; font-family: 맑은 고딕;}
+	.btn:hover {color: orange;}
+	td {text-align: center;}
+	.txt {text-align: center;}
+	textarea {font-family: 나눔고딕코딩; font-weight: bold;}
+	th {width: 40px;}
+	#resultArea{font-family: 맑은 고딕; font-weight: bold;}
+	#txtCount {width: 20px;}
+</style>
+
 <script type="text/javascript">
-	
+
 	function actionChoice()
 	{
-		//확인
+		// 확인
 		//alert("함수 호출 확인~!!!");
 		
 		// check~!!!
-		//document.getElementById("id");
+		//document.getElementById("id");	//각각의 라디오 id를 가져와서 체크됐는지/체크 안 됐는지
+											// 다 확인해볼 수 있지만, 번거로우니까..
+		//document.getElementsByName("size");	//id는 유일하지만 name은 중복될 수 있으므로, name으로 받아올 때는 복수형 Elements
 		var radioObj = document.getElementsByName("size");
 		
 		// 확인
 		//alert(radioObj);
 		//--==>> [object NodeList] → 자바스크립트 배열
 		//alert(radioObj.length);
+		//--==>> 6 (라디오버튼이 6개 있으므로 가져온 NodeList의 길이도 6)
 		
 		// 확인
-		//alert(radioObj[0].checked);
+		//alert(radioObj[0].checked);		// true / false 반환
 		//alert(radioObj[1].checked);
 		//alert(radioObj[2].checked);
 		//alert(radioObj[3].checked);
@@ -30,42 +48,30 @@
 		//var msg = "";
 		var msg = "선택된 항목이 존재하지 않습니다.";
 		
-		for (var i = 0; i < radioObj.length; i++) 	// 0 1 2 3 4 5
+		for (var i=0; i<radioObj.length; i++)	// 0 1 2 3 4 5
 		{
 			// 확인
 			//alert(radioObj[i].checked);
 			
 			if (radioObj[i].checked)
 			{
-				//확인
+				// 확인
 				//alert(i);
 				//alert(radioObj[i].value);
 				
 				msg = "선택한 사이즈는 아이스크림을 " + radioObj[i].value + "종류 고를 수 있습니다.";
 				break;
+	
 			}
+			
 		}
 		
 		alert(msg);
 		
+		
+		
 	}
-
-
 </script>
-
-<style type="text/css">
-   * {color: #223322;}
-   input {font-family: 나눔고딕코딩; font-weight: bold;}
-   input:focus {background-color: #eeeedd;}
-   input.btn {width: 150px; font-weight: bold; font-family: 맑은 고딕;}
-   input.btn:hover {color: orange;}
-   td {text-align: center;}
-   .txtName {text-align: center;}
-   .txtScore {text-align: right;}
-   .txt {text-align: center;}
-   textarea {font-family: 나눔고딕코딩; font-weight: bold;}
-</style>
-
 
 </head>
 <body>
@@ -98,10 +104,7 @@
 		<button type="button" class="btn" onclick="actionChoice()">확인</button>
 		
 	</form>
-	
-
 </div>
-
 
 </body>
 </html>

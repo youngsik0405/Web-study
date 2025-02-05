@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest06.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript">
+	
+	// ①
+	/* 
+	var myJsonObject6 =
+	{
+		"test" : 123
+	}
+ 	*/
+ 	
+ 	// ②
+ 	var myJsonObject6 =
+	{
+		"test" : 123.456
+	}
+ 	
+</script>
+
+</head>
+<body>
+
+<form>
+	<input type="button" value="click1" onclick="alert(myJsonObject6.test)">
+	<!-- ① → 123 -->
+	
+	<input type="button" value="click2" onclick="alert(typeof myJsonObject6.test)">
+	<!-- ① → number -->
+	
+	<br><br>
+	
+</form>
+
+
+</body>
+</html>

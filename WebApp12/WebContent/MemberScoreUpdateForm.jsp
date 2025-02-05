@@ -2,13 +2,12 @@
 <%@page import="com.test.MemberScoreDAO"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-	// 이전 데이터(→ MemberScoreList.jsp)로부터 넘어온 데이터 수신
+	//이전 페이지(→ MemberScoreList.jsp)로부터 넘어온 데이터 수신
 	// → sid
 	String sid = request.getParameter("sid");
 	String name = "";
-	int kor = 0;
-	int eng = 0;
-	int mat = 0;
+	int kor, eng, mat;
+	kor=eng=mat=0;
 	
 	// sid 를 활용하여 각 속성을 얻어내기 위한 dao 객체 생성
 	MemberScoreDAO dao = new MemberScoreDAO();
@@ -20,12 +19,11 @@
 		
 		// 수신한 sid 를 활용하여 name 및 각 과목의 점수 얻어내기
 		MemberScoreDTO score = dao.search(sid);
-		
 		name = score.getName();
 		kor = score.getKor();
 		eng = score.getEng();
 		mat = score.getMat();
-		
+
 	}
 	catch(Exception e)
 	{
@@ -35,6 +33,7 @@
 	{
 		try
 		{
+			// 데이터베이스 연결 끊기
 			dao.close();
 		}
 		catch(Exception e)
@@ -42,9 +41,7 @@
 			System.out.println(e.toString());
 		}
 	}
-
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,11 +49,13 @@
 <title>MemberScoreUpdateForm.jsp</title>
 <!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
 <link rel="stylesheet" type="text/css" href="css/MemberListScore.css">
-
 <script type="text/javascript">
-	
+
 	function memberScoreSubmit()
 	{
+		// 확인
+		//alert("함수 호출 확인~!!!");
+		
 		var memberScoreForm = document.getElementById("memberScoreForm");
 		
 		var kor = document.getElementById("kor");
@@ -71,21 +70,19 @@
 		engMsg.style.display = "none";
 		matMsg.style.display = "none";
 		
-		if (kor.value == "" || isNaN(kor.value) || Number(kor.value)<0 || Number(kor.value)>100)
+		if (kor.value == "" || isNaN(kor.value) || Number(kor.value) < 0 || Number(kor.value) > 100  || /^0\d/.test(kor.value))
 		{
 			korMsg.style.display = "inline";
 			kor.focus();
 			return;
 		}
-		
-		if (eng.value == "" || isNaN(eng.value) || Number(eng.value)<0 || Number(eng.value)>100)
+		if (eng.value == "" || isNaN(eng.value) || Number(eng.value) < 0 || Number(eng.value) > 100  || /^0\d/.test(kor.value))
 		{
 			engMsg.style.display = "inline";
 			eng.focus();
 			return;
 		}
-		
-		if (mat.value == "" || isNaN(mat.value) || Number(mat.value)<0 || Number(mat.value)>100)
+		if (mat.value == "" || isNaN(mat.value) || Number(mat.value) < 0 || Number(mat.value) > 100  || /^0\d/.test(kor.value))
 		{
 			matMsg.style.display = "inline";
 			mat.focus();
@@ -95,15 +92,34 @@
 		memberScoreForm.submit();
 		
 	}
+	
+	function memberScoreReset()
+	{
+		// 확인
+		//alert("리셋 함수 호출 확인~!!!");
+		
+		var memberScoreForm = document.getElementById("memberScoreForm");
+		var kor = document.getElementById("kor");
+		
+		var korMsg = document.getElementById("korMsg");
+		var engMsg = document.getElementById("engMsg");
+		var matMsg = document.getElementById("matMsg");
+		
+		korMsg.style.display = "none";
+		engMsg.style.display = "none";
+		matMsg.style.display = "none";
+		
+		memberScoreForm.reset();
+		kor.focus();
+	}
+
 </script>
-
-
 </head>
 <body>
-
 <div>
 	<!-- 페이지 정체성 -->
-	<h1>회원<span style="color: blue;">성적</span>관리 및 수정 페이지</h1>
+	<h1>회원 <span style="color: blue;">성적</span> 관리
+			 및 수정 페이지</h1>
 	<hr>
 </div>
 
@@ -114,25 +130,31 @@
 <br>
 
 <div>
-	<!-- 회원 성적 데이터 입력 폼 구성 -->
-	<form action="MemberScoreUpdate.jsp?sid=<%=sid %>" method="post" id="memberScoreForm">
+	<!-- 회원 성적 데이터 수정 폼 구성 -->
+	<%-- <form action="MemberScoreUpdate.jsp?sid=<%=sid%>&name=<%=name%>" method="post" id="memberScoreForm"> --%>
+	<form action="MemberScoreUpdate.jsp?sid=<%=sid%>" method="post" id="memberScoreForm">
 		<table class="table">
 			<tr>
 				<th>번호</th>
 				<td>
+					<!-- 100 -->
 					<%=sid %>
 				</td>
 				<td></td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><%=name %></td>
+				<td>
+					<!-- 강감찬 -->
+					<%=name %>
+				</td>
 				<td></td>
 			</tr>
 			<tr>
 				<th>국어점수</th>
 				<td>
-					<input type="text" id="kor" name="kor" class="txtScore" value=<%=kor %>>
+					<input type="text" id="kor" name="kor" class="txtScore" value="<%=kor %>">
+					
 				</td>
 				<td>
 					<span class="errMsg" id="korMsg">
@@ -143,7 +165,7 @@
 			<tr>
 				<th>영어점수</th>
 				<td>
-					<input type="text" id="eng" name="eng" class="txtScore" value=<%=eng %>> 
+					<input type="text" id="eng" name="eng" class="txtScore" value="<%=eng %>">
 				</td>
 				<td>
 					<span class="errMsg" id="engMsg">
@@ -154,7 +176,7 @@
 			<tr>
 				<th>수학점수</th>
 				<td>
-					<input type="text" id="mat" name="mat" class="txtScore" value=<%=mat %>>
+					<input type="text" id="mat" name="mat" class="txtScore" value="<%=mat %>">
 				</td>
 				<td>
 					<span class="errMsg" id="matMsg">
@@ -169,14 +191,16 @@
 			<button type="button">수정하기</button>
 		</a>
 		<a href="javascript:memberScoreReset()">
-			<button type="button">되돌하기</button>
+			<button type="button">취소하기</button>
 		</a>
 		<a href="MemberScoreList.jsp">
-			<button type="button">목록하기</button>
+			<button type="button">목록으로</button>
 		</a>
+		
+		
+		
 	</form>
 </div>
-
 
 </body>
 </html>

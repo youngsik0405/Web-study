@@ -5,33 +5,40 @@
 <title>Test032.html</title>
 
 <style type="text/css">
-	a {font-size: small; text-decoration: none; color: #232;}
+	a {font-size: small; text-decoration: none;}
 	a:hover {color: orange;}
-
+	
 </style>
 
 <script type="text/javascript">
-	
+
 	function myAddr(addr)
 	{
-		//확인
+		// 확인
 		//alert("함수 호출 확인~!!!");
 		
 		// 확인
 		//alert(addr);
 		
 		//document.getElementById("addr1").value = "1234";
+		//이 Test032.html 문서에는 "addr1"이라는 id의 객체가 없어서 작동 안 함
 		
 		// check~!!!
+		// Test032는 Test031에 의해서 열린 것.. 때문에 Test032 입장에서 Test031은 opener이다.
 		//window.opener.document.getElementById("addr1").value = "1234";
 		window.opener.document.getElementById("addr1").value = addr;
 		
+		//컨트롤러에 뿌리는 게 아니라 문서에게 직접 건네려면...
 		// IE 용
-		//window.opner.document.getElementById("txtContent").innerText = addr;
+		//window.opener.document.getElementById("txtContent").innerText = addr;
 		
-		// CR, FF 용
-		window.opner.document.getElementById("txtContent").innerHTML = addr;
+		// CR, FF 용 : innerText도 쓸 수 있지만 그 개념이 조금 다르다.
+		window.opener.document.getElementById("txtContent").innerHTML = addr;
 		
+		//window.는 나 윈도우를 뜻함
+		//window.opener.는 나를 부른 Test031.html의 윈도우를 뜻함
+		
+		// 창 닫기
 		window.close();
 		
 	}
@@ -44,19 +51,29 @@
 <div>
 	<form>
 		주소 검색
+		<!-- 원래는 사용자 입력을 받아서 DB에서 출력해줘야하는건데, DB연결을 안해줬으니까 임의로 마포구 적혀있는 input으로 만들어놓자. -->
 		<!-- <input> -->
 		<input type="text" value="마포구">
 		<input type="button" value="검색"><br><br>
 		
-		<!-- <a href="Test031.html">(10423) 서울 마포구 서교로 1가 (1-110번지)</a><br> -->
-		<!-- <a href="myAddr()">(10423) 서울 마포구 서교로 1가 (1-110번지)</a><br> -->
+		<!-- <a href="Test031.html">(10423) 서울 마포구 서교로 1가 (1~110번지)</a><br> --> <!-- 제어권이 여전히 팝업창에 -->
+		<!-- <a href="myAddr()">(10423) 서울 마포구 서교로 1가 (1~110번지)</a><br> --> <!-- 404에러 뜸 -->
 		
-		<a href="javascript:myAddr('10423 서울 마포구 서교로 1가')">(10423) 서울 마포구 서교로 1가 (1-110번지)</a><br>
-		<a href='javascript:myAddr("10425 서울 마포구 서교로 2가")'>(10425) 서울 마포구 서교로 2가 (111-120번지)</a><br>
-		<a href="javascript:myAddr('10426 서울 마포구 서교로 3가')">(10426) 서울 마포구 서교로 3가 (121-124번지)</a><br>
-		<a href="javascript:myAddr('10429 서울 마포구 서교로 4가')">(10429) 서울 마포구 서교로 4가 (125-131번지)</a><br>
-		<a href="javascript:myAddr('10430 서울 마포구 서교로 5가')">(10430) 서울 마포구 서교로 5가 (132-150번지)</a><br>
-		<a href="javascript:myAddr('10421 서울 마포구 서교로 6가')">(10421) 서울 마포구 서교로 6가 (151-170번지)</a><br>
+		<!-- a태그에서 함수호출하려면 함수명 앞에 "javascript:"를 붙여주자. -->
+		<!-- 함수의 매개변수로 문자열을 넘길 때, 따옴표가 페어를 이루도록 조심하자. -->
+		<a href="javascript:myAddr('10423 서울 마포구 서교로 1가')">
+			(10423) 서울 마포구 서교로 1가 (1~110번지)</a><br>
+		<a href='javascript:myAddr("10425 서울 마포구 서교로 2가")'>
+			(10425) 서울 마포구 서교로 2가 (111~120번지)</a><br>
+		<a href="javascript:myAddr('10426 서울 마포구 서교로 3가')">
+			(10426) 서울 마포구 서교로 3가 (121~124번지)</a><br>
+		<a href="javascript:myAddr('10429 서울 마포구 서교로 4가')">
+			(10429) 서울 마포구 서교로 4가 (125~131번지)</a><br>
+		<a href="javascript:myAddr('10430 서울 마포구 서교로 5가')">
+			(10430) 서울 마포구 서교로 5가 (132~150번지)</a><br>
+		<a href="javascript:myAddr('10421 서울 마포구 서교로 6가')">
+			(10421) 서울 마포구 서교로 6가 (151~170번지)</a><br>
+		
 	</form>
 </div>
 

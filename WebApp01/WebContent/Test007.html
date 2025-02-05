@@ -13,13 +13,14 @@
 
 <div>
 	수평선을 사용해보자.
-	<hr size ="20" color="red">
+	<hr size="20" color="red">
 	<br><br>
 	
 	음영선이 없는 수평선
 	<hr size="2" noshade="noshade">
+	<br><br>
 	
-	수평선의 수평길이 설정
+	수평선의 수평 길이 설정
 	<hr size="5" width="400" align="right">
 	<hr size="5" width="200" align="right">
 	<br><br>
@@ -32,11 +33,13 @@
 	
 </div>
 
+
 <div>
 	공백 발생<br>
-	문자열									  문자열<br>
-	문자열&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;문자열<br>                                     
-		
+	문자열                                    문자열<br>
+	<!-- &nbsp; 까지가 공백 1개. 아래구문은 공백 10개 발생시킨 것.(공백의 크기는 CSS에서 조절 가능) -->
+	문자열&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;문자열<br>
+
 </div>
 <br><br>
 
@@ -44,26 +47,28 @@
 <!-- 쓰지말아라~!!! -->
 <div>
 	F강의장 식구들 기운내자<br>
-	<font>F강의장 식구들 기운내자</font><br>
-	<br><br>
+	<font>F강의장 식구들 기운내자~!~!~!~!</font><br>
 	
-	<font size="1">F강의장 식구들 기운내자</font><br>
-	<font size="2">F강의장 식구들 기운내자</font><br>
-	<font size="3">F강의장 식구들 기운내자</font><br>
-	<font size="4">F강의장 식구들 기운내자</font><br>
-	<font size="5">F강의장 식구들 기운내자</font><br>
-	<font size="6">F강의장 식구들 기운내자</font><br>
-	<font size="7">F강의장 식구들 기운내자</font><br>
-	<font size="8">F강의장 식구들 기운내자</font><br><!-- check~!! -->
-	<font size="9">F강의장 식구들 기운내자</font><br><!-- check~!! -->
-	<font size="10">F강의장 식구들 기운내자</font><br><!-- check~!! -->
+	<!-- 숫자가 커질수록 커진다. 그러나 세밀한 크기 조정 불가.. -->
+	<font size="1">F강의장 식구들 기운내자~!~!~!~!</font><br>
+	<font size="2">F강의장 식구들 기운내자~!~!~!~!</font><br>
+	<font size="3">F강의장 식구들 기운내자~!~!~!~!</font><br>
+	<font size="4">F강의장 식구들 기운내자~!~!~!~!</font><br>
+	<font size="5">F강의장 식구들 기운내자~!~!~!~!</font><br>
+	<font size="6">F강의장 식구들 기운내자~!~!~!~!</font><br>
+	<font size="7">F강의장 식구들 기운내자~!~!~!~!</font><br>
+	<font size="8">F강의장 식구들 기운내자~!~!~!~!</font><br><!-- check~!!! 8~10은 7과 사이즈 같다. -->
+	<font size="9">F강의장 식구들 기운내자~!~!~!~!</font><br><!-- check~!!! size="8"~"10"은 없는 건데도 에러 안 뜸-->
+	<font size="10">F강의장 식구들 기운내자~!~!~!~!</font><br><!-- check~!!! -->
 	<br><br>
 	
 	<font size="4" color="green">F강의장 식구들 기운내자</font><br>
 	<font size="4" color="#00ff00">F강의장 식구들 기운내자</font><br>
 	<font size="4" color="red" face="궁서체">F강의장 식구들 기운내자</font><br>
 	<br><br>
+	
+	
+	
 </div>
-
 </body>
 </html>

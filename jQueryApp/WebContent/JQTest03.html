@@ -10,35 +10,36 @@
 		margin: 0px;
 		padding: 0px;
 	}
-	div 
+	div
 	{
 		margin: 5px;
 		padding: 3px;
 		border: 3px solid black;
-		border-radius: 10px;	
+		border-radius: 10px;
 	}
-	
 </style>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-
 <script type="text/javascript">
 
+	// $();
 	$(document).ready(function()
 	{
 		//alert("제이쿼리 인식~!!!");
 		
 		//$("div").click(동작);
-		//			↓
+		//		   ↓
 		//$("div").click(함수정의);
 		$("div").click(function()
 		{
 			//alert("테스트~!!!");
-		
+			
 			//alert($(this).html());
 			
 			//alert($(this).text());
 			
+			//this가 포함하고 있는 h1엘리먼트의 텍스트
+			//h1인데 this인 h1이라고 이해해야 매개변수 순서가 헷갈리지 않음~!
 			//alert($("h1", this).text());
 			
 			//alert($("p", this).text());
@@ -47,13 +48,12 @@
 			var p = $("p", this).text();
 			
 			alert(h1 + " / " + p);
+			
+			
 		});
-		
-		
 	});
-	
-</script>
 
+</script>
 </head>
 <body>
 

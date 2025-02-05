@@ -1,0 +1,11 @@
+/*====================
+	WordDTO.java
+======================*/
+
+package com.test;
+
+public class WordDTO
+{
+	// 주요 속성 구성
+	private String view;
+}

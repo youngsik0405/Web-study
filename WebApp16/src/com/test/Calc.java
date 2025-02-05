@@ -1,7 +1,6 @@
-/*=================
+/*====================
 	Calc.java
-================*/
-
+====================== */
 
 package com.test;
 
@@ -14,9 +13,9 @@ public class Calc
 	
 	// 생성자 정의하지 않음(사용자 정의 생성자 없음)
 	// → default 생성자 자동 삽입
-	
+		
 	// getter / setter 구성
-	public int getSu1()	
+	public int getSu1()
 	{
 		return su1;
 	}
@@ -63,5 +62,5 @@ public class Calc
 		
 		return result;
 	}
-
+	
 }

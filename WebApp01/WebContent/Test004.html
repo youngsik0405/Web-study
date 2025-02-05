@@ -11,8 +11,10 @@
 	<hr>
 </div>
 
+
 <div>
 	<!-- check~!!! -->
+	<!-- 텍스트박스 안에 사용자가 입력하는 내용을 서버로 전송하기 위해서는 꼭 form을 써야함 -->
 	<form>
 		이름 <input type="text"><br>
 		국어 <input type="text"><br>
@@ -20,12 +22,13 @@
 		수학 <input type="text"><br>
 		<br>
 		
-		<input type="button" value ="결과">
-		<input type="reset" value="취소">
+		<!-- input에 type을 별도로 명시하지 않을 때 기본값은 "text" -->
+		<!-- 자바와 달리, 대충 써도 알아서 만들어주는 html.. 그래서 문법이 오염될 수 있으므로 주의 -->
+		<input type="button" value="결과">		<!-- 버튼 눌렀을 때의 액션은 자바스크립트가 담당 -->
+		<input type="reset" value="취소">		<!-- ..그렇지만 이런 형태를 많이 쓰다보니까, 적혀진 걸 지워주는 type="reset"이 있음-->
 		<br><br>
 		
 		총점 <input type="text"> 평균 <input type="text">
-		
 		
 	</form>
 </div>

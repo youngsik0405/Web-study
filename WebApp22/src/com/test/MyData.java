@@ -1,7 +1,7 @@
-/*
- 	-사용자 정의 데이터 타입 활용
-*/
-
+/*==================================
+	MyData.java
+	- 사용자 정의 데이터타입 활용 (빈 규칙 다 지켜서 만듦!)
+====================================*/
 
 package com.test;
 
@@ -11,21 +11,20 @@ public class MyData
 	private String name;
 	private int age;
 	
-	
 	// default 생성자 형태의 사용자 정의 생성자
 	public MyData()
 	{
 		
 	}
-
-	// 매개 변수 2개인 사용자 정의 생성자
+	
+	// 매개변수 2개인 사용자 정의 생성자
 	public MyData(String name, int age)
 	{
 		this.name = name;
 		this.age = age;
 	}
 	
-	// getter/setter 구성
+	// getter / setter 구성
 	public String getName()
 	{
 		return name;

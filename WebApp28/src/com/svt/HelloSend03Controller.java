@@ -1,6 +1,7 @@
 /*================================
 	HelloSend03Controller.java
-================================*/
+=================================*/
+
 package com.svt;
 
 import java.io.IOException;
@@ -39,9 +40,8 @@ public class HelloSend03Controller extends HttpServlet
 		
 		// View 객체에 대한 연결
 		//RequestDispatcher dispatcher = request.getRequestDispatcher("HelloSend03.html");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/view/HelloSend03.html");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/HelloSend03.html");
 		dispatcher.forward(request, response);
-		
 	}
 	
 }

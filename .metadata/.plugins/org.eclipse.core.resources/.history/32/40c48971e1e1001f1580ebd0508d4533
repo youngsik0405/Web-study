@@ -1,0 +1,10 @@
+/*====================
+	WordDTO.java
+====================== */
+
+package com.test;
+
+public class WordDTO
+{
+
+}

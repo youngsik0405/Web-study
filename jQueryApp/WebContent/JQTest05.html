@@ -5,6 +5,7 @@
 <title>JQTest05.html</title>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
+
 	.outer
 	{
 		width: 200px;
@@ -19,8 +20,8 @@
 		height: 100%;
 		background: red;
 	}
-
 </style>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
 
@@ -30,18 +31,20 @@
 		// 키보드 관련 이벤트
 		
 		//$("textarea").keydown(동작);
-		//$("textarea").keydown(function() 			// check~!!!
-		//$("textarea").keypress(function() 		// check~!!!
-		$("textarea").keyup(function() 				// check~!!!
+		//$("textarea").keydown(function() 	// check~!!! keydown일 때는 아직 키가 입력되지 않으므로 한 템포 늦다.(많이 안 씀)
+		//$("textarea").keypress(function() // check~!!! 키보드 컨트롤할 때는 keypress나 keyup을 많이 쓴다.
+		$("textarea").keyup(function() 		// check~!!! 모든 키보드 액션이 끝났을 때 동작.. 사용자 입장에서 생각해보면 keyup이 보편적이다.
 		{
 			//alert("확인");
 			
 			// 입력 컨트롤(textarea)에 입력된 값을 경고창을 통해 확인
 			//alert($(this).html());				//-- html() → (Ⅹ)
-			//alert($(this).text()); 				//-- text() → (Ⅹ)
-			//alert($(this).val());					//-- val() 	→ (○)
+			//alert($(this).text());				//-- text() → (Ⅹ)
 			
-			var len = $(this).val().length;
+			// 원래 textarea 속성에 value가 없지만.. 제이쿼리에서 컨트롤할 때는 val()
+			//alert($(this).val());					//-- val() → (○)
+			
+			var len = $(this).val().length;			// textarea에 입력된 내용의 길이
 			//alert(len);
 			
 			var remain = 30 - len;
@@ -55,62 +58,76 @@
 			
 			if (remain<=10 && remain>=1)
 			{
+				// h1항목의 css 제어를 할 건데, 컬러 항목을 오렌지로 바꾸겠다~
 				$("h1").css("color", "orange");
 			}
 			else if (remain<=0)
 			{
 				//$("h1").css("color", "red");
 				$("h1").css("color", "red").html("더 이상 입력 불가");
-				$(this).attr("disabled", "disabled");
+				$(this).attr("disabled", "disabled");	//현재 입력이 발생하고 있는 textarea의 속성 중 disabled 속성에 disabled 속성값을 넣겠다
 			}
-			else
+			else// if절만 있으면 오렌지로 바꼈다가 다시 검은색으로 돌아오지 않으므로.. else문 필요!
 			{
-				$("h1").css("color", "black");	
+				// h1항목의 css 제어를 할 건데, 컬러 항목을 오렌지로 바꾸겠다~
+				$("h1").css("color", "black");
 			}
 			
 		});
 		
-		
 		$("button").click(function()
 		{
+			//alert($("textarea[disabled]").prop("disabled"));	//--==>> true
+			
+			//$("textarea[disabled]").attr("disabled", false);
+			//$("textarea[disabled]").prop("disabled", false);
+			//$("textarea").removeProp("disabled");				// removeAttr 해도 됨 ㅎㅎ
+			//$("textarea").val("");		//-- textarea 값 비우기
+			
+			// 같이 풀기
 			$("textarea").removeAttr("disabled");
 			$("textarea").focus();
+			
 		});
+		
 		
 		// 마우스 관련 이벤트
 		//$(".outer").mouseover(동작);
-		//$(".outer").mouseover(동자).mouseenter(동작);
-		$(".outer").mouseover(function()
+		//$(".outer").mouseover(동작).mouseenter(동작);
+		$(".outer").mouseover(function() 	//특정한 경계를 넘나들때..
 		{
 			//alert("확인1");
 			$("body").append($("<div>mouseover</div>").css("color", "blue"));
-		
-		}).mouseenter(function()
+			//append()는 앞에 꺼에 뭔가를 붙이겠다.
+			//appendTo()는 뒤에 뭐뭐가 오는데 뒤에 오는 거에다 앞에 것을 붙이겠다.
+			
+		}).mouseenter(function() 			//특정한 경계 안으로 최초 진입할 때만
 		{
 			//alert("확인2");
 			$("body").append($("<div>mouseenter</div>").css("color", "red"));
+			
 		});
 		
+		
 	});
+		
+	//밖에서 함수 만들고 제이쿼리함수 안에서 호출할 거 아니면 제이쿼리 함수 안에 적어놔야함~!~!
 	
 </script>
-
-
 </head>
 <body>
 
 키보드 관련 이벤트<br>
-1. keydown / 2. keypreass / 3. keyup 순으로 이벤트 발생
+1. keydown / 2. keypress / 3. keyup 순으로 이벤트 발생
 <br><br>
 
 <div>
 	<p>남기고 싶은 말</p>
 	<h1>30</h1>
-	<textarea cols="70" rows="5"></textarea>
+	<textarea rows="5" cols="70"></textarea>
 	<br>
 	
 	<button type="button">해제</button>
-	
 </div>
 <br><br>
 
@@ -119,8 +136,10 @@ mouseenter / mouseleave / mousemove / mouseout / mouseover / mouseup 등
 <br><br>
 
 <div class="outer">
-	<div class="inner"></div>
-</div> 
+	<div class="inner">
+	</div>
+</div>
+
 
 
 </body>

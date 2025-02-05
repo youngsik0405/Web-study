@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LoadTest01.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+
+	// ※ 『load()』
+	//	  『$(선택자).load("로드를 원하는 html 문서의 위치와 이름");』
+	//	  - jQuery 의 기능이 수행되는 과정에서 다른 html 문서를 로드
+	//    - HTML 을 읽어들여서 DOM 에 삽입하는 기능을 수행
+	
+	$(document).ready(function()
+	{
+		$("#btn .btnLoad").click(function()
+		{
+			// 확인
+			//alert("작동 확인~!!!");
+			
+			// 같은 경로 안에 포함되어있으니까 그냥 "LoadTest02.html"이라고만 하면 됨.
+			// 이게 끝~! jQuery를 쓰면 Ajax처리가 순식간에 된다! jQuery한테 Ajax를 맡기는 것~~!~!~!~
+			$("#ctlGrid").load("LoadTest02.html");
+			//-- 『비동기』 방식으로 페이지 로드
+			
+			//여태까지 그냥 쓴 alert()는 앞에 window.가 생략된것이엇다~~
+			window.alert("확인");	//얘는 동기방식이니까 얘 앞에서 기다렸다가 처리받고, 위에서 load()는 먼저 호출된 함수인데도 진동벨을 받으니까 나중에 처리됨
+			//-- Line 25 보다 이 메세지 박스가 먼저 출력~!!!
+			//   이유는... 비동기~!!!
+			
+		});
+	});
+
+</script>
+</head>
+<body>
+
+<div>
+	<h1>jQuery의 load() 활용 실습</h1>
+	<hr>
+</div>
+
+<div>
+	<div id="btn">
+		<div class="btnLoad">HTML 읽어오기 버튼</div>
+	</div>
+	<br>
+	
+	<div id="ctlGrid">
+		
+	</div>
+</div>
+
+
+</body>
+</html>

@@ -2,108 +2,102 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Test026_1.html</title>
-<script type="text/javascript">
-
-	function createLotto()
-	{
-		// 확인
-		// alert("함수 호출 확인~!!!")
-		
-		document.getElementById("resultArea").value = "";
-		
-		var count = parseInt(document.getElementById("txtCount").value);
-		
-		for (var i = 0; i < count; i++)
-		{
-			//확인
-			//alert("로또 1 게임 실행~!!!");
-			//document.getElementById("resultArea").value = runLottoSingle();
-			//document.getElementById("resultArea").value += runLottoSingle() + "개행";
-			//document.getElementById("resultArea").value += runLottoSingle() + <br>; 
-			document.getElementById("resultArea").value += runLottoSingle() + "\n"; 
-			
-		}
-	}
-	
-	
-	
-	// 로또 1게임 실행
-	function runLottoSingle()
-	{
-		// 방 6개로 구성된 배열 생성
-		var lottoArray = new Array(6);
-		
-		// 공 45개로 구성된 배열 생성
-		var arr = new Array(45);
-		
-		// 1 ~ 45 까지의 로또 번호를 공에 채우기(새겨넣기)
-		for (var i = 1; i < arr.length; i++)
-			arr[i-1] = i;
-		
-		// 확인
-		//alert(arr[9]);		//--==>> 10
-		//alert(arr[30]);		//--==>> 31
-		
-		// 뒤섞기
-		for (var i = 0; i < arr.length; i++)	// i : 0 ~ 44
-		{
-			var j = parseInt(Math.random()*45); // j : 0 ~ 44 까지의 정수 형태의 난수 발생~!!!
-			var temp = arr[i];					// ┐ 
-			arr[i] = arr [j];					// │자리 바꾸기
-			arr[j] = temp;						// ┘
-		}
-		
-		// 확인
-		//alert(arr);							// 더미 확인
-		//return arr;							// 더미 반환
-		
-		// 배열의 요소 옮겨담기
-		for (var i = 0; i < lottoArray.length; i++)	// i : 0 1 2 3 4 5
-			lottoArray[i] = arr[i];
-		
-		// 확인
-		// return lottoArray;						// 더미 반환
-		
-		// 정렬 수행
-		lottoArray.sort(function(left, right)
-		{
-			//return Number(right) - Number(left) // 내림차순
-			return Number(left) - Number(right) // 오름차순
-		});
-		
-		// 구성된 배열(최종 결과값) 반환
-		//return lottoArray;							// 더미 반환
-		
-		var result = "";
-		
-		for (var i = 0; i < lottoArray.length; i++)
-			result += lottoArray[i] + " ";
-		
-		// 구성된 문자열 반환
-		return result; 
-		
-		
-	}
-
-
-</script>
-
+<title>Test026.html</title>
 
 <style type="text/css">
-   * {color: #223322;}
-   input {font-family: 나눔고딕코딩; font-weight: bold;}
-   input:focus {background-color: #eeeedd;}
-   input.btn {width: 150px; font-weight: bold; font-family: 맑은 고딕;}
-   input.btn:hover {color: orange;}
-   td {text-align: center;}
-   .txtName {text-align: center;}
-   .txtScore {text-align: right;}
-   .txt {text-align: center;}
-   textarea {font-family: 나눔고딕코딩; font-weight: bold;}
-   th {width: 40px;}
+	* { font-family: 나눔고딕코딩; background-color:#fffff9;}
+	h1 { font-size: 13pt; text-align: right; }
+	.btn {border-radius: 20%; font-size: 13pt; height: 30pt; border-color:white; background-color: #dff4ff; }
+	.btn:hover {background-color:#ffc8e3; font-weight: bold;}
+	.btn:active {background-color:white; border-color: #ffc8e3;}
+	.txt {font-family: 나눔고딕코딩; font-size: 15pt; background-color: #fffff0}
+	.txt:focus {background-color: #dff4ff;}
+	hr {height:3px; border-top-color: #dff4ff; border-bottom-color: #ffc8e3;}
+	textarea {font-family: 나눔고딕코딩; font-size: 13pt;}
 </style>
 
+<script>
+
+	function lotto()
+	{
+		// 확인
+		//alert("함수 호출 확인~!!");
+		
+		//var arr = [];
+		var arr2 = [];
+		
+		// 사용자가 몇 장 주문했는지 알아내기
+		var n = Number(document.getElementById("txtCount").value);
+		
+		// 1~45 중 랜덤 정수 6개 생성한 배열을 2차원 배열 arr2에 담기
+		for (var i = 0; i < n; i++)
+		{
+			arr2[i] = makeNum();
+		}
+		
+		//alert(arr2);
+		
+		//출력하기
+		var str = "";
+		for (var i = 0; i < arr2.length; i++)
+		{
+			for (var j = 0; j < arr2[0].length; j++)
+			{
+				//alert(arr[i][j]);
+				str += arr2[i][j] + " ";
+				
+			}
+			str += "\n";
+			//alert(str);
+
+		}
+		document.getElementById("resultArea").value = str;
+		
+		
+
+	}
+	
+
+	function makeNum()
+	{
+		var arr = [];
+		
+		for (var i = 0; i<6; i++)
+		{
+			var number = Math.floor(Math.random() * 45) + 1;
+			
+			if (arr.indexOf(number) == -1)
+			{
+				//alert("중복아님!!");
+				arr[i] = number;
+				continue;
+			}
+			
+			i--;
+			
+		}
+		
+		// 정렬
+		var temp = 0;
+		for (var i = 0; i < arr.length-1; i++)
+		{
+			for (var j = i+1; j < arr.length; j++)
+			{
+				if (arr[i] > arr[j])
+				{
+					temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+			
+		}
+		
+		//alert(arr);
+
+		return arr;
+	}
+</script>
 
 </head>
 <body>
@@ -113,7 +107,7 @@
 	<hr>
 </div>
 
-<!--  
+<!-- 
 	로또 번호(1~45)를 중복되지 않은 정수 6개를 생성하여
 	출력해주는 페이지를 구현한다.
 	HTML, CSS, Javascript 를 활용한다.
@@ -122,37 +116,36 @@
 	주문한 장 수 만큼 출력할 수 있도록 한다.
 	
 	페이지 레이아웃
-	----------------------------------------------------------------
+	-------------------------------------------------
 	
-	로또 [        ] 장			→ text   				#txtCount
+	로또 [   3    ] 장              → text           #txtCount
 	
-	< 주문하기 > 				→ button      			
+	< 주문하기 >                    → button
 	
-	결과 
-	---------------------  		→ textarea 			#resultArea
+	결과
+	-----------------------------   → textarea       #resultArea
 	1 2 5 6 8 10
 	6 13 22 23 31 35
 	2 3 22 34 42 44
-	--------------------
-
-	----------------------------------------------------------------
--->
-
-<div>
-	<form>
-		로또<input type="text" id="txtCount" class="txt" style="width: 30px;"> 장
-		<br><br>
-		
-		<input type="button" class="btn" value="주문하기" onclick="createLotto()">
-		<br><br>
-		
-		결과<br>
-		<textarea rows="10" cols="20" id="resultArea"></textarea>
-	</form>
-
-</div>
-
-
+	-----------------------------
+	
+	-------------------------------------------------
+ -->
 
 </body>
+
+<div>
+	<h2>로또 번호 생성기</h2>
+	<hr>
+</div>
+<div>
+	<form>
+		<h3>로또 <input type="text" id="txtCount" class="txt" style="width: 20pt;"> 장
+		<input type="button" class="btn" value="주문하기" onclick="lotto()"></h3>
+		<hr>
+		<h3>▷▶▷▶결과◀◁◀◁</h3>
+		<textarea rows="10" cols="30" id="resultArea"></textarea>
+		<hr>
+	</form>
+</div>
 </html>

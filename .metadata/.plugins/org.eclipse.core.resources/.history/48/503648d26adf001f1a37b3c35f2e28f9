@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AjaxTest01.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript">
+
+	function loadXMLDoc()
+	{
+		// 확인
+		//alert("함수 호출 확인~!!!");
+		
+		// AJAX 객체는 사실 없음. 브라우저에서 지원하는 XMLHttpRequest객체를 이렇게 쓰겠다고 선언한 것..
+		// XMLHttpRequest 객체(→ AJAX 객체)를 담을 변수 선언
+		var xmlHttp;
+		
+		// (클라이언트 측) 브라우저에 따른 분기(크로스브라우징 처리)
+		// (클라이언트 측에서) 자신의 브라우저가 XMLHttpRequest 를
+		// 지원하고 있는 상황이라면...
+		if (window.XMLHttpRequest) 		//window. -> BOM(브라우저객체)에서 XMLHttpRequest를 지원하냐 안 하냐 분기
+		{
+			// 확인
+			//alert("XMLHttpRequest 지원 브라우저~!!!");
+			
+			// 이와 같은 방법으로 객체를 생성하고...(이 방법)
+			xmlHttp = new XMLHttpRequest();
+		}
+		else 	// 지원하고 있지 않은 상황이라면...
+		{
+			// 확인
+			//alert("XMLHttpRequest 미지원 브라우저~!!!");
+			
+			// 이와 같은 방법으로 객체를 생성해라...(저 방법)
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		// ※ (사용하는 브라우저에 따라....)객체를 생성하는 방법의 차이만 있을 뿐...
+		//    여기까지 수행하면 XMLHttpRequest 객체(→ AJAX 객체) 생성 완료~!!!
+		
+		// 『xmlHttp』 : XMLHttpRequest 객체
+		// 서버로부터 응답이 오면 『readystatechange』 이벤트가 발생하게 된다.
+		// 『onreadystatechange』
+		// : readystatechange 이벤트가 발생했을 때 동작할 수 있도록
+		//   이벤트 핸들러를 등록하는 과정.
+		//   즉, 이와 같은 이벤트가 발생하게 되면.... 아래의 내용처럼 동작해라~!!! 
+		
+		//xmlHttp.onreadystatechange = 동작;
+		//xmlHttp.onreadystatechange = 이름없는함수정의;
+		xmlHttp.onreadystatechange = function() 	// 0~4단계까지 readyState는 단계마다 바뀌게 되는데, 그중에서도 4일 때 액션처리하라고 조건문 넣음..
+		{
+			// 응답이 올 때 마다...
+			// readyState 가 그 상황에서의 XMLHttpRequest 상태를 저장하게 된다.
+			// 즉, readyState 는 XMLHttpRequest 객체의 property 이다.
+			// ==> readystatechange 이벤트는
+			//     readyState 가 변경될 때 마다 발생하게 된다.
+			
+			// ※ 『XMLHttpRequest』의 『readyState』는 0 부터 4 까지 순차적으로 변화한다.
+			//    0 → 요청이 초기화되지 않음.
+			//    1 → 서버 연결이 이루어지지 않음.
+			//    2 → 요청이 수신됨.
+			//    3 → 요청을 처리중.
+			//    4 → 요청의 처리가 종료되고, 응답이 준비됨.
+			
+			// 서버로부터 응답을 받게 되면... (->응답이 404에러 등.. 에러가 떴다는 에러일지도.)
+			if (xmlHttp.readyState==4)
+			{
+				// ※ 『XMLHttpRequest』의 status 는 『HTTP status』 코드를 의미한다.
+				//    200 → 올바른 응답
+				//	  40x → 클라이언트 측 에러(404 페이지 찾을 수 없음)
+				//	  50x → 서버 측 에러(JAVA 에러)
+				
+				if (xmlHttp.status==200) 	//AJAX 객체가 올바른 응답을 받았다면~
+				{
+					document.getElementById("myDiv").innerHTML = xmlHttp.responseText;
+				}
+			}
+		};
+		
+		xmlHttp.open("GET", "ajaxTarget.txt", true);
+		xmlHttp.send("");
+		
+	}
+
+</script>
+</head>
+<body>
+
+<div id="myDiv">
+	<h1>AJAX 를 활용하여 이 텍스트를 바꾸어보자.</h1>
+</div>
+
+<button type="button" onclick="loadXMLDoc()">Content 바꾸기</button>
+
+</body>
+</html>

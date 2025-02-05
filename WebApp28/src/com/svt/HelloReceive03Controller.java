@@ -1,6 +1,7 @@
-/*==========================
-	ServletSample.java
-==========================*/
+/*=================================
+	HelloReceive03Controller.java
+===================================*/
+
 package com.svt;
 
 import java.io.IOException;
@@ -40,10 +41,11 @@ public class HelloReceive03Controller extends HttpServlet
 		// 어떤 방식의 요청에도 모두 처리할 수 있는 사용자 정의 메소드
 		
 		request.setCharacterEncoding("UTF-8");
-		
-		// 업무 로직 수행 → Model 객체 연결(수행) → View 정보 얻어내기
+
+		// 업무 로직 수행 → Model 객체 연결(수행) → View 정보 얻어내기 
 		HelloReceive03Model model = new HelloReceive03Model();
 		String view = model.process(request, response);
+		
 		
 		// View 객체 연결
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);

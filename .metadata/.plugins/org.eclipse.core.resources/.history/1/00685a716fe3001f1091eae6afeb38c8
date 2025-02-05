@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest08.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript">
+
+	myJsonObject8 =
+	{
+		"test" :
+		[
+			"ccc", "ddd"
+		]
+		, "exam" :
+		[
+			"kkk", "ppp"
+		]
+			  
+	}
+	
+	/* myJsonObject8 = {"test":["ccc", "ddd"], "exam" :["kkk", "ppp"]} */
+
+</script>
+
+</head>
+<body>
+
+<form action="">
+	
+	<input type="button" value="click1" onclick="alert(myJsonObject8)">
+
+</form>
+
+
+</body>
+</html>

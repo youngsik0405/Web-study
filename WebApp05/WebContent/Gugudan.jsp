@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Gugudan.jsp</title>
-
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
 	span {color: red; font-weight: bold;}
@@ -21,7 +20,7 @@
 
 <div>
 	<!-- ※ <form> 구성 -->
-	<!-- ※ <form> 의 action 속성 → GugudanOk.jsp  -->
+	<!-- ※ <form> 의 action 속성 → GugudanOk.jsp -->
 	<!-- ※ <form> 의 method 속성 → 데이터 전송 및 페이지 요청 방식 -->
 	<form action="GugudanOk.jsp" method="get">
 		<table class="table">
@@ -29,14 +28,14 @@
 				<th>원하는 단 입력</th>
 				<td>
 					<!-- ※ name 속성 → dan -->
-					<input type="text" name="dan" class="txt">
+					<input type="text" class="txt" name="dan">
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2">
 					<!-- ※ submit 액션 처리 -->
-					<input type="submit" value="결과 확인" class="btn control" style="width: 100%;">
-				</td>					
+					<input type="submit" value="결과 확인" class="btn control" style="width: 100%">
+				</td>
 			</tr>
 		</table>
 	</form>

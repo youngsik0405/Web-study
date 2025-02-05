@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Send04_01.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript">
+	
+	function dataCheck()
+	{
+		var form = document.getElementById("myForm");
+		var inputs = form.querySelectorAll('input[type="text"], input[type="password"], input[type="text"], input[type="tel"]');
+		
+		// 모든 입력 요소가 채워졌는지 체크
+	    var allFilled = true;
+	    inputs.forEach(function(input) {
+	      if (!input.value) {  // 값이 없으면 채워지지 않은 것으로 간주
+	        allFilled = false;
+	      }
+	    });
+	    
+	    // 모든 입력 요소가 채워졌으면 폼 제출
+	    if (allFilled) {
+	      form.submit();  // 폼 제출
+	    } else {
+	      alert('모든 필드를 채워주세요!');
+	    }
+		/*
+		var id = document.getElementById("id").value;
+		//alert(id);
+		var pwd = document.getElementById("pwd").value;
+		//alert(pwd);
+		var name = document.getElementById("name").value;
+		//alert(name);
+		var tel = document.getElementById("tel").value;
+		//alert(tel);
+		
+		//if (id != null && pwd != null && name != null && tel != null)	//조건에 안 걸림;;
+		//if (id != null && id != "" && pwd != null && pwd != "" && name != null && name != "" && tel != null && tel != "")
+		if (id != "" && pwd != "" && name != "" && tel != "")
+		{
+			alert("필수항목 OK~!");
+			return true;
+		}
+		else
+		{
+			alert("필수항목이 비어있음ㅡㅡ");
+			return false;
+		}
+		*/
+	}
+</script>
+</head>
+<body>
+
+<div>
+	<h1>데이터 송수신 실습 04_01</h1>
+	<hr>
+</div>
+
+<!-- 
+	○ 데이터 송수신 실습 04
+	
+	   - 회원 가입과 관련한 기본 정보를 입력받는 html 페이지를 구성한다.
+	   
+	   - 입력된 데이터를 서버로 전송하기 전에
+	     (즉, 클라이언트 측에서 작성한 내용을 서버에 제출하기 전에)
+	     입력 데이터에 대한 기본적인 검사 과정을
+	     자바스크립트를 활용하여 추가할 수 있도록 한다.
+	     
+	     아이디(*)	   [   text   ]
+	     패스워드(*)   [ password ]
+	     이름(*)	   [   text   ]
+	     전화번호(*)   [   text   ]
+	      
+	     성별		   ● 여자  ○ 남자
+	     
+	     지역		   [  서울 ▼ ]
+	                      대전
+	                      대구
+	                      광주
+	     
+	     수강과목      □ 자바기초 □ 오라클중급 □ JDBC심화 □ JSP활용
+	     
+	     < 회원 가입 > < 취소 >
+	     
+	   - 필수 입력 항목(*)을 포함한 입력 내용을 구성한 후 회원 가입 버튼 클릭 시
+	     회원 입력 정보들의 내용을 전달받아 출력하는 JSP 페이지(Receive04.jsp)를 구성하여
+	     데이터를 전달할 수 있도록 한다.
+	     
+	   - 사용자 최초 요청 주소
+	     http://localhost:3306/WebApp07/Send04.html
+	     
+	     
+	○ 물리적 파일 구성
+	
+	   - Send04.html
+	   - Receive04.jsp
+	   
+ -->
+ 
+ <div>
+ 	<form action="Receive04_01.jsp" method="post" id="myForm">
+ 		<p>아이디(*) &nbsp;&nbsp;&nbsp;<input type="text" name="id" id="id"></p>
+ 		<p>비밀번호(*) <input type="password" name="pwd" id="pwd"></p>
+ 		<p>이름(*) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" id="name" placeholder="ex)유진이"></p>
+ 		<p>전화번호(*) <input type="tel" name="tel" id="tel" placeholder="ex)010-1234-1234"></p>
+ 		<br>
+ 		<p>성별 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 			<input type="radio" name="gender" value="F" id="F" checked="checked"><label for="F">여자</label>
+ 			<input type="radio" name="gender" value="M" id="M"><label for="M">남자</label>
+ 		</p>
+ 		<br>
+ 		<p>지역 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 			<select name="city">
+ 				<option value="서울">서울</option>
+ 				<option value="대전">대전</option>
+ 				<option value="대구">대구</option>
+ 				<option value="광주">광주</option>
+ 			</select>
+ 		</p>
+ 		<br>
+ 		<p>수강과목 &nbsp;
+ 			<label><input type="checkbox" name="subject" value="자바기초">자바기초</label>
+ 			<label><input type="checkbox" name="subject" value="오라클중급">오라클중급</label>
+ 			<label><input type="checkbox" name="subject" value="JDBC심화">JDBC심화</label>
+ 			<label><input type="checkbox" name="subject" value="JSP활용">JSP활용</label>
+		</p>
+		<br>
+		<!-- <button type="submit" class="btn control" onclick="return dataCheck()">회원 가입</button> -->
+		<button type="button" class="btn control" onclick="dataCheck()">회원 가입</button>
+		<button type="reset" class="btn control">취소</button>
+ 	</form>
+ </div>
+ 
+ 
+
+</body>
+</html>

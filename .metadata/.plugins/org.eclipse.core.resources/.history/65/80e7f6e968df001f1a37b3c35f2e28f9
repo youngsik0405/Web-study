@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AjaxTest01.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript">
+
+	function loadXMLDoc()
+	{
+		// 확인
+		//alert("함수 호출 확인~!!!");
+		
+		// AJAX 객체는 사실 없음. 브라우저에서 지원하는 XMLHttpRequest객체를 이렇게 쓰겠다고 선언한 것~(자바스크립트엔 변수 타입 정해줄 필요X)
+		// XMLHttpRequest 객체(→ AJAX 객체)를 담을 변수 선언
+		var xmlHttp;
+		
+		// (클라이언트 측) 브라우저에 따른 분기(크로스브라우징 처리)
+		// (클라이언트 측에서) 자신의 브라우저가 XMLHttpRequest 를
+		// 지원하고 있는 상황이라면...
+		if (window.XMLHttpRequest)
+		{
+			// 확인
+			//alert("XMLHttpRequest 지원 브라우저~!!!");
+			
+			xmlHttp = new XMLHttpRequest();
+		}
+		else
+		{
+			// 확인
+			alert("XMLHttpRequest 미지원 브라우저~!!!");
+			
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			
+		}
+		
+		//xmlHttp.onreadystatechange = 동작;
+		//xmlHttp.onreadystatechange = 이름없는함수정의;
+		xmlHttp.onreadystatechange = function()
+		{
+			if (xmlHttp.readyState==4)
+			{
+				if (xmlHttp.status==200)
+				{
+					document.getElementById("myDiv").innerHTML = xmlHttp.responseText;
+				}
+			}
+		};
+		
+		xmlHttp.open("GET", "ajaxTarget.txt", true);
+		xmlHttp.send("");
+		
+	}
+
+</script>
+</head>
+<body>
+
+<div id="myDiv">
+	<h1>AJAX 를 활용하여 이 텍스트를 바꾸어보자.</h1>
+</div>
+
+<button type="button" onclick="loadXMLDoc()">Content 바꾸기</button>
+
+</body>
+</html>

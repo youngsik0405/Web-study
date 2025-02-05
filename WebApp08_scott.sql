@@ -2,10 +2,9 @@ SELECT USER
 FROM DUAL;
 --==>> SCOTT
 
-
 SELECT *
 FROM TAB;
-
+--==>> 나온 결과에서 BIN$..뭐뭐뭐인 애들이 휴지통에 있는 애들
 -- 휴지통 비우기
 PURGE RECYCLEBIN;
 --==>> RECYCLEBIN이(가) 비워졌습니다.
@@ -47,6 +46,7 @@ INSERT INTO TBL_MEMBER(SID, NAME, TEL) VALUES(MEMBERSEQ.NEXTVAL, '윤영식', '010-
 ;
 --==>> 1 행 이(가) 삽입되었습니다.
 
+
 --○ 샘플 데이터 추가 입력
 INSERT INTO TBL_MEMBER(SID, NAME, TEL) VALUES(MEMBERSEQ.NEXTVAL, '엄서연', '010-2222-2222')
 ;
@@ -56,20 +56,22 @@ INSERT INTO TBL_MEMBER(SID, NAME, TEL) VALUES(MEMBERSEQ.NEXTVAL, '곽유진', '010-
 ;
 --==>> 1 행 이(가) 삽입되었습니다. * 3
 
---○ 테이블 전체 조회 쿼리문 구성
+
+--○ 테이블 전체 조회 쿼리문 구성(→ 리스트 확인)
 SELECT SID, NAME, TEL
 FROM TBL_MEMBER
 ORDER BY SID;
 --> 한 줄 구성
 SELECT SID, NAME, TEL FROM TBL_MEMBER ORDER BY SID
 ;
---==>>
+--==>> 
 /*
 1	윤영식	010-1111-1111
 2	엄서연	010-2222-2222
 3	공찬민	010-3333-3333
 4	곽유진	010-4444-4444
 */
+
 
 --○ 인원 수 확인 쿼리문 구성
 SELECT COUNT(*) AS COUNT
@@ -78,6 +80,7 @@ FROM TBL_MEMBER;
 SELECT COUNT(*) AS COUNT FROM TBL_MEMBER
 ;
 --==>> 4
+
 
 --○ 커밋
 COMMIT;

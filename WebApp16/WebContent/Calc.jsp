@@ -15,19 +15,17 @@
 
 <div>
 	<!-- ① 첫 번째 방법 -->
-	<!-- <form action="Calc_Ok1.jsp" method="post" name="myForm"> -->
+	<!-- <form action="Calc_ok1.jsp" method="post" name="myForm"> -->
 	
-	<!-- ② 첫 번째 방법 -->
-	<!-- <form action="Calc_Ok2.jsp" method="post" name="myForm"> -->
+	<!-- ② 두 번째 방법 -->
+	<!-- <form action="Calc_ok2.jsp" method="post" name="myForm"> -->
 	
-	<!-- ③ 첫 번째 방법 -->
-	<form action="Calc_Ok3.jsp" method="post" name="myForm">
+	<!-- ③ 세 번째 방법 -->
+	<form action="Calc_ok3.jsp" method="post" name="myForm">
 		<table class="table">
 			<tr>
 				<th>첫 번째 정수</th>
-				<td>
-					<input type="text" name="su1" class="txt">
-				</td>
+				<td><input type="text" name="su1" class="txt" /></td>
 			</tr>
 			<tr>
 				<th>연산자</th>
@@ -42,9 +40,7 @@
 			</tr>
 			<tr>
 				<th>두 번째 정수</th>
-				<td>
-					<input type="text" name="su2" class="txt">
-				</td>
+				<td><input type="text" name="su2" class="txt" /></td>
 			</tr>
 			<tr>
 				<td colspan="2">
@@ -53,7 +49,6 @@
 			</tr>
 		</table>
 	</form>
-
 </div>
 
 </body>

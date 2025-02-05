@@ -1,8 +1,10 @@
 <%@page import="com.test.MemberScoreDAO"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-	// MemberScoreDelete.jsp
-	// 이전 페이지(MemberScoreList.jsp)로부터 넘어온 데이터 수신
+	//MemberScoreDelete.jsp
+	
+	// 이전 페이지(→MemberScoreList.jsp)로부터 넘어온 데이터 수신
+	// → sid
 	String sid = request.getParameter("sid");
 
 	MemberScoreDAO dao = new MemberScoreDAO();
@@ -12,7 +14,6 @@
 		dao.connection();
 		
 		dao.remove(sid);
-		
 	}
 	catch(Exception e)
 	{
@@ -32,17 +33,3 @@
 	
 	response.sendRedirect("MemberScoreList.jsp");
 %>
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>MemberScoreDelete.jsp</title>
-<link rel="stylesheet" type="text/css" href="css/main.css">
-</head>
-<body>
-
-</body>
-</html>

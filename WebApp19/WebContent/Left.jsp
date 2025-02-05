@@ -19,6 +19,7 @@
 	<li><a href="">토론방</a></li>
 	<li><a href="">일정관리</a></li>
 	<li><a href="">...</a></li>
+	
 </ul>
 
 </body>

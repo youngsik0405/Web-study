@@ -1,0 +1,38 @@
+/*======================
+	ZipCodeDTO.java
+=======================*/
+
+package com.test;
+
+public class ZipCodeDTO
+{
+	// 주요 속성 구성
+	private String zipCode;		//-- 우편번호
+	private String address;		//-- 주소
+	
+	public ZipCodeDTO()
+	{
+		
+	}
+	
+	// getter / setter 구성
+	public String getZipCode()
+	{
+		return zipCode;
+	}
+	public void setZipCode(String zipCode)
+	{
+		this.zipCode = zipCode;
+	}
+	public String getAddress()
+	{
+		return address;
+	}
+	public void setAddress(String address)
+	{
+		this.address = address;
+	}
+	
+	
+	
+}

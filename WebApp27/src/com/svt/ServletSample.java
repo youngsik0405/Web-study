@@ -1,6 +1,7 @@
 /*==========================
 	ServletSample.java
-==========================*/
+===========================*/
+
 package com.svt;
 
 import java.io.IOException;
@@ -35,6 +36,11 @@ public class ServletSample extends HttpServlet
 		
 		// GET 방식이든 POST 방식이든
 		// 어떤 방식의 요청에도 모두 처리할 수 있는 사용자 정의 메소드
+		
+		// 업무 구성(처리)
+		//-- 1 부터 100 까지의 수를 객체(컬렉션)에 저장하는 과정
+				
+		// 뷰(View → MVCTest01.jsp)에 제어권 넘김
 	}
 	
 }

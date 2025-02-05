@@ -2,35 +2,34 @@
 <%@page import="com.test.ScoreDAO"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
+	// ScoreInsert.jsp
+	
+	// 인코딩방식 세팅
 	request.setCharacterEncoding("UTF-8");
 
+	// 요청 받아오기
 	String userName = request.getParameter("userName");
-	String korStr = request.getParameter("kor");
-	String engStr = request.getParameter("eng");
-	String matStr = request.getParameter("mat");
-
+	String userKor = request.getParameter("userKor");
+	String userEng = request.getParameter("userEng");
+	String userMat = request.getParameter("userMat");
+	
+	
 	ScoreDAO dao = null;
-	
-	int kor=0;
-	int eng=0;
-	int mat=0;
-	
+
 	try
 	{
 		dao = new ScoreDAO();
 		
-		kor = Integer.parseInt(korStr);
-		eng = Integer.parseInt(engStr);
-		mat = Integer.parseInt(matStr);
+		// ScoreDTO 객체 구성
+		ScoreDTO dto = new ScoreDTO();
+		dto.setName(userName);
+		dto.setKor(userKor);
+		dto.setEng(userEng);
+		dto.setMat(userMat);
 		
-		ScoreDTO score = new ScoreDTO();
+		// DB에 데이터 넣기
+		dao.add(dto);
 		
-		score.setName(userName);
-		score.setKor(kor);
-		score.setEng(eng);
-		score.setMat(mat);
-		
-		dao.add(score);
 	}
 	catch(Exception e)
 	{
@@ -40,7 +39,8 @@
 	{
 		try
 		{
-			dao.close();			
+			// 연결 닫기
+			dao.close();
 		}
 		catch(Exception e)
 		{
@@ -48,5 +48,6 @@
 		}
 	}
 	
+	// ScoreList.jsp 페이지로 리다이렉트
 	response.sendRedirect("ScoreList.jsp");
 %>

@@ -7,15 +7,21 @@
 <body>
 
 <div>
-	<h1>한 줄 데이터 입력상자 / 암호 입력 상자</h1>
+	<h1>한 줄 데이터 입력상자(텍스트박스) / 암호 입력 상자</h1>
 	<hr>
 </div>
 
 <div>
+	<!-- form을 쓴다 : 1. 클라이언트가 입력(선택)할 수 있는 컨트롤을 제공하겠다.
+		 			   2. 클라이언트가 입력한 데이터들을 서버로 전송하는 유일한 방법 -->
+	
 	<form>
+		<!-- 서버로 전송될 때 입력된 데이터는 name과 함께 전송된다.
+		     때문에 서버 전송하려면 name을 쓰는 게 일반적. (나중에 스크립트로 name없는 것도 처리할 수 있긴 하지만..) -->
+		<!-- maxlength는 입력 데이터길이 제한. DB상에 적재할 때 정해진 데이터 길이가 있기 때문. 그 길이 넘으면 사용자에게 DB 에러가 뜨니까~ -->
 		회원아이디 <input type="text" name="name" size="10"
-		maxlength="8" placeholder="ex) superman"><br><br>
-		패스워드<input type="password" name="pwd" size="10"
+		maxlength="8" placeholder="ex)superman"><br><br>
+		패스워드 <input type="password" name="pwd" size="10"
 		maxlength="10">
 	</form>
 </div>
@@ -24,12 +30,11 @@
 <!-- maxlength 활용 -->
 <div>
 	<form>
-		휴대폰 번호<input type="text" name="phone1" size="5" maxlength="3"> -
+		휴대폰 번호 <input type="text" name="phone1" size="5" maxlength="3"> -
 		<input type="text" name="phone2" size="6" maxlength="4"> -
-		<input type="text" name="phone3" size="6" maxlength="4">
+		<input type="text" name="phone2" size="6" maxlength="4">
 	</form>
 
 </div>
-
 </body>
 </html>

@@ -13,35 +13,53 @@
 
 <div>
 	<form>
+		<!-- 사용자는 checkbox가 뭘 의미하는지 모르니까 옆에 쌀밥이라고 알려줘야한다.
+			 그런데 document상 사실 checkbox와 쌀밥은 전혀 관련이 없음
+			 즉, 체크하고 확인버튼을 누른다고 해서 쌀밥이 전송되는게 아니라 checkbox의 value인 1이 전송된다.
+			 쌀밥은 그저 거들 뿐 . ..
+			 
+			 쌀밥==부서명이 되는 거고 value==부서아이디로 처리하게 되는 것.  -->
 		<p>오늘 점심으로 먹고싶은 메뉴는?</p>
+		<!-- 하나의 질문에 복수체크가 가능하려면 체크박스는 같은 name을 써야한다.
+			 같은 식별자를 가지고 서버에 전송되어야 해당 질문의 답변 여러개라는 걸 알 수 있음. -->
 		
+		<!-- 체크박스 박스를 눌러도, 쌀밥 문자를 눌러도 체크가 되도록 하려면 label로 감싸면 됨 -->
 		<label>
-			<input type="checkbox" name="foodCheck" value="1"> 쌀밥		<!-- 실제로 서버에 전송되는 데이터는 value 값이다. -->
+		<input type="checkbox" name="foodCheck" value="1"> 쌀밥
 		</label>
 		
-		<input type="checkbox" name="foodCheck" value="2" id="label2">  
+		<!-- 원격으로 label과 묶으려면 id를 써야함.
+			 name속성은 한 페이지에 여러 개가 가능한데,
+			 id는 한 페이지에 하나만 고유하게 만들어야함.
+			 그리고 for속성으로 해당 아이디를 적으면 원격으로 연결시킬 수 있음. -->
+		<input type="checkbox" name="foodCheck" value="2" id="label2"> 
 		
-		
-		<label for = "label2">
-			미역국	
+		<label for="label2">
+			미역국
 		</label>
+		
+		
+		
 		<input type="checkbox" name="foodCheck" value="3"> 김치찌개
 		
 		<input type="checkbox" name="foodCheck" value="4"> 달걀말이
 		<br><br>
 		
 		<input type="checkbox" name="foodCheck" value="5" id="label5">
+		<br>
 		
 		<input type="text">
 		<br>
 		
 		<br><br>
-		<label for = "label5">갓김치</label> 		
+		<label for="label5">갓김치</label>
 		
 		<br><br><br><br>
 		<input type="button" value="확인">
+		
 	</form>
 </div>
+<br><br>
 
 </body>
 </html>

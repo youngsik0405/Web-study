@@ -6,18 +6,19 @@
 
 <style type="text/css">
 
-	p{color: green; font-size: 16pt; font-weight: bold;}
-
-	p.type1 {color: yellow;}
-	p.type2 {color: blue;}
-	/*p.type3 {color: black; font-size: 27pt;}*/
-	/*span.type3 {color: black; font-size: 27pt;}*/
+	p {color: green; font-size: 16pt; font-weight: bold;}
+	
+	/* p 엘리먼트이면서 동시에 type1 클래스를 취하고있는 엘리먼트를~*/
+	/* line9의 스타일이 적용된 후, line13 스타일이 추가되는 것. == cascade*/
+	p.type1 {color: orange;}
+	p.type2 {color: fuchsia;}
+	
+	/* p.type3 {color:black; font-size: 27pt;} */
+	/* span.type3 {color:black; font-size: 27pt;} */
 	
 	.type3 {color: black; font-size: 27pt;}
 	
-	
 </style>
-
 </head>
 <body>
 
@@ -34,9 +35,7 @@
 	<p class="type2">저기서는 저렇게</p>
 	<p class="type3">거기서는 그렇게</p>
 	<span class="type3">span 태그 영역에서는 이렇게</span>
-	
 </div>
-
 
 </body>
 </html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test019.html</title>
+
+<style type="text/css">
+	* { font-family: 나눔고딕코딩; background-color:window;}
+	.txt { width : 245px;}
+	h1 { font-size: 13pt; text-align: right; }
+	
+</style>
+
+<script type="text/javascript">
+
+	var arr = [4, 7, 9, 1, 3, 2, 5, 6, 8];
+	
+	function firstArr()
+	{
+		for (var i = 0; i < arr.length; i++)
+		{
+			document.getElementById("arr1").value += arr[i]
+			
+			// 배열의 마지막 요소 출력 후에는 쉼표 넣지 않도록..
+			if (i!=arr.length-1)
+			{
+				document.getElementById("arr1").value += ", ";
+			}
+		}
+	}
+	
+	function evenArr()
+	{
+		var arr2 = [];
+		//var arr2 = new Array();
+		
+		//배열 arr2에 짝수만 넣기
+		for (var i = 0; i < arr.length; i++)
+		{
+			if (arr[i] % 2 == 0)
+			{
+				//document.getElementById("arr2").value += arr[i];
+				
+				//arr2에 해당 짝수가 없으면 짝수 넣기(중복값은 안 넣기)
+				if (arr2.indexOf(arr[i]) == -1)
+				{
+					arr2.push(arr[i]);
+				}
+				
+			}
+		}
+		
+		//짝수값만 출력
+		for (var i = 0; i < arr2.length; i++)
+		{
+			document.getElementById("arr2").value += arr2[i];
+			
+			if (i != arr2.length-1)
+			{ 
+				document.getElementById("arr2").value += ", ";
+			}
+		}
+	}
+	
+	
+	
+
+
+</script>
+</head>
+<body onload="firstArr()">
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<!-- 
+	지정된 요소가 정수로 구성된 1차원 배열의 숫자 데이터들 중
+	짝수만 골라서 출력하는 페이지를 구현한다.
+	HTML, CSS, Javascript 를 활용한다.
+	또한, 자바스크립트 배열을 활용한다.
+	
+	※ 지정된 요소의 배열 → 4, 7, 9, 1, 3, 2, 5, 6, 8       자바에서의 배열   : int[] arr = {10, 20, 30};
+														     자바스크립트 배열 : var arr = [10, 20, 30];
+	페이지 레이아웃
+	-------------------------------------------------
+	
+	초기 배열 상태   [ 4 7 9 1 3 2 5 6 8 ]                   → 지정된 배열        #arr1
+	
+	< 결 과 >												 → button
+	
+	짝수만 출력      [             ]						 → text               #arr2
+	
+	
+	-------------------------------------------------
+ -->
+ 
+ <div>
+ 	<h2>지정된 배열의 숫자 중 <i>짝수</i>만 출력</h2>
+ 	<hr>
+ </div>
+ <div>
+ 	<h3>초기 배열 상태 <input type="text" id="arr1" class="txt" disabled="disabled"> </h3>
+ 	<input type="button" class="btn" value="결 과" style="width: 395px" onclick="evenArr()">
+ 	<br>
+ 	<h3>짝수만 출력&nbsp;&nbsp;&nbsp; <input type="text" id="arr2" class="txt" disabled="disabled"> </h3>
+ 	<br>
+ 	<hr>
+ </div>
+
+</body>
+</html>

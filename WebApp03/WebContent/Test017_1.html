@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test017_1.html</title>
+
+<style type="text/css">
+	
+	*
+	{
+		text-align: center;
+		font-family: 나눔고딕코딩;
+		background-color : threedface
+	}
+	h1
+	{
+		font-size: 13pt;
+		text-align: right;
+	}
+	
+	input
+	{
+		text-align: right;
+		font-size: 15pt;
+	}
+	input.txt:focus
+	{
+		background-color: silver;
+	}
+	
+	
+	input.btn
+	{
+		font-size: 13pt;
+	}
+	
+	input.btn:hover
+	{
+		background-color: black;
+		color: white;
+	}
+	
+	input.btn:active
+	{
+		background-color: white;
+		color: black;
+	}
+	
+	
+</style>
+
+<script type="text/javascript">
+
+function calcSungjuk()
+{
+	var vKor = document.getElementById("kor");
+	var vEng = document.getElementById("eng");
+	var vMat = document.getElementById("mat");
+	
+	/* if (isNaN(vKor.value) || isNaN(vEng.value) || isNaN(vMat.value))
+	{
+		alert("숫자를 입력하세요");
+		return;
+	} */
+	
+	var nKor = parseInt(vKor.value);
+	var nEng = parseInt(vEng.value);
+	var nMat = parseInt(vMat.value);
+	
+	// 평균 구하기
+	// 소수점 2번째 자리까지 표시하기 위해 100을 곱해서 반올림하고 다시 100을 나눠주기
+	var nAvg = (Math.round(((nKor + nEng + nMat) / 3) * 100))/100;
+	//alert(nAvg);
+	document.getElementById("avg").value = nAvg;
+	
+	// 판정결과 구하기
+	if (nAvg < 60)
+	{
+		document.getElementById("pan").value = "불합격";
+	}
+	else if (nKor < 40 || nEng < 40 || nMat < 40)
+	{
+		document.getElementById("pan").value = "과락";	
+	}
+	else
+	{
+		document.getElementById("pan").value = "합격";	
+	}
+	
+	
+}
+
+
+</script>
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<!-- 
+	사용자로부터 이름, 국어점수, 영어점수, 수학점수를 입력받아
+	평균점수와 판정결과를 출력하는 페이지를 구성한다.
+	판정결과는 합격, 과락, 불합격 중 하나로 처리한다.
+	
+	합격은 모든 과목 점수가 40점 이상이면서 평균 점수가 60점 이상인 경우,
+	과락은 평균 점수가 60점 이상이지만 한 과목이라도 과목 점수가 40점 미만의 과목이 존재하는 경우,
+	불합격은 평균 점수가 60점 미만인 경우로 처리한다.
+	
+	HTML, CSS, Javascript 활용
+	
+	페이지 레이아웃
+	-------------------------------------------------------
+	
+	이름	 [				]		#name
+	국어점수 [				]		#kor
+	영어점수 [				]		#eng
+	수학점수 [				]		#mat
+	
+	<처리 결과 확인 >
+	
+	   평균          판정결과
+	 [		]		[		]		#avg   #pan
+	
+	--------------------------------------------------------
+ -->
+
+<h2>▶▷성적 확인◁◀</h2>
+<hr>
+<br><br>
+<div>
+	<form>
+		<h3>이&nbsp;&nbsp;&nbsp;&nbsp;름 <input type="text" class="txt" id="name" style="width: 100px"></h3>
+		<h3>국어점수 <input type="text" class="txt" id="kor" style="width: 100px"></h3>
+		<h3>영어점수 <input type="text" class="txt" id="eng" style="width: 100px"></h3>
+		<h3>수학점수 <input type="text" class="txt" id="mat" style="width: 100px"></h3>
+		
+		<br>
+		<!-- <button id="resultBtn" onclick="calcSungjuk()">처리 결과 확인</button> -->
+		<!-- 버튼 엘리먼트로 만드니까 처리 결과 확인 후에 form 안의 내용이 전부 지워진다..-->
+		<input type="button" class="btn" value="처리 결과 확인" onclick="calcSungjuk()">
+		<input type="reset" class="btn" value="취소">
+		<br>
+		<br>
+		<div>
+			<h3><a>&nbsp;&nbsp;평균</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>판정결과</a></h3>
+			<input type="text" class="result" id="avg" style="width:90px" disabled="disabled">
+			<input type="text" class="result" id="pan" style="width:90px" disabled="disabled">
+		</div>
+	</form>
+</div>
+<br><br>
+<hr>
+
+
+</body>
+</html>

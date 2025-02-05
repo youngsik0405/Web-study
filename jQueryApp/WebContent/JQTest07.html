@@ -13,32 +13,37 @@
 		// 확인
 		/*
 		$("#allCheck").change(function()
-		{	
+		{
 			alert("change~!!!");
 		});
 		*/
-		
 		
 		$("#allCheck").click(function()
 		{
 			//alert("click~!!!");
 			
 			// 확인
-			//alert($(this).attr("checked"));		//-- undefined / undefined
+			//alert( $(this).attr("checked") );		//-- undefined / undefined 체크 여부를 알 수 없다.
+			
 			
 			//alert( $(this).prop("checked") );		//-- 속성 → true / false
 			//alert( this.checked );				//-- 속성 → true / false
+			//                                      자바스크립트에서 썼던 this.checked 그대로 쓸 수 있다!
+			
+			//속성명이 checked인지 아닌지를 따지는 게 아니라 속성값이 checked인지 아닌지를 따져야 할 때는 : 으로 속성값을 확인한다~!
 			//alert( $(this).is(":checked") );		//-- 속성 → true / false
 			
-			// 방법 1
+			
+			// 방법 1.
+			// div 아래 있는 input 엘리먼트의 타입이 checkbox인 애들..의 속성 중에 "checked" 속성의 값을 this.checked 모두 선택의 선택상태로 바꾸겠다.
 			//$("div > input:checkbox").prop("checked", this.checked);
 			
-			// 방법 2
+			// 방법 2.
 			// 『$(선택자).children()』
 			$("div").children().prop("checked", this.checked);
 			
 		});
-		
+
 	});
 
 </script>
@@ -59,15 +64,13 @@
 	<input type="checkbox" id="check4"><label for="check4">수박</label><br>
 	<input type="checkbox" id="check5"><label for="check5">포도</label><br>
 	
-	<!-- 	
+	<!--
 	<label>
 		<input type="checkbox">바나나
 	</label><br>
- 	-->
- 	
+    -->
+	
 </div>
-
-
 
 </body>
 </html>

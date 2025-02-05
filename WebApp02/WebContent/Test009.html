@@ -7,9 +7,11 @@
 <link rel="stylesheet" type="text/css" href="css/externalStyle.css">
 
 <style type="text/css">
-	@import url("css/importStyle.css");
-	p {font-size: 100px; color: black;}
+	@import url("css/importStyle.css"); /*외부에 있음.*/
+	p {font-size: 100px; color: black;} /*우선순위가 더 높다.*/
+
 </style>
+
 
 </head>
 <body>
@@ -20,6 +22,8 @@
 </div>
 
 <p style="color: orange; font-size: 20pt;">이와 같은 상황이라면... 난 어떻게 표현되어야 할까</p>
-
+<!-- 둘 다 외부에 있을 때(link와 import), 충돌되는 상황에서는 line21과 가까운 게 우선순위가 높다. -->
+<!-- 물리적으로 외부에 있는 line10과 내부에 있는 line11이 서로 구문위치를 바꾸더라도 내부에 있는 게 우선순위가 더 높다. -->
+<!-- 이와 같은 논리로, 가장 가까이 있는 인라인 style이 가장 우선순위가 높다. -->
 </body>
 </html>

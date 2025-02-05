@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
@@ -16,13 +16,14 @@
 <div>
 	<h1>결과 수신 페이지</h1>
 	<h2>(HelloReceive03.jsp)</h2>
+	<hr>
 </div>
-
 
 <div>
 	<ul>
 		<!-- <li><b>First Name : </b>민승</li> -->
 		<li><b>First Name : </b>${fName }</li>
+		
 		<!-- <li><b>Last Name : </b>김</li> -->
 		<li><b>Last Name : </b>${lName }</li>
 	</ul>

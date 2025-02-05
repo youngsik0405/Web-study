@@ -1,6 +1,6 @@
-/*====================
+/*=======================
 	BoardDTO.java
-====================*/
+========================*/
 
 package com.test;
 
@@ -88,6 +88,5 @@ public class BoardDTO
 		this.hitCount = hitCount;
 	}
 	
-
 	
 }

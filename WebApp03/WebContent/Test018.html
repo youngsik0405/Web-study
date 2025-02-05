@@ -3,97 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <title>Test018.html</title>
+
+<style type="text/css">
+	* {color: #223322;}
+	input {font-family: 나눔고딕코딩; font-weight: bold;}
+	input:focus {background-color: #eeeedd;}
+	input.btn {width: 90px; font-weight: bold; font-family: 맑은 고딕;}
+	input.btn:hover {color: orange;}
+	td {text-align: center;}
+	.txtName {text-align: center;}
+	.txtScore {text-align: right;}
+	.txt {text-align: center;}
+</style>
+
 <script type="text/javascript">
-
-
-	function actionSum()
+	
+	function actionCalculate()
 	{
-		document.getElementById("result").value = "";
-		var numStr = document.getElementById("num").value;
-		var vNum = parseInt(numStr);
-		var vResult = 0;
+		// 확인
+		//alert("함수 호출 확인~!!!");
 		
-		if (vNum < 100)
+		// check~!!!
+		document.getElementById("result").value="";
+		
+		var nNum = Number(document.getElementById("num").value);
+		var nSum = 0;
+		
+		if (nNum < 100)
 		{
-			alert("100이상 입력하세요");
-			return;
+			alert("입력값은 100 이상만 가능~!!!");
+			return;										// check~!!! (함수가 종료)
 		}
 		
-		for (var i = 1; i <= vNum; i++)
+		for (var n=1; n<=nNum; n++)		//-- 1 부터 사용자 입력값(nNum)까지 1씩 증가하며 반복 수행
 		{
-			vResult += i;
+			nSum += n;					//-- nSum 을 n 만큼씩 증가
 			
-			if (i % 10 == 0)
-				document.getElementById("result").value += "1 ~ " + i + " : " + vResult + "\n";
+			//textarea 안에서의 개행은 <br> 개행이 아니라 \n 으로 개행처리가 된다~!
+			//document.getElementById("result").value = "1 ~ " + n + " : " + nSum + "<br>";
+			//document.getElementById("result").value = "1 ~ " + n + " : " + nSum + "\n";
+			//document.getElementById("result").value += "1 ~ " + n + " : " + nSum + "\n";
+			
+			if (n%10==0)				//-- n 이 10의 배수
+			{
+				document.getElementById("result").value += "1 ~ " + n + " : " + nSum + "\n";
+			}
 		}
 		
-		document.getElementById("result").value += ">> 1 ~ " + vNum + " : " + vResult;	
+		document.getElementById("result").value += ">> 1 ~ " + nNum + " : " + nSum + "\n";
+		
+		
 	}
 
 </script>
-
-<style type="text/css">
-	body 
-	{
-	    font-family: Arial, sans-serif;
-	    background-color: #e3f2fd; 
-	    color: #333;
-	    margin: 0;
-	    padding: 20px;
-	    text-align: center; 
-	}
-	
-	h1 
-	{
-	    color: #1976d2; 
-	    margin-top: 0; 
-	}
-	
-	hr 
-	{
-	    border: 1px solid #90caf9; 
-	    margin: 20px 0; 
-	}
-	
-	input[type="text"] 
-	{
-	    width: 100px; 
-	    text-align: center; 
-	    padding: 5px;
-	    border: 1px solid #90caf9; 
-	    border-radius: 4px;
-	    margin: 5px 0; 
-	}
-	
-	input[type="button"], input[type="reset"] 
-	{
-	    background-color: #64b5f6;
-	    color: white;
-	    border: none;
-	    padding: 10px 15px;
-	    border-radius: 4px;
-	    cursor: pointer;
-	    transition: background-color 0.3s;
-	    margin: 5px; 
-	}
-	
-	input[type="button"]:hover, input[type="reset"]:hover 
-	{
-	    background-color: #42a5f5; 
-	}
-	
-	textarea 
-	{
-	    width: 300px; 
-	    height: 150px; 
-	    padding: 10px; 
-	    border: 1px solid #90caf9;
-	    border-radius: 4px;
-	    margin-top: 10px; 
-	    resize: none; 
-	} 
-
-</style>
 
 </head>
 <body>
@@ -103,49 +65,53 @@
 	<hr>
 </div>
 
-<!-- 
-	사용자로부터 임의의 정수 n을 입력받아
-	1부터 n까지의 합을 계산하되
-	n은 100이상만 허용할 수 있도록 처리하고
-	출력시 10의 배수가 될 때 마다 중간 합을 출력할 수 있는 페이지를 구성한다.
+<!--
+	사용자로부터 임의의 정수 n 을 입력받아
+	1 부터 n 까지의 합을 계산하되
+	n 은 100 이상만 허용할 수 있도록 처리하고,
+	출력 시 10의 배수가 될 때 마다 중간 합을 출력할 수 있는 페이지를 구성한다.
 	반복문을 활용할 수 있도록 한다.
 	
 	HTML, CSS, Javascript 활용
 	
 	페이지 레이아웃
-	---------------------------------------------------   (입력값은 100 이상만 가능~!!!)
+	---------------------------------------------     (입력값은 100 이상만 가능~!!!)
+															↑
+	정수 입력(100 이상)  [    101    ]	→ textbox  → 조건 유효성			#num
 	
-	점수 입력(100 이상)	[  101  ]			→ textbox  → 조건 유효성			#num
+		< 결 과 >	< 취 소 >			→ button
 	
-		< 결 과 >	< 취 소 >				→ button
-		
-	----------------------------------      → textarea    						#result
-	1 ~ 10 : xx
-	1 ~ 20 : xxx
-	1 ~ 30 : xxx
-		:
-	1 ~ 100 : xxxx
-	1 ~ 101 : xxxx - 최종합
+	------------------------------	    → textarea                         #result
+	 1 ~ 10 : xx     ┐
+	 1 ~ 20 : xxx    │
+	 1 ~ 30 : xxx    │ 중간합 
+	     :           │
+	 1 ~ 100 : xxxx  ┘
+	 >> 1 ~ 101 : xxxx  ─ 최종합
+	 
+	------------------------------
 	
-	----------------------------------	
-	
-	
-	---------------------------------------------------	 
--->
-
+	---------------------------------------------
+ -->
 
 <div>
 	<form>
-		점수 입력(100 이상) <input type="text" id="num" class="txtNum">
-		<br><br>
+		<div>
+			정수 입력(100 이상)
+			<input type="text" id="num" class="txt">
+		</div>
+		<hr>
 		
-		<input type="button" class="btn" value="결과" onclick="actionSum()">
-		<input type="reset" class="btn" value="취소">
-		<br><br>
-		<textarea id="result"></textarea>
+		<div>
+			<input type="button" class="btn" value="결과" style="width: 120Px;" onclick="actionCalculate()">
+ 			<input type="reset" class="btn" value="취소" style="width: 120Px;">
+		</div>
+		 	<br>
+			<textarea rows="10" cols="43" id="result"></textarea>
+		
 	</form>
 </div>
-
-
 </body>
+
+
 </html>

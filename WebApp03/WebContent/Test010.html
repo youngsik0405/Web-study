@@ -21,9 +21,8 @@
 	document.write("<br>num1 <= num2 → ");
 	document.write(res);
 	
-	// -----------------------------------------------------------
+	// ---------------------------------------------
 	document.write("<br><br><br><br>");
-	
 	
 	
 	res = (num1 < 10 && num2 < 10);
@@ -42,27 +41,27 @@
 	document.write("<br>num1 < 10 || num2 < 10 → ");
 	document.write(res);
 	
-	res = !(num1 == num2 );
-	document.write("<br>num1 == num2 → ");
+	res = !(num1 == num2);
+	document.write("<br>!(num1 == num2) → ");
 	document.write(res);
 	
-	// -----------------------------------------------------------
-	document.write("<br><br><br><br>");
 	
+	// ---------------------------------------------
+	document.write("<br><br><br><br>");
 	
 	
 	human = "연인";
 	
-	res = (human == "연인") ? "사랑" : "우정";
+	res = (human === "연인") ? "사랑" : "우정";
 	document.write("<br>res = ");
 	document.write(res);
+	
 	
 	human = "친구";
 	
-	res = (human == "연인") ? "사랑" : "우정";
+	res = (human === "연인") ? "사랑" : "우정";
 	document.write("<br>res = ");
 	document.write(res);
-	
 	
 
 </script>

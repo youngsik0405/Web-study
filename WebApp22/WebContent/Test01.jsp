@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
@@ -37,13 +37,14 @@
 <div>
 	<h2>폼 데이터 수신</h2>
 	
-	<!-- 폼의 데이터를 수신하는 방법 1 -->
+	<!-- 폼의 데이터를 수신하는 방법 1 : 최초 요청 시 null 표시-->
 	<h3><%=request.getParameter("su1") %></h3>
 	
-	<!-- 폼의 데이터를 수시하는 방법 2 -->
-	<h3>${param.su1 }</h3>
+	<!-- 폼의 데이터를 수신하는 방법 2 : 최초 요청 시 null 표시하지 않고 아예 안 뜸-->
+	<h3>${param.su1}</h3>
 </div>
 <br><br>
+
 
 <div>
 	<h2>폼의 데이터를 수신하여 연산 수행</h2>
@@ -67,19 +68,22 @@
 	<!-- → 파라미터 수신도 알아서... -->
 	<!-- → 필요한 캐스팅도 알아서 자동으로 수행... -->
 	<!-- → null 을 대하는 방식도 check~!!! -->
+	
 </div>
 <br><br>
+
+
 
 <div>
 	<h2>setAttribute()로 넘긴 데이터 수신</h2>
 	
 	<!-- setAttribute()로 넘긴 데이터를 수신하는 방법 1 -->
 	<h3><%=request.getAttribute("result") %></h3>
-
+	
 	<!-- setAttribute()로 넘긴 데이터를 수신하는 방법 2 -->
 	<h3>${result }</h3>
+	
 </div>
-
 
 </body>
 </html>

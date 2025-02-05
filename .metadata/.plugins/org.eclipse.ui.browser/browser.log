@@ -1,0 +1,89 @@
+
+12월 23, 2024 10:36:09.34 NEW SESSION
+12월 23, 2024 10:36:09.34 Created TensorFlow Lite XNNPACK delegate for CPU.
+
+12월 24, 2024 16:34:00.15 NEW SESSION
+12월 24, 2024 16:34:00.15 Created TensorFlow Lite XNNPACK delegate for CPU.
+12월 24, 2024 16:34:29.44 [1224/163429.444:ERROR:filesystem_win.cc(128)] GetFileAttributes C:\Users\SIST1\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\3517a8f8-171a-4928-ac6a-c5197a8f8727: 吏��젙�맂 �뙆�씪�쓣 李얠쓣 �닔 �뾾�뒿�땲�떎. (0x2)
+12월 24, 2024 16:34:29.44 [1224/163429.444:ERROR:filesystem_win.cc(128)] GetFileAttributes C:\Users\SIST1\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\3517a8f8-171a-4928-ac6a-c5197a8f8727: 吏��젙�맂 �뙆�씪�쓣 李얠쓣 �닔 �뾾�뒿�땲�떎. (0x2)
+12월 24, 2024 16:34:29.46 [1224/163429.444:ERROR:filesystem_win.cc(128)] GetFileAttributes C:\Users\SIST1\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\3517a8f8-171a-4928-ac6a-c5197a8f8727: 吏��젙�맂 �뙆�씪�쓣 李얠쓣 �닔 �뾾�뒿�땲�떎. (0x2)
+12월 24, 2024 16:34:29.46 [1224/163429.444:ERROR:filesystem_win.cc(128)] GetFileAttributes C:\Users\SIST1\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\3517a8f8-171a-4928-ac6a-c5197a8f8727: 吏��젙�맂 �뙆�씪�쓣 李얠쓣 �닔 �뾾�뒿�땲�떎. (0x2)
+12월 24, 2024 16:40:10.53 [1224/164010.530:ERROR:filesystem_win.cc(147)] DeleteFile C:\Users\SIST1\AppData\Local\Google\Chrome\User Data\Crashpad\reports\7a77b821-c8b8-48ad-b469-815315589f65.dmp: �떎瑜� �봽濡쒖꽭�뒪媛� �뙆�씪�쓣 �궗�슜 以묒씠湲� �븣臾몄뿉 �봽濡쒖꽭�뒪媛� �븸�꽭�뒪 �븷 �닔 �뾾�뒿�땲�떎. (0x20)
+12월 24, 2024 16:40:17.52 [9356:6744:1224/164017.520:ERROR:gpu_process_host.cc(982)] GPU process exited unexpectedly: exit_code=34
+12월 24, 2024 16:54:50.91 [9356:6744:1224/165450.913:ERROR:gpu_process_host.cc(982)] GPU process exited unexpectedly: exit_code=34
+12월 24, 2024 16:54:51.87 [9356:6744:1224/165451.872:ERROR:gpu_process_host.cc(982)] GPU process exited unexpectedly: exit_code=34
+12월 24, 2024 16:54:52.04 [9356:6744:1224/165452.042:ERROR:gpu_process_host.cc(982)] GPU process exited unexpectedly: exit_code=34
+
+12월 27, 2024 09:27:04.07 NEW SESSION
+12월 27, 2024 09:27:04.07 Created TensorFlow Lite XNNPACK delegate for CPU.
+12월 27, 2024 12:15:44.44 [13428:9880:1227/121544.445:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+12월 27, 2024 12:15:44.44     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+12월 27, 2024 12:15:44.44     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+12월 27, 2024 12:15:44.44     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+12월 27, 2024 12:15:44.44     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+12월 27, 2024 12:15:44.44     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+12월 27, 2024 12:15:44.44     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+12월 27, 2024 17:10:56.78 [13428:9880:1227/171056.787:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+12월 27, 2024 17:10:56.78     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+12월 27, 2024 17:10:56.78     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+12월 27, 2024 17:10:56.78     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+12월 27, 2024 17:10:56.78     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+12월 27, 2024 17:10:56.78     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+12월 27, 2024 17:10:56.78     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+12월 27, 2024 17:28:04.35 [13428:9880:1227/172804.353:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+12월 27, 2024 17:28:04.35     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+12월 27, 2024 17:28:04.35     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+12월 27, 2024 17:28:04.35     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+12월 27, 2024 17:28:04.35     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+12월 27, 2024 17:28:04.35     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+12월 27, 2024 17:28:04.35     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+
+1월 15, 2025 14:39:53.26 NEW SESSION
+1월 15, 2025 14:39:53.26 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 15, 2025 14:41:04.96 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 15, 2025 14:44:52.90 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 15, 2025 14:46:08.54 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 15, 2025 15:01:49.15 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 15, 2025 15:08:59.94 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 15, 2025 15:10:54.04 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 15, 2025 15:14:36.29 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 15, 2025 15:41:51.39 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 15, 2025 16:21:49.67 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 15, 2025 16:26:44.88 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 15, 2025 16:46:03.07 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 15, 2025 16:46:15.84 [13996:14592:0115/164615.848:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+1월 15, 2025 16:46:15.84     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+1월 15, 2025 16:46:15.84     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+1월 15, 2025 16:46:15.84     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+1월 15, 2025 16:46:15.84     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+1월 15, 2025 16:46:15.84     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+1월 15, 2025 16:46:15.84     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+
+1월 21, 2025 11:02:02.31 NEW SESSION
+1월 21, 2025 11:02:02.31 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 21, 2025 14:52:34.11 Created TensorFlow Lite XNNPACK delegate for CPU.
+
+1월 22, 2025 16:46:30.83 NEW SESSION
+1월 22, 2025 16:46:30.83 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 22, 2025 16:49:02.19 [11336:508:0122/164902.197:ERROR:gpu_process_host.cc(981)] GPU process exited unexpectedly: exit_code=34
+1월 22, 2025 16:49:02.74 [11336:508:0122/164902.745:ERROR:gpu_process_host.cc(981)] GPU process exited unexpectedly: exit_code=34
+1월 22, 2025 16:49:03.10 [11336:508:0122/164903.105:ERROR:gpu_process_host.cc(981)] GPU process exited unexpectedly: exit_code=34
+
+1월 23, 2025 14:04:36.47 NEW SESSION
+1월 23, 2025 14:04:36.47 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 23, 2025 14:15:08.38 [2576:8748:0123/141508.387:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+1월 23, 2025 14:15:30.40 [2576:8748:0123/141530.402:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+1월 23, 2025 14:16:25.39 [2576:8748:0123/141625.395:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+1월 23, 2025 14:17:59.82 [2576:8748:0123/141759.826:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+1월 23, 2025 14:20:44.08 [2576:8748:0123/142044.089:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+1월 23, 2025 14:28:44.38 [2576:8748:0123/142844.385:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+1월 23, 2025 15:26:43.91 [2576:8748:0123/152643.911:ERROR:mcs_client.cc(748)] Received close command, resetting connection.
+
+1월 24, 2025 09:06:28.02 NEW SESSION
+1월 24, 2025 09:06:28.02 Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 24, 2025 09:06:28.22 [10496:12140:0124/090628.229:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+1월 24, 2025 09:06:57.12 [10496:12140:0124/090657.125:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+1월 24, 2025 09:07:56.86 [10496:12140:0124/090756.859:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+1월 24, 2025 09:09:51.32 [10496:12140:0124/090951.326:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+1월 24, 2025 09:13:51.47 [10496:12140:0124/091351.469:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+1월 24, 2025 09:20:01.64 [10496:12140:0124/092001.644:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT

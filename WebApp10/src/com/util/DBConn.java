@@ -1,8 +1,9 @@
-/*=============================================
- 	DBConn.java
- 	- 데이터베이스 연결 전용 객체(singleton)
- 	- 예외 처리 : throws
-=============================================*/
+/*==============================================
+	DBConn.java
+	- 데이터베이스 연결 전용 객체(Singleton)
+	- 예외 처리 : throws
+===============================================*/
+
 
 package com.util;
 
@@ -14,11 +15,11 @@ public class DBConn
 {
 	private static Connection dbConn;
 	
-	public static Connection getConnection() throws ClassNotFoundException, SQLException 
+	public static Connection getConnection() throws ClassNotFoundException, SQLException
 	{
 		if (dbConn == null)
 		{
-			String url = "jdbc:oracle:thin:@211.238.142.173:1521:xe";
+			String url = "jdbc:oracle:thin:@211.238.142.158:1521:xe";
 			String user = "scott";
 			String pwd = "tiger";
 			
@@ -29,13 +30,14 @@ public class DBConn
 		return dbConn;
 	}
 	
-	public static Connection geConnection(String url, String user, String pwd) throws ClassNotFoundException, SQLException
+	public static Connection getConnection(String url, String user, String pwd) throws ClassNotFoundException, SQLException
 	{
 		if (dbConn == null)
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			dbConn = DriverManager.getConnection(url, user, pwd);
 		}
+		
 		return dbConn;
 	}
 	
@@ -46,6 +48,7 @@ public class DBConn
 			if (!dbConn.isClosed())
 				dbConn.close();
 		}
+		
 		dbConn = null;
 	}
 

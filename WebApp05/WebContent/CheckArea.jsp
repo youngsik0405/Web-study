@@ -4,11 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <title>CheckArea.jsp</title>
-
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
 	span {color: red; font-weight: bold;}
 </style>
+
 </head>
 <body>
 
@@ -31,25 +31,22 @@
 		<br><br>
 		
 		이상형<br>
-		<label><input type="checkBox" value="송가인" name="checkGroup">송가인</label>
-		<label><input type="checkBox" value="강동원" name="checkGroup">강동원</label>
-		<label><input type="checkBox" value="이준혁" name="checkGroup">이준혁</label>
-		<label><input type="checkBox" value="아이유" name="checkGroup">아이유</label>
+		<label><input type="checkbox" value="송가인" name="checkGroup">송가인</label>
+		<label><input type="checkbox" value="강동원" name="checkGroup">강동원</label>
+		<label><input type="checkbox" value="이준혁" name="checkGroup">이준혁</label>
+		<label><input type="checkbox" value="아이유" name="checkGroup">아이유</label>
 		<br>
 		
-		<label><input type="checkBox" value="안유진" name="checkGroup">안유진</label>
-		<label><input type="checkBox" value="박보영" name="checkGroup">박보영</label>
-		<label><input type="checkBox" value="이동욱" name="checkGroup">이동욱</label>
-		<label><input type="checkBox" value="박은빈" name="checkGroup">박은빈</label>
+		<label><input type="checkbox" value="안유진" name="checkGroup">안유진</label>
+		<label><input type="checkbox" value="박보영" name="checkGroup">박보영</label>
+		<label><input type="checkbox" value="이동욱" name="checkGroup">이동욱</label>
+		<label><input type="checkbox" value="박은빈" name="checkGroup">박은빈</label>
 		<br><br>
 		
 		<input type="submit" value="결과 확인" class="btn control" style="width: 200px;">
 		
 	</form>
-	
 </div>
-
-
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
@@ -20,20 +20,23 @@
 
 <div>
 	<table class="table">
+	
+		<%-- JSTL 코어(core) 반복문 --%>
+		<%-- 『<c:forEach var="변수" begin="시작값" end="끝값" step="증가값"></c:forEach>』--%>
 		
-		<!-- JSTL 코어(Core) 반복문 -->
-		<%-- 『c:forEach var="변수" begin="시작값" end="끝값" step="증가값" ~ /c:forEach』 --%>
-		<c:forEach var="a" begin="1" end="9" step="1"> 			<!-- a : 1 ~ 9 -->
-			<tr>
-				<c:forEach var="b" begin="1" end="9" step="1">	<!-- b : 1 ~ 9 -->
-					<td style="width: 20px;">
-						${a*b }
-					</td>
-				</c:forEach>
-			</tr>
-		</c:forEach>
-		
+		<c:forEach var="a" begin="1" end="9" step="1">     <%-- a : 1 ~ 9 --%>
+		<tr>
+			<c:forEach var="b" begin="1" end="9" step="1"> <%-- b : 1 ~ 9 --%>
+			<td style="width: 20px;">
+				<!-- 테스트 -->
+				${a*b }
+			</td>
+			</c:forEach>
+		</tr>
+		</c:forEach>	
+	
 	</table>
 </div>
+
 </body>
 </html>

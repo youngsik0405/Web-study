@@ -42,6 +42,7 @@ p
 <p></p>
 
 
+
 2. 아이디 선택자
 
 div#box
@@ -73,6 +74,7 @@ div.items{aaa}
 <div class="items">bbb</div>
 
 
+
 4. 조합
 
 div#box.items
@@ -81,11 +83,12 @@ div#box.items
 div#box.items.unit.control
 <div id="box" class="items unit control"></div>
 
-div#box.items.unit{aaaa}
-<div id="box" class="items unit">aaaa</div>
+div#box.items.unit{aaaaa}
+<div id="box" class="items unit">aaaaa</div>
 
 #box.items.control{bbb}
 <div id="box" class="items control">bbb</div>
+
 
 
 5. 속성 선택자
@@ -93,15 +96,13 @@ div#box.items.unit{aaaa}
 div[title]
 <div title=""></div>
 
-
 div[name='test']
 <div name="test"></div>
 
 a[href='www.naver.com' title='네이버']
 <a href="www.naver.com" title="네이버"></a>
 
-
-a[href='www.daum.net' title="다음"]{사이트로 이동}
+a[href='www.daum.net' title='다음']{사이트로 이동}
 <a href="www.daum.net" title="다음">사이트로 이동</a>
 
 
@@ -111,9 +112,8 @@ a[href='www.daum.net' title="다음"]{사이트로 이동}
 div{박스}
 <div>박스</div>
 
-
-a{홈페지이로 이동}
-<a href="">홈페지이로 이동</a>
+a{홈페이지로 이동}
+<a href="">홈페이지로 이동</a>
 
 p{문단의 내용 기술}
 <p>문단의 내용 기술</p>
@@ -122,12 +122,17 @@ p{문단의 내용 기술}
 
 7. 반복 생성
 
-
 div*5
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
 <div>첫 번째 내용</div>
 <div>두 번째 내용</div>
 <div>세 번째 내용</div>
-<div>네 번째</div>
+<div>다섯 번째</div>
 <div>끝</div>
 
 img[src=images/dog.jpg]*5
@@ -144,7 +149,6 @@ img[src=images/dog.jpg]*5
 <div class="box"></div>
 <div class="box"></div>
 
-
 .box{content}*5
 <div class="box">content</div>
 <div class="box">content</div>
@@ -152,13 +156,13 @@ img[src=images/dog.jpg]*5
 <div class="box">content</div>
 <div class="box">content</div>
 
-
-#box*5
+#box*5		
 <div id="box"></div>
 <div id="box"></div>
 <div id="box"></div>
 <div id="box"></div>
 <div id="box"></div>
+<!-- id는 중복되면 안 된다..!! -->
 
 #box$*5
 <div id="box1"></div>
@@ -167,13 +171,13 @@ img[src=images/dog.jpg]*5
 <div id="box4"></div>
 <div id="box5"></div>
 
-.box#box${box}*5
-<div class="box" id="box1">box</div>
-<div class="box" id="box2">box</div>
-<div class="box" id="box3">box</div>
-<div class="box" id="box4">box</div>
-<div class="box" id="box5">box</div>
-
+<!-- 클래스는 box로, id는 box1~5로, 내용도 id랑 똑같이 5개 만들어줘 -->
+.box#box${box$}*5
+<div class="box" id="box1">box1</div>
+<div class="box" id="box2">box2</div>
+<div class="box" id="box3">box3</div>
+<div class="box" id="box4">box4</div>
+<div class="box" id="box5">box5</div>
 
 img[src=images/obj$.jpg]*5
 <img src="images/obj1.jpg" alt="" />
@@ -181,7 +185,6 @@ img[src=images/obj$.jpg]*5
 <img src="images/obj3.jpg" alt="" />
 <img src="images/obj4.jpg" alt="" />
 <img src="images/obj5.jpg" alt="" />
-
 
 h$*6
 <h1></h1>
@@ -199,6 +202,8 @@ h${제목$}*6
 <h5>제목5</h5>
 <h6>제목6</h6>
 
+
+
 8. 연속 생성
 
 div+p
@@ -213,22 +218,22 @@ h1{제목}+p{내용$}*5
 <p>내용4</p>
 <p>내용5</p>
 
-(h1{제목}+p{내용$}*2)*5
+(h1{제목}+p{내용}*2)*5
 <h1>제목</h1>
-<p>내용1</p>
-<p>내용2</p>
+<p>내용</p>
+<p>내용</p>
 <h1>제목</h1>
-<p>내용1</p>
-<p>내용2</p>
+<p>내용</p>
+<p>내용</p>
 <h1>제목</h1>
-<p>내용1</p>
-<p>내용2</p>
+<p>내용</p>
+<p>내용</p>
 <h1>제목</h1>
-<p>내용1</p>
-<p>내용2</p>
+<p>내용</p>
+<p>내용</p>
 <h1>제목</h1>
-<p>내용1</p>
-<p>내용2</p>
+<p>내용</p>
+<p>내용</p>
 
 div+a+div+p+div+img
 <div></div>
@@ -239,6 +244,7 @@ div+a+div+p+div+img
 <img src="" alt="" />
 
 
+<!-- 세트로 구성되는 엘리먼트들의 세트 만들기에 많이 쓰임 -->
 9. 하위 생성
 
 table+
@@ -247,7 +253,6 @@ table+
 		<td></td>
 	</tr>
 </table>
-
 
 ul+
 <ul>
@@ -265,12 +270,13 @@ select+
 </select>
 
 
+
 10. 자식 생성
+
 div>p
 <div>
 	<p></p>
 </div>
-
 
 div>p*5
 <div>
@@ -280,7 +286,6 @@ div>p*5
 	<p></p>
 	<p></p>
 </div>
-
 
 (div>p*2)*3
 <div>
@@ -295,7 +300,6 @@ div>p*5
 	<p></p>
 	<p></p>
 </div>
-
 
 table#tbl>tr*5>td*3
 <table id="tbl">
@@ -342,7 +346,6 @@ table#tbl>tr*3>td.label+td.content
 	</tr>
 </table>
 
-
 table#tbl>tr*3>td#label$+td.content
 <table id="tbl">
 	<tr>
@@ -358,7 +361,6 @@ table#tbl>tr*3>td#label$+td.content
 		<td class="content"></td>
 	</tr>
 </table>
-
 
 table#tbl>(tr>th*3)+((tr>td*3)*5)
 <table id="tbl">
@@ -395,25 +397,25 @@ table#tbl>(tr>th*3)+((tr>td*3)*5)
 </table>
 
 
+
 11. 더미 키워드
+<!-- 영어도 아니고 스페인어도 아닌.. 의미없는 문자열 생성 -->
+lorem
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+Saepe doloribus aliquid repellendus labore magnam
+necessitatibus fugit at laudantium nemo deserunt reiciendis
+magni recusandae natus eos perferendis vero tempore voluptatibus cumque!
+
+lorem
+Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+Optio quos atque hic dolor quis dolorum recusandae magni quo
+nostrum saepe itaque inventore eaque cumque aperiam delectus impedit ullam quod ea?
 
 lorem
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-Illum distinctio nemo voluptatum eius odio officia magnam cum omnis. 
-Dicta recusandae aliquid ipsum reiciendis. 
-Necessitatibus facilis aut animi recusandae suscipit exercitationem.
-
-lorem
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-Eaque autem voluptatibus nisi magni praesentium adipisci 
-temporibus odio veritatis id eveniet ipsa provident ab 
-assumenda pariatur quaerat sint itaque repudiandae molestias?
-
-lorem
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-Doloremque consequatur laboriosam deleniti magni enim nisi 
-ipsa distinctio sint amet provident facilis consectetur voluptatibus 
-dolor modi officia quam explicabo fuga optio!
+Deserunt repellendus est deleniti expedita nemo. 
+Velit mollitia accusamus debitis natus ut. 
+Dicta eaque eius quaerat ad quisquam architecto doloremque facilis cum.
 
 
 table>(tr>th*2)+(tr>(td{word}+td{lorem}))*3
@@ -435,7 +437,8 @@ table>(tr>th*2)+(tr>(td{word}+td{lorem}))*3
 		<td>lorem</td>
 	</tr>
 </table>
-
+<!-- 수식 안에 lorem을 넣으면 작동 안 함.. 적혀있는 loream에 가서 Ctrl+E 해도 되고 -->
+<!-- 아래처럼 바꿔도 됨 -->
 table>(tr>th*2)+(tr>(td{word}+lorem(td{desc})))*3
 <table>
 	<tr>
@@ -444,18 +447,17 @@ table>(tr>th*2)+(tr>(td{word}+lorem(td{desc})))*3
 	</tr>
 	<tr>
 		<td>word</td>
-		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem nisi deleniti dolorum eveniet ratione accusamus esse labore? Tempore adipisci at sunt sint vel nemo quae aliquam fugiat a ratione dolorum!</td>
+		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi sequi dolorum soluta commodi ex ipsa quod at placeat molestiae deleniti ad tempora corporis obcaecati deserunt modi perspiciatis cumque. Quam nihil.</td>
 	</tr>
 	<tr>
 		<td>word</td>
-		<td>Tempora autem porro molestias quibusdam nemo omnis atque similique excepturi. Quia deleniti id quas perspiciatis nam iste praesentium animi corporis cupiditate sapiente deserunt vel voluptas sit optio mollitia molestias vero.</td>
+		<td>Inventore itaque alias dolorum incidunt dolore maxime quia optio maiores distinctio hic debitis magni ex. Possimus optio esse vitae commodi velit odit debitis facilis fuga modi fugiat quibusdam repudiandae suscipit.</td>
 	</tr>
 	<tr>
 		<td>word</td>
-		<td>Dignissimos incidunt porro explicabo vel error quibusdam ab deleniti earum. Tempore dolorem doloribus impedit culpa et accusamus nihil ea in ipsa saepe cum voluptatibus dignissimos numquam. Recusandae temporibus beatae tempora!</td>
+		<td>Quis in voluptas obcaecati hic veniam eligendi earum explicabo aspernatur molestiae quibusdam corrupti saepe assumenda tempore ipsa voluptatibus. Animi quia qui dolorum voluptatem temporibus sint libero nihil dolor natus ducimus!</td>
 	</tr>
 </table>
-
 
 
 </body>

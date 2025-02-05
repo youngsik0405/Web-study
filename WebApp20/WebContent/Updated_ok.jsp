@@ -1,4 +1,3 @@
-<%@page import="com.test.BoardDTO"%>
 <%@page import="com.test.BoardDAO"%>
 <%@page import="com.util.DBConn"%>
 <%@page import="java.sql.Connection"%>
@@ -8,7 +7,7 @@
 	String cp = request.getContextPath();
 %>
 
-<jsp:useBean id="dto" class="com.test.BoardDTO" scope="page"></jsp:useBean>
+<jsp:useBean id="dto" class="com.test.BoardDTO"></jsp:useBean>
 <jsp:setProperty property="*" name="dto"/>
 
 <%
@@ -30,4 +29,5 @@
 	
 	//response.sendRedirect(cp + "/List.jsp");
 	response.sendRedirect(cp + "/List.jsp?pageNum=" + pageNum + "&num=" + dto.getNum());
+
 %>

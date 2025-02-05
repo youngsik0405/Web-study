@@ -1,6 +1,6 @@
 /**
- * ajax.js
-*/
+ *  ajax.js
+ */
 
 //var xmlHttp;
 var ajax;
@@ -13,16 +13,18 @@ function createAjax()
 	if (window.ActiveXObject)								//-- IE 7 이전
 	{
 		return new ActiveXObject("Msxml2.XMLHTTP");
-		// return new ActiveXObject("Microsoft.XMLHTTP");
-		//-- 이와 같은 방식으로 XMLHttpRequest 객체를 생성해서 반환해라.
+		// return new ActiveXObject("Microsoft.XMLHTTP");	//line15구문과 같은 뜻~!
+		//-- 이와 같은 방식으로 XMLHttpRequest 객체를 생성해서 반환하라. 
 		//   (ActiveXObject 객체 → XMLHttpRequest 객체의 대리 객체)
+		
 	}
 	else													//-- 그 외 브라우저
 	{
 		if (window.XMLHttpRequest)							//-- XMLHttpRequest 지원 브라우저
 		{
-			return new XMLHttpRequest();	
-			//-- 이와 같은 방식으로 XMLHttpRequest 객체를 생성해서 반환해라.
+			return new XMLHttpRequest();
+			//-- 이와 같은 방식으로 XMLHttpRequest 객체를 생성해서 반환하라.
+			
 		}
 		else												//-- AJAX 를 지원하지 않는 브라우저
 		{
@@ -34,14 +36,16 @@ function createAjax()
 	if (window.XMLHttpRequest)
 	{
 		return new XMLHttpRequest();
+		
 	}
 	else if (window.ActiveXObject)
 	{
 		//return new ActiveXObject("Msxml2.XMLHTTP");
-		return new ActiveXObject("Microsoft.XMLHTTP");
+		return new ActiveXObject("Microsoft.XMLHTTP");	//line43구문과 같은 뜻~!
 	}
 	else
 	{
 		return null;
 	}
 }
+

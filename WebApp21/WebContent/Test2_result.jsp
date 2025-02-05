@@ -3,12 +3,12 @@
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
 %>
-
 <%
 	// 이전 페이지(→ Test2.java)로부터 넘어온 데이터 수신
 	// → result
 	String result = (String)request.getAttribute("result");
 
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -18,7 +18,6 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-
 
 <div>
 	<h1>최종 결과값 수신</h1>

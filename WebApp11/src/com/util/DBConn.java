@@ -12,13 +12,14 @@ public class DBConn
 	{
 		if (dbConn == null)
 		{
-			String url = "jdbc:oracle:thin:@211.238.142.173:1521:xe";
+			String url = "jdbc:oracle:thin:@211.238.142.158:1521:xe";
 			String user = "scott";
 			String pwd = "tiger";
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			dbConn = DriverManager.getConnection(url, user, pwd);			
+			dbConn = DriverManager.getConnection(url, user, pwd);
 		}
+		
 		return dbConn;
 	}
 	
@@ -29,6 +30,7 @@ public class DBConn
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			dbConn = DriverManager.getConnection(url, user, pwd);
 		}
+		
 		return dbConn;
 	}
 	
@@ -37,7 +39,7 @@ public class DBConn
 		if (dbConn != null)
 		{
 			if (!dbConn.isClosed())
-				dbConn.close();	
+				dbConn.close();
 		}
 		
 		dbConn = null;

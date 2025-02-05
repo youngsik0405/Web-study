@@ -1,9 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-	
-	Cookie[] ckArr = request.getCookies();
 
+	Cookie[] ckArr = request.getCookies();
+	
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -42,6 +43,7 @@
 		%>
 	</table>
 </div>
+
 
 </body>
 </html>

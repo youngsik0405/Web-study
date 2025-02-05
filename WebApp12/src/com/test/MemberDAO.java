@@ -1,8 +1,8 @@
-/*=========================================
+/*==================================================
 	MemberDAO.java
 	- 데이터베이스 액션 처리 전용 클래스
-	  (TBL_MEMBER 테이블 전용 DAO) 
-==========================================*/
+	  (TBL_MEMEBER 테이블 전용 DAO)
+==================================================*/
 
 package com.test;
 
@@ -45,7 +45,7 @@ public class MemberDAO
 		return result;
 	}
 	
-	// 리스트 전체 출력 담당 메소드(→ 회원 목록
+	// 리스트 전체 출력 담당 메소드(→ 회원 목록)
 	public ArrayList<MemberDTO> lists() throws SQLException
 	{
 		ArrayList<MemberDTO> result = new ArrayList<MemberDTO>();
@@ -56,7 +56,7 @@ public class MemberDAO
 		
 		ResultSet rs = pstmt.executeQuery();
 		
-		while (rs.next())
+		while(rs.next())
 		{
 			MemberDTO member = new MemberDTO();
 			
@@ -66,14 +66,14 @@ public class MemberDAO
 			
 			result.add(member);
 		}
+		
 		rs.close();
 		pstmt.close();
-		
 		return result;
 	}
 	
 	// 전체 인원 수 확인 담당 메소드(→ 회원 인원수)
-	public int count() throws SQLException 
+	public int count() throws SQLException
 	{
 		int result = 0;
 		
@@ -83,12 +83,13 @@ public class MemberDAO
 		
 		ResultSet rs = pstmt.executeQuery();
 		
-		while (rs.next())
+		while(rs.next())
+		{
 			result = rs.getInt("COUNT");
-
+		}
+		
 		rs.close();
 		pstmt.close();
-		
 		return result;
 	}
 	
@@ -97,43 +98,46 @@ public class MemberDAO
 	{
 		DBConn.close();
 	}
-		
+	
+	
 	// 메소드 추가~!!!
 	// 번호 검색 담당 메소드
 	// → 번호(sid)를 활용하여 회원 데이터 조회
 	// → 현재... 번호(sid)는 TBL_MEMBER 테이블에서 식별자의 역할을 수행하고 있으며
-	//    이와 같은 경우 번호를 통한 검색 결과는 한 명의 회원일 수 밖에 없기 때문에
-	//    반환 자료형의 선택에 유의할 것
+	//	  이와 같은 경우 번호를 통한 검색 결과는 한 명의 회원일 수 밖에 없기 때문에
+	//    반환 자료형의 선택은 MemberDTO 의 형태로 구성한다.
 	public MemberDTO searchMember(String sid) throws SQLException
 	{
 		MemberDTO result = new MemberDTO();
 		
-		String sql = "SELECT SID, NAME, TEL FROM TBL_MEMBER WHERE SID = ?";
+		String sql = "SELECT SID, NAME, TEL FROM TBL_MEMBER WHERE SID=?";
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
 		pstmt.setString(1, sid);
+		
 		ResultSet rs = pstmt.executeQuery();
 		
-		while (rs.next())
+		while(rs.next())
 		{
 			result.setSid(rs.getString("SID"));
 			result.setName(rs.getString("NAME"));
 			result.setTel(rs.getString("TEL"));
 		}
+		
 		rs.close();
 		pstmt.close();
-		
 		return result;
 	}
 	
 	
 	// 메소드 추가~!!!
-	// 회원 데이터 수정 담당 메소드
+	// 회원 데이터 수정 담당 메소드(매개변수가 String sid가 아니라 MemberDTO형이라는 점 check~!!!)
 	public int modify(MemberDTO member) throws SQLException
 	{
 		int result = 0;
 		
-		String sql = "UPDATE TBL_MEMBER SET NAME=?, TEL=? WHERE SID = ?";
+		String sql = "UPDATE TBL_MEMBER SET NAME=?, TEL=? WHERE SID=?";
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
@@ -144,9 +148,9 @@ public class MemberDAO
 		result = pstmt.executeUpdate();
 		
 		pstmt.close();
-		
 		return result;
 	}
+	
 	
 	// 메소드 추가~!!!
 	// 회원 데이터 삭제 담당 메소드
@@ -155,9 +159,7 @@ public class MemberDAO
 		int result = 0;
 		
 		String sql = "DELETE FROM TBL_MEMBER WHERE SID=?";
-		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		
 		pstmt.setString(1, sid);
 		
 		result = pstmt.executeUpdate();
@@ -167,6 +169,7 @@ public class MemberDAO
 		return result;
 	}
 	
+	
 	// 메소드 추가~!!!
 	// 자식 테이블의 참조 데이터 레코드 수 확인
 	// → 성적 처리가 완료된 회원에 대해서는 삭제 처리 불가
@@ -175,14 +178,12 @@ public class MemberDAO
 		int result = 0;
 		
 		String sql = "SELECT COUNT(*) AS COUNT FROM TBL_MEMBERSCORE WHERE SID=?";
-		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		
+		//pstmt.setString(1, sid); 로 넣으면 사실 WHERE SID='1'이 되는 거니까.. number 타입으로 바꿔서 보내주자
 		pstmt.setInt(1, Integer.parseInt(sid));
 		
 		ResultSet rs = pstmt.executeQuery();
-		
-		while (rs.next())
+		while (rs.next())	// if (rs.next())
 		{
 			result = rs.getInt("COUNT");
 		}
@@ -192,6 +193,5 @@ public class MemberDAO
 		
 		return result;
 	}
-	
 	
 }

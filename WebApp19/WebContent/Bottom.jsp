@@ -13,10 +13,9 @@
 <body>
 
 하단 메뉴<br>
-<a href="">사이트 소개</a> | <a href="">이용 약관</a> |
-<a href="">도움말</a> | <a href="">사이트 맵</a> |
+<a href="">사이트 소개</a> | <a href="">이용 약관</a> | 
+<a href="">도움말</a> | <a href="">사이트 맵</a> | 
 <a href="">회사소개</a>
-
 
 </body>
 </html>

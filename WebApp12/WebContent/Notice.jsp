@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Notice.jsp</title>
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
+<link rel="stylesheet" type="text/css" href="css/MemberListScore.css">
 </head>
 <body>
 
@@ -17,9 +18,8 @@
 	<p>성적 정보가 등록되어 있으므로 해당 회원 데이터의 삭제가 불가능합니다.</p>
 	<br>
 	
-	<a href="MemberList.jsp" style="text-decoration: none;">--돌아가기--</a>
+	<a href="MemberList.jsp" style="text-decoration: none;">-- 돌아가기 --</a>
 </div>
-
 
 </body>
 </html>

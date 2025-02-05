@@ -11,41 +11,15 @@
 	try
 	{
 		gugudan = Integer.parseInt(gugudanStr);
-		for (int i=1; i<=9; i++)
+		for (int i=1; i<=9; i++)	// i : 1 ~ 9
 		{
 			result += String.format("%d * %d = %d<br>", gugudan, i, (gugudan*i));
-		}
-		
-	}
-	catch (Exception e)
-	{
-		System.out.print(e.toString());
-	}
-
-
-/* 
-	String dan = request.getParameter("dan");
-
-	int nDan = 0;
-	String result = "";
-	
-	
-	try
-	{
-		nDan = Integer.parseInt(dan);
-		
-		for (int i=1; i<=9; i++)
-		{
-			result += nDan + " * " + i + " = " + (nDan*i) + "<br>"; 
-			
 		}
 	}
 	catch(Exception e)
 	{
-		System.out.print(e.toString());
+		System.out.println(e.toString());
 	}
-	
- */
 %>
 <!DOCTYPE html>
 <html>
@@ -57,18 +31,14 @@
 <body>
 
 <div>
-	<h1>데이터 송수신 실습 09</h1>
+	<h1>데이터 송수신 연습 09</h1>
 	<hr>
 </div>
+
 <div>
 	<h2>수신된 데이터 : <%=gugudanStr %></h2>
 	<%=result %>
-	
-<%-- 	
-	<%=result %> 
---%>
 </div>
-
 
 </body>
 </html>

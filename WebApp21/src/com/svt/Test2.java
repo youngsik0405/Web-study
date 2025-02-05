@@ -1,6 +1,6 @@
-/*================
+/*=====================
 	Test2.java
-================*/
+========================*/
 
 package com.svt;
 
@@ -53,9 +53,6 @@ public class Test2 extends HttpServlet
 		// 포워딩~!!!
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Test2_result.jsp");
 		dispatcher.forward(request, response);
-		
-		
-
 	}
 	
 }

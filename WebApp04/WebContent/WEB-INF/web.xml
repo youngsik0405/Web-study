@@ -12,7 +12,7 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
-
+	
 	<servlet>
 		<servlet-name>Test004</servlet-name>
 		<servlet-class>com.test.Test004</servlet-class>
@@ -24,13 +24,12 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>yys</servlet-name>
+		<servlet-name>gyj</servlet-name>
 		<servlet-class>com.test.Test005</servlet-class>
 	</servlet>
-
+	
 	<servlet-mapping>
-		<servlet-name>yys</servlet-name>
+		<servlet-name>gyj</servlet-name>
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
-
 </web-app>

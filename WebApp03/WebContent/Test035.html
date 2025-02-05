@@ -6,10 +6,8 @@
 
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
-	th {text-align: left}
-
+	th {text-align: left;}
 </style>
-
 <script type="text/javascript">
 
 	function objTest()
@@ -33,32 +31,33 @@
 		
 		// 확인
 		//alert(str);
+		//--==>> 블로그 개설 / 2024-11-14
 		
-		/* 
+		/*
 		// 사용자 정의 객체 여러 개 생성
 		var ob1 = new Blog("블로그 개설", "2024-11-14");
 		var ob2 = new Blog("블로그 레이아웃 구성", "2024-11-20");
-		var ob3 = new Blog("블로그 이용한 객체 생성", "2025-01-03");
+		var ob3 = new Blog("생성자 이용한 객체 생성", "2025-01-03");
 		
 		// 생성된 객체 여러 개를 배열 구조에 저장
-		var arr = [ob1, ob2, ob3]; 
+		var arr = [ob1, ob2, ob3];
 		*/
 		
 		// 사용자 정의 객체 여러 개를 생성하여 배열 구조에 저장
 		var arr = [ new Blog("블로그 개설", "2024-11-14")
 				  , new Blog("블로그 레이아웃 구성", "2024-11-20")
-				  , new Blog("블로그 이용한 객체 생성", "2025-01-03")];
-		
+				  , new Blog("생성자 이용한 객체 생성", "2025-01-03") ];
 		
 		str = "<table border='1' class='table'>";
 		str += "<tr><th>제목</th><th>날짜</th></tr>";
 		
-		for (var i = 0; i < arr.length; i++)
+		for (var i=0; i<arr.length; i++)
 		{
 			str += "<tr>";
-			str += "<td>"; + arr[i].body + "</td>"
-			str += "<td>"; + arr[i].date + "</td>"
+			str += "<td>" + arr[i].body + "</td>";
+			str += "<td>" + arr[i].date + "</td>";
 			str += "</tr>";
+			
 		}
 		
 		str += "</table>";
@@ -68,10 +67,11 @@
 		result.innerHTML = str;
 		
 		
+		
+		
 	}
 
 </script>
-
 
 </head>
 <body>
@@ -94,8 +94,6 @@
 		</div>
 	</div>
 </div>
-
-
 
 </body>
 </html>

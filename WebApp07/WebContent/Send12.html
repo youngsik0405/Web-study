@@ -6,7 +6,6 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-
 <div>
 	<h1>데이터 송수신 실습 12</h1>
 	<hr>
@@ -16,37 +15,40 @@
 
 <!-- ① 사용자 최초 요청 페이지 구성 -->
 <!--    - 사칙 연산 수행을 위한 정수 입력 페이지 구성 -->
-<!--    - 연산자를 함께 입력받을 수 있도록 처리 -->
-<!--    - 정수1/ 정수2/ 연산자 -->
+<!--  	- 연산자를 함께 입력받을 수 있도록 처리 -->
+<!--    - 정수1 / 정수2 / 연산자 -->
 <!--    http://localhost:3306/WebApp07/Send12.html -->
 
 <!-- ② 연산 전용 페이지 구성 -->
 <!--    - response.sendRedirect() 를 포함한 스크립릿 코드만 존재하도록 구성 -->
 <!--      → 추후 우리는 이 코드를 JAVA 로 분리하여 → Servlet 으로 구성할 예정 -->
-<!--    http://localhost:3306/WebApp07/Redirect12.jsp   -->
+<!--    http://localhost:3306/WebApp07/Redirect11.jsp -->
 
-<!-- ③ 최종 결과 출력 페이지 구성  -->
+<!-- ③ 최종 결과 출력 페이지 구성 -->
 <!--    - 연산 전용 페이지에서 처리한 결과를 넘겨받아 클라이언트와 대면할 페이지로 구성 -->
-<!--      → 추후 이 페이지는 jsp view 페이지의 역할을 수행하도록 구성할 예정 -->
+<!--      → 추후 우리는 이 페이지를 jsp view 페이지 역할을 수행하도록 구성할 예정 -->
 <!--    http://localhost:3306/WebApp07/Receive12.jsp -->
 
 <div>
-	<form action="Redirect12.jsp" method="post">
-		정수1 <input type="text" name="num1" class="txt">
+	<h2>정수 입력</h2>
+	<hr>
+</div>
+
+<div>
+	<form action="Redirect11.jsp">
+		정수1 <input type="text" name="num1" class="txt" style="width: 70px;">
 		<select name="op">
-			<option selected="selected">연산 선택</option>
-			<option value="1">더하기</option>
-			<option value="2">빼기</option>
-			<option value="3">곱하기</option>
-			<option value="4">나누기</option>
+			<option>연산자 선택</option>
+			<option value="1">+</option>
+			<option value="2">-</option>
+			<option value="3">*</option>
+			<option value="4">/</option>
 		</select>
-		정수2 <input type="text" name="num2" class="txt">
-		<br><br>
-		
-		<button type="submit" class="btn">결과 확인</button>
-		<button type="reset" class="btn">취 소</button>
+		정수2 <input type="text" name="num2" class="txt" style="width: 70px;">
+		<button type="submit" class="btn control">계산하기</button>
 	</form>
 </div>
+
 
 </body>
 </html>

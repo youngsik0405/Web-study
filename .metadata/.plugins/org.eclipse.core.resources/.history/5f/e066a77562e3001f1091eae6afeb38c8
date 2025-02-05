@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest03.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript">
+
+	var myJsonObject3 =
+	{
+		"test1" : "hello1"
+		, "test2" : "hello2"
+		, "test3" : "hello3"
+	}
+
+</script>
+
+</head>
+<body>
+
+<form>
+	<input type="button" value="click1" onclick="myJsonObject3.test">
+	
+</form>
+
+
+</body>
+</html>

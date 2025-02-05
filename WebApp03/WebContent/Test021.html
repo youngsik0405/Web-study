@@ -5,21 +5,18 @@
 <title>Test021.html</title>
 
 <style type="text/css">
-
-   * {color: #223322;}
-   input {font-family: 나눔고딕코딩; font-weight: bold;}
-   input:focus {background-color: #eeeedd;}
-   input.btn {width: 150px; font-weight: bold; font-family: 맑은 고딕;}
-   input.btn:hover {color: orange;}
-   td {text-align: center;}
-   .txtName {text-align: center;}
-   .txtScore {text-align: right;}
-   .txt {text-align: center;}
-
+	* {color: #223322;}
+	input {font-family: 나눔고딕코딩; font-weight: bold;}
+	input:focus {background-color: #eeeedd;}
+	input.btn {width: 90px; font-weight: bold; font-family: 맑은 고딕;}
+	input.btn:hover {color: orange;}
+	td {text-align: center;}
+	.txt {text-align: center;}
+	textarea {font-family: 나눔고딕코딩; font-weight: bold;}
 </style>
 
 <script type="text/javascript">
-
+	
 	function addMember()
 	{
 		// 확인
@@ -29,35 +26,35 @@
 		var arr = new Array();
 		var n = 0;
 		
+		//사용자가 . 찍거나 공백 입력했을 때 바로 그만두게 하려면 반복문으로 구성.
 		do
 		{
-			// check~!!!
-			// ※ 『prompt()』 대화창을 통해 데이터 입력 안내
-			//	   → 입력 데이터를 변수 str 에 담아내기
-			str = prompt("이름 전화번호(" + (n+1) + ")");
-			
-			// 확인
-			//alert(str);
-			
-			if (str==null || str=="." || str==" " || str=="")
+			 // check~!!!
+			 // alert()는 확인 버튼만 있는 반면...
+			 // ※ 『prompt()』 대화창을 통해 데이터 입력 안내
+			 //    → 입력 데이터를 변수 str 에 담아내기
+			 str = prompt("이름 전화번호(" + (n+1) + ") : ");
+			 
+			 // 확인
+			 //alert(str);
+			 
+			 if (str==null || str=="." || str==" " || str=="")
 				break;
-			
-			arr[n] = str;
-			n++;
-			
+			 
+			 arr[n] = str;			//--이름과 전화번호를 하나의 데이터로 취급, 같은 배열 같은 칸에 함께 담는다.
+			 n++;
+			 
 		} while (true);
 		
+		// 인원 수 전달
 		document.getElementById("txtCount").value = arr.length;
 		
-		document.getElementById("txtResult").value = "  이름   전화번호\n";
+		document.getElementById("txtResult").value = "   이름  전화번호\n";
 		
-		for (var n = 0; n < arr.length; n++)
-		{
+		for (var n=0; n<arr.length; n++)
 			document.getElementById("txtResult").value += arr[n] + "\n";
-		}
 		
 	}
-
 </script>
 
 </head>
@@ -68,50 +65,45 @@
 	<hr>
 </div>
 
-<!--  
+<!-- 
 	여러 명의 이름과 전화번호를 입력받고
-	그 내영을 전체 출력하는 페이지를 구성한다.
+	그 내용을 전체 출력하는 페이지를 구성한다.
 	HTML, CSS, Javascript 를 활용한다.
 	단, 데이터를 입력받는 과정에서 ※ prompt() 활용한다.
 	
 	페이지 레이아웃
-	-------------------------------------------
+	---------------------------------------------
 	
-	< 회원 정보 입력 >	→ button → click → 이름 전화번호(1) : 김믿음 010-1111-1111 
-										   → 이름 전화번호(2) : 안예지 010-2222-2222
-										   → 이름 전화번호(1) : 정승민 010-3333-3333
-										   → 이름 전화번호(1) : .
-	전체 회원 수 : [   3 ] 명
-	-------------------------------										   
-	이름 	  전화번호										   	
+	< 회원 정보 입력 > → button → click → 이름 전화번호(1) : 김믿음 010-1111-1111
+										  → 이름 전화번호(2) : 안예지 010-2222-2222
+										  → 이름 전화번호(3) : 정승민 010-3333-3333
+										  → 이름 전화번호(4) : .
+	전체 회원 수 :  [  3 ] 명
 	-------------------------------
-	김믿음 010-1111-1111       
-	안예지 010-2222-2222 
-	정승민 010-3333-3333 
+	 이름      전화번호
+	-------------------------------
+	김믿음 010-1111-1111
+	안예지 010-2222-2222
+	정승민 010-3333-3333
 	-------------------------------
 	
 	
-	-------------------------------------------
-	
--->
-
+	---------------------------------------------
+ -->
 
 <div>
 	<form>
-		<input type="button" value="회원 정보 입력" class="btn" style="width: 220px;" 
+		<input type="button" value="회원 정보 입력" class="btn" style="width: 200px;"
 		onclick="addMember()">
 		<br><br>
 		
-		전체 회원수
-		<input type="text" id="txtCount" class="txt" readonly="readonly" 
-		style="width: 20px; height: 10px;"> 명
+		전체 회원 수
+		<input type="text" id="txtCount" class="txt" readonly="readonly"
+		style="width: 20px;"> 명
 		<br>
 		
-		<textarea rows="10" cols="30" id="txtResult" readonly="readonly" 
-		style="margin: 2px;">
-		</textarea>
-		
-	
+		<textarea rows="10" cols="30" id="txtResult" readonly="readonly"
+		style="margin: 2px;"></textarea>
 	</form>
 </div>
 

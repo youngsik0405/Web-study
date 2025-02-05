@@ -12,10 +12,11 @@
 </div>
 
 <div>
+	<!-- <form></form> -->
 	<!-- 데이터 전송 및 페이지 요청 -->
 	<!-- → 폼으로 구성한 데이터의 내용들을 항목별로 전달할테니...
-	        요청한 페이지와 만날 수 있도록 처리해달라... -->
-	<form action="http://localhost:3306/WebApp01/Test022.html">
+			요청한 페이지와 만날 수 있도록 처리해달라... -->
+	<form action="http://localhost:3306/WebApp01/Test022.html">	<!-- 웹상의 주소 형식으로 쓴 페이지를 만나게 해줘 -->
 		*이름 <input type="text" name="name" size="15" maxlength="10">
 		<br>
 		*이메일 <input type="text" name="email" size="15" maxlength="20">
@@ -24,9 +25,11 @@
 		<textarea rows="10" cols="50" name="field"></textarea>
 		<br><br>
 		
-		<!-- 
+		<!-- 저번처럼 type="button"에서 스크립트 영역에 function 만들어서 전송시킬 수도 있음 -->
+		<!-- submit버튼은 form 안에 구성되어있는 각각의 항목을 작성해서 전송해줄테니, Test022.html과 만날 수 있게 해줘. -->
+		<!--
 		<input type="button" value="전송하기"><br>
-		<input type="submit" value="전송하기"><br> 
+		<input type="submit" value="전송하기"><br>
 		-->
 		
 		<input type="button" value="전송하기"><br>
@@ -40,9 +43,12 @@
 		<button type="button">
 			<img alt="" src="images/btn_03.png">
 		</button>
-			
+		
+		<!-- 폼 안에 리셋을 시킨다는 뜻이, 선택값을 모두 비운다는 의미가 아니라
+		     기본 선택값으로 돌아가는 것이다. 폼이 싹 지워지는 게 아님!!! 초기화시키는 거. -->
 		<input type="reset" value="취소하기">
 		<button type="reset">취소하기</button>
+		
 	</form>
 </div>
 

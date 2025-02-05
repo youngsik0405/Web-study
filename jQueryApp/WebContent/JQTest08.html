@@ -5,46 +5,52 @@
 <title>JQTest08.html</title>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
+
 	div.page
 	{
 		border: 1px solid gray;
 		padding: 3px;
 		margin: 2px;
-		position: absolute;
-		right: 10px;
+		position: absolute;		/* 절대적인 위치를 갖도록 absolute */
+		right: 10px;			/* 오른쪽 10px, 위쪽 80px 같은 한 위치에 다 겹쳐져있음 */
 		top: 80px;
-	}
+	}	
 
 </style>
 
-<script type="text/javascript" src="http://code.jQuery.com/jQuery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
-	
+
 	//$();
 	$(document).ready(function()
 	{
-		$("button").css({"width":"200px","display":"block"});
+		// {속성명:속성값, 속성명:속성값...}
+		$("button").css({"width":"200px", "display":"block"});
 		
 		$("button").click(function()
 		{
+			//toggle() -> 사전에 약속된 키워드, 혹은 숫자를 넣어서 속도를 지정할 수 있다.
 			//$(".page").toggle("slow");
 			
 			// 『$(선택자).next()』 : document 구조 상 다음 엘리먼트
+			//클릭된버튼.클릭된버튼의다음div
 			//$(this).next().toggle(300);
-			//$(this).next().toggle(100);
-			//$(this).next().toggle(1000);
+			//$(this).next().toggle(100);		//숫자가 줄어드니 더 빨라지고..
+			//$(this).next().toggle(500);		//숫자가 늘어나니 더 느려진다..
 			
-			//$(this).next().toggle(1000, 동작);
+			//$(this).next().toggle(1000, 동작);	//toggle을 1000만큼의 시간동안 수행하고, toggle수행 후에 어떤 동작을 수행해라..
 			$(this).next().toggle(1000, function()
 			{
-				alert("토글 기능 테스트 완료~!!!!");
+				alert("토글 기능 테스트 완료~!!!");
 			});
 			
+			
+					
 		});
+		
 	});
 
 </script>
-
 </head>
 <body>
 
@@ -52,6 +58,8 @@ show()/hide()/toggle()<br>
 slideDown()/slideUp()/slideToggle()<br>
 fadeIn()/fadeOut()/fadeToggle()<br>
 <br><br>
+
+<!-- 토글 : 전원 버튼. 각기 다른 액션을 다른 버튼으로 구성하는 게 아니라.. 한 번 누르면 켜지고 한 번 누르면 꺼지고.. -->
 
 <button>Toggle(토글) 버튼</button>
 <div class="page">

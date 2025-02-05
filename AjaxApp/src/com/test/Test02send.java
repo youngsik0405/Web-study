@@ -1,6 +1,7 @@
 /*==========================
-	ServletSample.java
-==========================*/
+	Test02send.java
+===========================*/
+
 package com.test;
 
 import java.io.IOException;
@@ -41,6 +42,7 @@ public class Test02send extends HttpServlet
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
+
 	}
 	
 }

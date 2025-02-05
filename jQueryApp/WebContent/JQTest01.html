@@ -4,50 +4,57 @@
 <meta charset="UTF-8">
 <title>JQTest01.html</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery.min.js"></script>
+<!-- 제이쿼리 쓸 거라는 선언이 되는 line8 구문  -->
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 
+<!-- 제이쿼리의 기본문법이 $( )이다~! EL과 헷갈리지 않도록~!~! -->
 <script type="text/javascript">
+
+	//별도로 호출해서 쓰는 함수가 아니라..
+	//제이쿼리한테 이런 기능을 넣을거야~라는 의미로 익명함수 쓰기.
 	$(function()
 	{
-		var d = 300;
-
+		var d=300;
+		
+		//제이쿼리선택자.제이쿼리함수(동작..이나 기능에 이름붙이지 않으려면 익명함수를 매개변수로~!)
 		$("#navigation a").each(function()
 		{
-			$(this).stop().animate({"marginTop" : "-80px"}, d += 150);
+			$(this).stop().animate({"marginTop":"-80px"}, d+=150);
 		});
-
+		
 		$("#navigation > li").hover(function()
 		{
 			//alert("관찰1");
 			$("a", $(this)).stop().animate({"marginTop":"-2px"}, 200);
+			
 		}, function()
 		{
 			//alert("관찰2");
 			$("a", $(this)).stop().animate({"marginTop":"-80px"}, 900);
+			
 		});
 	});
+	
 </script>
 
 </head>
 <body>
 
-	<table>
-		<tr>
-			<td>
-				<ul id="navigation">
-					<li class="home"><a href="#"><span>Home</span></a></li>
-					<li class="about"><a href="#"><span>About</span></a></li>
-					<li class="search"><a href="#"><span>Search</span></a></li>
-					<li class="podcasts"><a href="#"><span>Podcasts</span></a></li>
-					<li class="rssfeed"><a href="#"><span>Rss Feed</span></a></li>
-					<li class="photos"><a href="#"><span>Photos</span></a></li>
-					<li class="contact"><a href="#"><span>Contact</span></a></li>
-				</ul>
-			</td>
-		</tr>
-	</table>
-
+<table>
+	<tr>
+		<td>
+			<ul id="navigation">
+				<li class="home"><a href="#"><span>Home</span></a></li>
+				<li class="about"><a href="#"><span>About</span></a></li>
+				<li class="search"><a href="#"><span>Search</span></a></li>
+				<li class="podcasts"><a href="#"><span>Podcasts</span></a></li>
+				<li class="rssfeed"><a href="#"><span>Rss feed</span></a></li>
+				<li class="photos"><a href="#"><span>Photos</span></a></li>
+				<li class="contact"><a href="#"><span>Contact</span></a></li>
+			</ul>
+		</td>
+	</tr>
+</table>
 
 </body>
 </html>

@@ -3,14 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Test033.html</title>
+
 <style type="text/css">
-   * {color: #223322; font-family: 나눔고딕코딩; font-weight: bold;}
-   input:focus {background-color: #eeeedd;}
-   .btn {font-weight: bold; font-family: 맑은 고딕;}
-   .btnAdd{width: 220px;}
-   .btn:hover {color: orange;}
-   .txt {width: 240px;}
-   #menuTable {display: none;}
+	* {color: #223322; font-family: 나눔고딕코딩; font-weight: bold;}
+	input:focus {background-color: #eeeedd;}
+	.btn {font-weight: bold; font-family: 맑은 고딕;}
+	.btnAdd {width: 220px;}
+	.btn:hover {color: orange;}
+	.txt {width: 240px;}
+	/* 시각적으로 안 보이게 할 수 있는 display속성(none이라면 브라우저한테 렌더링하지마)
+	, visible속성(존재하는데 보이지 않음) */
+	#menuTable {display: none;}
 </style>
 
 <script type="text/javascript" src="js/myMenu.js"></script>
@@ -23,27 +26,24 @@
 	<hr>
 </div>
 
-
 <div>
 	<h2>메뉴 보이기 / 감추기</h2>
-
+	
 	<div>
 		<form>
-			<!-- 클릭 시 메뉴 테이블 보이기  -->
+			<!-- 클릭 시 메뉴 테이블 보이기 -->
 			<!-- <input type="button" class="btn" value="메뉴 보이기" onclick="myMenu1()"> -->
 			<input type="button" class="btn" value="메뉴 보이기" onclick="myMenu(1)">
 			
-			<!-- 클릭 시 메뉴 테이블 감추기  -->
+			<!-- 클릭 시 메뉴 테이블 감추기 -->
 			<!-- <input type="button" class="btn" value="메뉴 감추기" onclick="myMenu2()"> -->
 			<input type="button" class="btn" value="메뉴 감추기" onclick="myMenu(2)">
 			
-			<!-- 버튼 위에 마우스 포일터를 올려놓으면 메뉴 테이블이 보이고
-			다시 버튼위에 머물던 마우스 포인터가 버튼의 영역을 빠져나가면 메뉴 테이블을 감추기 -->
-			
+			<!-- 버튼 위에 마우스 포인터를 올려놓으면 메뉴 테이블이 보이고
+			다시 버튼 위에 머물던 마우스 포인터가 버튼의 영역을 빠져나가면 메뉴 테이블 감추기 -->
 			<input type="button" class="btn" value="메뉴 보이기/감추기"
 			onmouseover="myMenu(1)" onmouseout="myMenu(2)">
-			<!-- onmouseover = "보이기" onmouseout = "감추기" -->
-			
+			<!-- onmouseover="보이기" onmouseout="감추기"> -->
 			
 		</form>
 	</div>
@@ -58,18 +58,13 @@
 				<td>오라클 중급</td>
 			</tr>
 			<tr>
-				<td>JSP 고급</td>
+				<td>JSP 중급</td>
 			</tr>
 			<tr>
 				<td>Servlet 활용</td>
 			</tr>
-			
-			
 		</table>
-	
 	</div>
-	
-	
 </div>
 
 </body>

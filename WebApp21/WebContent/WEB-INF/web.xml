@@ -9,34 +9,34 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-  <!-- Test클래스 → Servlet 구성 ① -->
+
+	<!-- Test1 클래스 → Servlet 구성 ① -->
 	<!-- 
 	<servlet>
 		<servlet-name>Test1</servlet-name>
 		<servlet-class>com.svt.Test1</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>Test1</servlet-name>
 		<url-pattern>/test1</url-pattern>
 	</servlet-mapping>
-	 -->
-	 
-	<!-- Test클래스 → Servlet 구성 ② -->
+	-->
+	
+	<!-- Test1 클래스 → Servlet 구성 ② -->
 	<!-- 
 	<servlet>
 		<servlet-name>Test1</servlet-name>
 		<servlet-class>com.svt.Test1</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>Test1</servlet-name>
 		<url-pattern>/test1</url-pattern>
 	</servlet-mapping>
-	--> 
+	-->
 	
-	<!-- Test클래스 → Servlet 구성 ③ -->
+	<!-- Test1 클래스 → Servlet 구성 ③ -->
 	<servlet>
 		<servlet-name>test1Servlet</servlet-name>
 		<servlet-class>com.svt.Test1</servlet-class>
@@ -49,17 +49,19 @@
 			<param-value>45</param-value>
 		</init-param>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>test1Servlet</servlet-name>
 		<url-pattern>/test1</url-pattern>
-	</servlet-mapping> 
+	</servlet-mapping>
 	
-	<!-- Test클래스 → Servlet 구성 추가 ④ -->
+	<!-- Test1 클래스 → Servlet 구성 추가 ④ -->
+	<!-- 서블릿과 서블릿매핑과 별개로 구성된 엘리먼트 -->
 	<context-param>
 		<param-name>type</param-name>
 		<param-value>유머러스</param-value>
 	</context-param>
+	
 	
 	<!-- Test2 클래스 → Servlet 구성 -->
 	<servlet>
@@ -71,5 +73,5 @@
 		<servlet-name>test2Servlet</servlet-name>
 		<url-pattern>/test2</url-pattern>
 	</servlet-mapping>
-	 
+		
 </web-app>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test011.html</title>
+</head>
+<body>
+
+<div>
+	<h1>선택자(selector) 활용</h1>
+	<h2>동적 선택자</h2>
+	<p>(가상 선택자, 가상 클래스, 상태 선택자, ...)</p>
+</div>
+
+</body>
+</html>

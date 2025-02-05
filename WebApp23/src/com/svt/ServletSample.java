@@ -1,6 +1,7 @@
 /*==========================
 	ServletSample.java
-==========================*/
+===========================*/
+
 package com.svt;
 
 import java.io.IOException;
@@ -17,20 +18,18 @@ public class ServletSample extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		// TODO Auto-generated method stub
 		doGetPost(request, response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		// TODO Auto-generated method stub
 		doGetPost(request, response);
 	}
 	
 	protected void doGetPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		// TODO Auto-generated method stub
+		// 서블릿 관련 코드 구성
 	}
 	
 }
