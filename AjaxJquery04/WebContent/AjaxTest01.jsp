@@ -98,9 +98,7 @@
 		return true;
 		
 	}
-	
-	
-	
+		
 </script>
 
 	
